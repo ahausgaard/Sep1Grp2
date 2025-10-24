@@ -16,6 +16,11 @@
 html{
     overflow-x: hidden; /*removes scroll bar */
 }
+body{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
 
 .step{
     display: grid;
@@ -24,7 +29,7 @@ html{
     max-width: 850px;
     border: 1px solid grey;
     border-radius: 20px;
-    box-shadow: ;
+    box-shadow:var(--shadow) ;
    background: var(--background)
 }
 
