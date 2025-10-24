@@ -1,0 +1,36 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border:none;
+    outline:none;
+    scroll-behavior: smooth;
+}
+
+:root{
+--background: #ECFEFF;
+
+}
+
+html{
+    overflow-x: hidden; /*removes scroll bar */
+}
+
+body{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+   background: var(--background)
+}
+
+header{
+
+}
+
+
+.progress{
+    
+
+}

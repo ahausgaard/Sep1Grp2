@@ -1,11 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    ny tekst
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeCrush</title>
+    <link rel="stylesheet" href="styles/style.css">
+  </head>
+  <body>
+    
+    <header class="header">
+      <h1>Code Crush</h1>
+      <h3>Where developers find their perfect match() 💻</h3>
+      <section class = "progressBar">
+        
+      </section>
+
+      <form id="multiStepForm">
+        <div class="step" id="step1">
+      <div class = "progress"> 
+       <div> 
+      <p> <span class = "Emoji">💻</span>Basic Info</p>  
+        
+    
+    
+    </div>
+
+    </header>
+    <div>
+      <label for="name"> First Name:</label><br />
+      <input
+        autofocus
+        placeholder="First Name"
+        type="text"
+        id="name"
+        name="name"
+        required
+      /><br /><br />
+    </div>
+
+    <div>
+      <label for="name"> Last Name:</label><br />
+      <input
+        autofocus
+        placeholder="Last Name"
+        type="text"
+        id="name"
+        name="name"
+        required
+      /><br /><br />
+    </div>
+
+    <div>
+      <label for="Email Address"> Email Address:</label>
+      <input 
+      autofocus placeholder="Email Address" 
+      type="email"
+      id="email"
+      name="email"
+      required
+      /><br/><br/>
+    </div>
+
+    <div>
+        <label for="Password">Password:</label>
+        <input
+
+    </div>
+    <button type="button" onclick="nextStep()">Next</button>
+    </div>
+
+    <div class="step" id="step2" style="display:none">
+        yello0
+    <button type="button" onclick="nextStep()">Next</button>
+
+    </div>
+
+    </form>
+    <script src="script.js"></script>
+  </body>
 </html>
