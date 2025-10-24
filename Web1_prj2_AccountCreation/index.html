@@ -54,7 +54,7 @@
     </div>
 
     <div>
-      <label for="name"> Last Name:</label><br />
+      <label for="name"> Last Name*</label><br />
       <input
         autofocus
         placeholder="Last Name"
@@ -66,7 +66,7 @@
     </div>
 
     <div>
-      <label for="Email Address"> Email Address:</label>
+      <label for="Email Address"> Email Address*</label>
       <input 
       autofocus placeholder="Email Address" 
       type="email"
@@ -99,12 +99,14 @@
     </div>
     
     <div>
-      <label for="Phone Number">Phone Number:</label>
+      <label for="Phone Number">Phone Number*</label>
       <input
       autofocus placeholder="+45"
       type="tel"
       id="phone"
       name="phone"
+      pattern="^(\+45\s?)?[1-9]{2}\s?[0-9]{2}\s?[0-9]{2}\s?[0-9]{2}$" 
+      required
       >
     </div>
 

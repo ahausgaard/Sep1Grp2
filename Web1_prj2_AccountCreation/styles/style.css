@@ -24,13 +24,14 @@ body{
 
 .step{
     display: grid;
+    background-color: white;
     justify-content: center;
     align-items: center;
     max-width: 850px;
     border: 1px solid grey;
     border-radius: 20px;
     box-shadow:var(--shadow) ;
-   background: var(--background)
+   
 }
 
 header{
