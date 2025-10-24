@@ -35,13 +35,17 @@
       <form id="multiStepForm">
         <!-- 1Basic Info-->
         <div class="step" id="step1">
+          
+
+          
       
     <h4> 💻 Basic info</h4>
     <h4> Initialize your profile 💙</h4>
 
-    <div> <div>
+    <div class = journey> 💙 <span>// Start your journey! Let's initialize your CodeCrush profile and begin searching for your perfect coding partner 💻💕 </span> </div>
     
-    <div>
+    <div class="step-grid">
+    <div >
       <label for="name"> First Name*</label><br />
       <input
         autofocus
@@ -65,8 +69,8 @@
       /><br /><br />
     </div>
 
-    <div>
-      <label for="Email Address"> Email Address*</label>
+    <div class="email">
+      <label for="email"> Email Address*</label><br/>
       <input 
       autofocus placeholder="Email Address" 
       type="email"
@@ -77,40 +81,69 @@
     </div>
 
     <div>
-        <label for="Password">Password*</label>
+        <label for="Password">Password*</label><br/>
         <input 
-        autofocus placeholder="Password"
+        autofocus placeholder="********"
         type= "Password"
         id="Password"
         name="Password"
+        pattern="\d{8}" 
+        title="Password must be 8 digits"
         required
         /><br/><br/>
     </div>
 
-    <div>
-      <label for="confirm">Confirm Password*</label>
+    <div >
+      <label for="confirm">Confirm Password*</label><br/>
       <input
-      autofocus placeholder="Confirm"
+      autofocus placeholder="********"
       type="confirm"
       id="confirm"
       name="confirm"
+      pattern="\d{8}"
       required
       /><br/><br/>
     </div>
     
     <div>
-      <label for="Phone Number">Phone Number*</label>
+      <label for="Phone Number">Phone Number*</label><br/>
       <input
-      autofocus placeholder="+45"
+      autofocus placeholder="+4559795236"
       type="tel"
       id="phone"
       name="phone"
       pattern="^(\+45\s?)?[1-9]{2}\s?[0-9]{2}\s?[0-9]{2}\s?[0-9]{2}$" 
       required
-      >
+      /><br/><br/>
     </div>
 
+    <div>
+      <label for="Date of Birth">Date of Birth</label><br/>
+      <input
+      autofocus placeholder="dd-mm-åååå"
+      type="Date"
+      id="Date"
+      name="Date"
+      required
+      /><br/><br/>
+    </div>
     
+      <ul>
+        <li><p>I am a*</p></li>
+      <li><label for="male">Male</label>
+      <input type="radio" id="male" name="gender" value="male" required><br></li>
+
+      <li><label for="female">female</label>
+      <input type="radio" id="female" name="gender" value="female" required><br></li>
+
+      <label for="Non-binary">Non-binary</label>
+      <input type="radio" id="None-binary" name="None-binary" value="None-binary" required><br>
+
+      <label for="Other">Other</label>
+      <input type="radio" id="Other" name="gender" value="Other" required><br>
+    </ul>
+    </div>
+
 
 
 
@@ -123,34 +156,60 @@
         <p>Define your variables 💜</p>
         <p class="constYOU">💜
             const YOU = ; Let's define your properties and attributes! Help us compile your perfect profile 🧑‍💻💕></p>
-          <div></div>div>
-    <button type="button" onclick="prevStep()">Previous</button>         
+          <div>
+            <!--HØJDE-->
+          </div>
+
+
+          <div>
+            <p>Body Type*</p>
+            <label for="Slim">Slim</label>
+            <input type="radio" id="Slim" name="body_type" value="Slim" required>
+
+            <label for="Athletic">Athletic</label>
+            <input type="radio" id="Athletic" name="body_type" value="Athletic" required>
+
+            <label for="Average">Average</label>
+            <input type="radio" id="Average" name="body_type" value="Average" required>
+
+            <label for="Curvy">Athletic</label>
+            <input type="radio" id="Curvy" name="body_type" value="Curvy" required>
+
+            <label for="Heavyset">Athletic</label>
+            <input type="radio" id="Heavyset" name="body_type" value="Heavyset" required>
+          </div>
+
+
+
+
+
+    <button type="button" class="previous" onclick="prevStep()">Previous</button>         
     <button type="button" onclick="nextStep()">Next</button>
 
     </div>
     
     <!--3Interests & About Page-->
     <div class="step" id="step2" style="display:none">
-        Test Text
+        <p>INTERESTS & ABOUT</p>
     
-    <button type="button" onclick="prevStep()">Previous</button>         
+    <button type="button" class="previous" onclick="prevStep()">Previous</button>         
     <button type="button" onclick="nextStep()">Next</button>
 
     </div>
     
     <!--4Dating Preferences Page-->
     <div class="step" id="step2" style="display:none">
-        Test Text  
+        <p>DATING PREFERENCES</p>
     
-    <button type="button" onclick="prevStep()">Previous</button>           
+    <button type="button" class="previous" onclick="prevStep()">Previous</button>           
     <button type="button" onclick="nextStep()">Next</button>
 
     </div>
     
     <!--5Review Page-->
     <div class="step" id="step2" style="display:none">
-        Test Text  
-    <button type="button" onclick="prevStep()">Previous</button>      
+        <p>REVIEW</p>  
+    <button type="button" class="previous" onclick="prevStep()">Previous</button>      
     
     </div>
     
