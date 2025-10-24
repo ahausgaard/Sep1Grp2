@@ -17,11 +17,14 @@ html{
     overflow-x: hidden; /*removes scroll bar */
 }
 
-body{
+.step{
     display: grid;
     justify-content: center;
     align-items: center;
-    max-width: 100%;
+    max-width: 850px;
+    border: 1px solid grey;
+    border-radius: 20px;
+    box-shadow: ;
    background: var(--background)
 }
 
@@ -31,6 +34,24 @@ header{
 
 
 .progress{
+    display: flex;
     
+
+    
+
+}
+
+.circle{
+    width: 30px;
+    height: 30px;
+    border: 2px solid grey;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    margin: 0 auto 5px;
+    color: #007bff;
+    font-weight: bold;
 
 }

@@ -11,21 +11,36 @@
     <header class="header">
       <h1>Code Crush</h1>
       <h3>Where developers find their perfect match() 💻</h3>
-      <section class = "progressBar">
-        
-      </section>
+      <!-- Progress -->
+      
+<div class = "progress"> 
+       
+        <div class="circle">1</div>
+      <h4> <span class = "Emoji">💻</span>Basic Info</h4>  
+       <div class="circle">2</div>
+      <p><span class="emoji">👩‍🦰</span>Personal Details</p>
+       <div class="circle">3</div>
+      <p><span class="emoji">✨</span>Interests & About</p>
+       <div class="circle">4</div>
+      <p><span class="emoji">💕</span>Dating Preferences</p>
+       <div class="circle">5</div>
+      <p><span class="emoji">🚀</span>Review</p>
+      
+</div>
+</header>
+
+
+
 
       <form id="multiStepForm">
+        <!-- 1Basic Info-->
         <div class="step" id="step1">
-      <div class = "progress"> 
-       <div> 
-      <p> <span class = "Emoji">💻</span>Basic Info</p>  
-        
-    
-    
-    </div>
+      
+    <h4> 💻 Basic info</h4>
+    <h4> Initialize your profile 💙</h4>
 
-    </header>
+    <div> <div>
+    
     <div>
       <label for="name"> First Name:</label><br />
       <input
@@ -63,17 +78,79 @@
 
     <div>
         <label for="Password">Password:</label>
-        <input
-
+        <input 
+        autofocus placeholder="Password"
+        type= "Password"
+        id="Password"
+        name="Password"
+        required
+        /><br/><br/>
     </div>
+
+    <div>
+      <label for="confirm">Confirm Password:</label>
+      <input
+      autofocus placeholder="Confirm"
+      type="confirm"
+      id="confirm"
+      name="confirm"
+      required
+      /><br/><br/>
+    </div>
+    
+    <div>
+      <label for="Phone Number">Phone Number:</label>
+      <input
+      autofocus placeholder="Phone Number"
+      type="number"
+      id=""
+      >
+    </div>
+
+    
+
+
+
     <button type="button" onclick="nextStep()">Next</button>
     </div>
 
+    <!--2Personal Page-->
     <div class="step" id="step2" style="display:none">
-        yello0
+        <h2>Personal details</h2>
+        <p>Define your variables 💜</p>
+        <p class="constYOU">💜
+            const YOU = ; Let's define your properties and attributes! Help us compile your perfect profile 🧑‍💻💕></p>
+          <div></div>div>
+    <button type="button" onclick="prevStep()">Previous</button>         
     <button type="button" onclick="nextStep()">Next</button>
 
     </div>
+    
+    <!--3Interests & About Page-->
+    <div class="step" id="step2" style="display:none">
+        Test Text
+    
+    <button type="button" onclick="prevStep()">Previous</button>         
+    <button type="button" onclick="nextStep()">Next</button>
+
+    </div>
+    
+    <!--4Dating Preferences Page-->
+    <div class="step" id="step2" style="display:none">
+        Test Text  
+    
+    <button type="button" onclick="prevStep()">Previous</button>           
+    <button type="button" onclick="nextStep()">Next</button>
+
+    </div>
+    
+    <!--5Review Page-->
+    <div class="step" id="step2" style="display:none">
+        Test Text  
+    <button type="button" onclick="prevStep()">Previous</button>      
+    
+    </div>
+    
 
     </form>
     <script src="script.js"></script>
