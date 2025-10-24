@@ -1,0 +1,139 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border:none;
+    outline:none;
+    scroll-behavior: smooth;
+}
+
+:root{
+--background: #ECFEFF;
+--font-size: 16px;
+--text-color: black;
+
+}
+
+html{
+    overflow-x: hidden; /*removes scroll bar */
+}
+body{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.step{
+    display: flex;
+    background-color: white;
+    max-width: 850px;
+    border: 1px solid grey;
+    border-radius: 20px;
+    box-shadow:var(--shadow) ;
+    margin: 10%;
+    padding: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   
+}
+
+.step input{
+    background: grey;
+    border-radius: 8px; 
+    padding: 10px;
+    width: 100%;}
+
+.step-grid li{
+    list-style: none;
+    grid-column: span 2;
+    display: block;
+}
+
+.step-grid
+{
+    
+    display: grid;
+    justify-content:start;
+    align-items: start;
+    grid-gap: 20px;
+    max-width: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    margin: 8%;
+    padding: 8px;
+}
+
+.step-grid label
+{
+    margin-bottom: 2px;
+    display: block;
+}
+
+.step-grid .email
+{
+    grid-column: span 2;
+    box-sizing: border-box;    
+}
+
+.journey
+{
+ 
+}
+
+header{
+
+}
+
+.progress{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.circle{
+    width: 30px;
+    height: 30px;
+    border: 2px solid grey;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    margin: 0 auto 5px;
+    color: #007bff;
+    font-weight: bold;
+
+}
+
+button{
+    padding: 10px 20px;
+    background-color: #007bff;
+    
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+button .next{
+ color: blue;
+}
+
+button .previous{
+    color: rgb(190, 150, 150);
+}
+
+button:hover {
+  background-color: #0056b3;       /* Darker blue on hover */
+}
+
+
+.journey{
+    border: 2px solid blue;
+    border-radius: 8px;
+    background-color: lightblue;
+    
+}
+
