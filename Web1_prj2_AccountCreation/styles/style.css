@@ -19,11 +19,22 @@
 html{
     overflow-x: hidden; /*removes scroll bar */
 }
+
 body{
     display: grid;
     justify-content: center;
     align-items: center;
     background: var(--background);
+}
+
+header{
+margin-bottom: 1rem;
+}
+
+.progress{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .step{
@@ -36,7 +47,6 @@ body{
     margin: 10%;
     padding: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-   
 }
 
 .step input{
@@ -53,7 +63,6 @@ body{
 
 .step-grid
 {
-    
     display: grid;
     justify-content:start;
     align-items: start;
@@ -77,21 +86,7 @@ body{
     box-sizing: border-box;    
 }
 
-.journey
-{
- 
-}
 
-header{
-
-}
-
-.progress{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-}
 
 .circle{
     width: 30px;
