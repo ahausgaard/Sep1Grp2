@@ -36,16 +36,14 @@
       <form id="multiStepForm">
         <!-- 1Basic Info-->
         <div class="step" id="step1">
+          <div class="step-grid">
+          <header>
+          <h3> 💻 Basic info</h3>
+          <h4> Initialize your profile 💙</h4>
           
-
-          
-      
-    <h4> 💻 Basic info</h4>
-    <h4> Initialize your profile 💙</h4>
-
-    <div class = journey> 💙 <span>// Start your journey! Let's initialize your CodeCrush profile and begin searching for your perfect coding partner 💻💕 </span> </div>
+          <div class = infoBox> 💙 <span>// Start your journey! Let's initialize your CodeCrush profile and begin searching for your perfect coding partner 💻💕 </span> </div>
+          </header>
     
-    <div class="step-grid">
     <div>
       <label for="firstName"> First Name*</label><br>
       <input
@@ -152,17 +150,23 @@
 
     <!--2Personal Page-->
     <div class="step" id="step2" style="display:none">
-        <h2>Personal details</h2>
-        <p>Define your variables 💜</p>
+      <header>
+      <h3>Personal details</h3>
+        <h4>Define your variables 💜</h4>
+
+        <div class = infoBox>
         <p class="constYOU">💜
-            const YOU = ; Let's define your properties and attributes! Help us compile your perfect profile 🧑‍💻💕></p>
-          <div>
-            <!--HØJDE-->
+            const YOU = { }; Let's define your properties and attributes! Help us compile your perfect profile 🧑‍💻💕></p>
           </div>
+        </header>  
 
 
           <div>
-            <p>Body Type*</p>
+  
+            <label for "height">Height: </label>
+            <input type="range" id="height" name="height" min="0" max="220" value="1">
+            
+            <p>Body Type *</p><br>
             <label for="Slim">Slim</label>
             <input type="radio" id="Slim" name="body_type" value="Slim" required>
 

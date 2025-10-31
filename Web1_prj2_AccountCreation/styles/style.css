@@ -12,7 +12,8 @@
 --background: #ECFEFF;
 --font-size: 16px;
 --text-color: black;
---text-field-color: #e8e8e8
+--text-field-color: #e8e8e8;
+--action-color: #007bff;
 
 }
 
@@ -36,9 +37,8 @@ margin-bottom: 1rem;
     justify-content: space-between;
     align-items: center;
 }
-
+/* STEP STYLE*/
 .step{
-    display: flex;
     background-color: white;
     max-width: 850px;
     border: 0.5px solid var(--text-field-color);
@@ -47,18 +47,7 @@ margin-bottom: 1rem;
     margin: 10%;
     padding: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-.step input{
-    background: var(--text-field-color);
-    border-radius: 8px; 
-    padding: 10px;
-    width: 100%;}
-
-.step-grid li{
-    list-style: none;
-    grid-column: span 2;
-    display: block;
+    min-height: 400px;
 }
 
 .step-grid
@@ -74,10 +63,32 @@ margin-bottom: 1rem;
     padding: 8px;
 }
 
+.step h4
+{
+    color: grey;
+}
+
+.step input{
+    background: var(--text-field-color);
+    border-radius: 8px; 
+    padding: 10px;
+    width: 100%;}
+
+.step-grid li{
+    list-style: none;
+    grid-column: span 2;
+    display: block;
+}
+
 .step-grid label
 {
     margin-bottom: 2px;
     display: block;
+}
+
+.step-grid header{
+    grid-column: span 2;
+    line-height: 1.5;
 }
 
 .step-grid .email
@@ -85,7 +96,6 @@ margin-bottom: 1rem;
     grid-column: span 2;
     box-sizing: border-box;    
 }
-
 
 
 .circle{
@@ -98,20 +108,20 @@ margin-bottom: 1rem;
     align-items: center;
     background: white;
     margin: 0 auto 5px;
-    color: #007bff;
+    color: var(--action-color);
     font-weight: bold;
-
 }
 
 button{
     padding: 10px 20px;
-    background-color: #007bff;
+    background: linear-gradient(to right, #00c6ff, var(--action-color));
     color: white;
     border-radius: 5px;
     cursor: pointer;
     margin: 10px;
     font-size: 16px;
     line-height: 1.5;
+    transition: transform 0.3 ease;
 }
 
 button .next{
@@ -123,14 +133,23 @@ button .previous{
 }
 
 button:hover {
-  background-color: #0056b3;       /* Darker blue on hover */
+  background-color: #0056b3; 
+  transform:scale(1.1)      /* Darker blue on hover */
 }
 
 
-.journey{
+.infoBox{
     border: 2px solid blue;
     border-radius: 8px;
     background-color: lightblue;
     
+}
+
+/* RESOLUTIONS */
+@media(max-width:700px)
+{
+    .step {
+        flex-direction: column;
+    }
 }
 
