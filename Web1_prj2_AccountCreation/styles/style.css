@@ -14,6 +14,7 @@
 --text-color: black;
 --text-field-color: #e8e8e8;
 --action-color: #007bff;
+--step-color2: #f747b3;
 
 }
 
@@ -30,6 +31,15 @@ body{
 
 header{
 margin-bottom: 1rem;
+text-align: center;
+}
+
+header h1{
+    background: linear-gradient(to right, var(--action-color),var(--step-color2));
+    font-size: 5rem;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
 }
 
 .progress{
@@ -147,6 +157,7 @@ button:hover {
     border: 2px solid blue;
     border-radius: 8px;
     background-color: lightblue;
+    padding: 10px;
     
 }
 
