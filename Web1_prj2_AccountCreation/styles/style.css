@@ -39,7 +39,6 @@ header h1{
     font-size: 5rem;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
 }
 
 .progress{
@@ -49,6 +48,7 @@ header h1{
 }
 /* STEP STYLE*/
 .step{
+    
     background-color: white;
     max-width: 850px;
     border: 0.5px solid var(--text-field-color);
@@ -58,6 +58,11 @@ header h1{
     padding: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     min-height: 400px;
+    
+}
+
+.step header{
+    text-align: left;
 }
 
 .step-grid
