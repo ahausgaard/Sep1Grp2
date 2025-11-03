@@ -143,6 +143,7 @@
 
     <!--2Personal Page-->
     <div class="step" id="step2" style="display:none">
+      <div class="step-grid">
       <header>
       <h3>Personal details</h3>
         <h4>Define your variables 💜</h4>
@@ -154,7 +155,6 @@
         </header>  
 
           <div>
-  
             <label for="height">Height: </label>
             <input type="range" id="height" name="height" min="0" max="220" value="1">
             
@@ -203,38 +203,97 @@
               </fieldset><br/><br/>
           </div>
 
-  
+    </div>
     <div class="button-row">
       <button type="button" class="previous" onclick="prevStep()">Previous</button>         
       <button type="button" onclick="nextStep()">Next</button>
+    
     </div>
     </div>
     
     <!--3Interests & About Page-->
     <div class="step" id="step2" style="display:none">
-        <p>INTERESTS & ABOUT</p>
+      <div class="step-grid"> 
+        <header>
+      <h3>✨ Interests & About</h3>
+        <h4> Deploy your personality 💚</h4>
+          
+          <div class = infoBox>  <b>💚function showYourPassion() {} </b> Share what makes your heart compile! Your unique insterests = better matches💕✨</div>
+    </header>
+    <section class="interestSection">
+      <form id="interestsForm">
+        <fieldset>
+          <legend>Your Interests * (Select at least 3)</legend>
+          <div class="interest-grid">
+            <div class="hobby"><input type="checkbox" id="h1"><label for="h1">Open Source</label></div>
+            <div class="hobby"><input type="checkbox" id="h2"><label for="h2">Web Development</label></div>
+            <div class="hobby"><input type="checkbox" id="h3"><label for="h3">AI/ML</label></div>
+            <div class="hobby"><input type="checkbox" id="h4"><label for="h4">Gaming</label></div>
+            <div class="hobby"><input type="checkbox" id="h5"><label for="h5">Cybersecurity</label></div>
+            <div class="hobby"><input type="checkbox" id="h6"><label for="h6">Cloud Computing</label></div>
+            <div class="hobby"><input type="checkbox" id="h7"><label for="h7">Tech Books</label></div>
+            <div class="hobby"><input type="checkbox" id="h8"><label for="h8">Tech Conferences</label></div>
+            <div class="hobby"><input type="checkbox" id="h9"><label for="h9">Startup Culture</label></div>
+            <div class="hobby"><input type="checkbox" id="h10"><label for="h10">Code Reviews</label></div>
+            <div class="hobby"><input type="checkbox" id="h11"><label for="h11">Tech Meetups</label></div>
+            <div class="hobby"><input type="checkbox" id="h12"><label for="h12">Reading</label></div>
+            <div class="hobby"><input type="checkbox" id="h13"><label for="h13">Reading</label></div>
+            <div class="hobby"><input type="checkbox" id="h14"><label for="h14">Reading</label></div>
+            <div class="hobby"><input type="checkbox" id="h15"><label for="h15">Reading</label></div>
+            <div class="hobby"><input type="checkbox" id="h16"><label for="h16">Reading</label></div>
+            <div class="hobby"><input type="checkbox" id="h17"><label for="h17">Reading</label></div>
+            <div class="hobby"><input type="checkbox" id="h18"><label for="h18">Reading</label></div>
+            <div class="hobby"><input type="checkbox" id="h19"><label for="h19">Reading</label></div>
+            <div class="hobby"><input type="checkbox" id="h20"><label for="h20">Reading</label></div>
+            <div class="hobby"><input type="checkbox" id="h21"><label for="h21">Reading</label></div>
+            <div class="hobby"><input type="checkbox" id="h22"><label for="h22">Reading</label></div>
+            <div class="hobby"><input type="checkbox" id="h23"><label for="h23">Reading</label></div>
+            <div class="hobby"><input type="checkbox" id="h24"><label for="h24">Reading</label></div>
+          </div>
+        </fieldset>
+
+
+
+      </form>
+
+    </section>
+    
+    
+    
+    
+    </div>
     <div class="button-row">
     <button type="button" class="previous" onclick="prevStep()">Previous</button>         
     <button type="button" onclick="nextStep()">Next</button>
+    
     </div>
-    </div>
+    </div> 
     
     <!--4Dating Preferences Page-->
     <div class="step" id="step2" style="display:none">
+      <div class="step-grid"> 
         <p>DATING PREFERENCES</p>
     
+    </div>    
         <div class="button-row">
-    <button type="button" class="previous" onclick="prevStep()">Previous</button>           
-    <button type="button" onclick="nextStep()">Next</button>
-</div>
+       <button type="button" class="previous" onclick="prevStep()">Previous</button>           
+        <button type="button" onclick="nextStep()">Next</button>
+      </div>
     </div>
     
     <!--5Review Page-->
     <div class="step" id="step2" style="display:none">
+      <div class="step-grid"> 
         <p>REVIEW</p>  
-    <button type="button" class="previous" onclick="prevStep()">Previous</button>      
-    
     </div>
+
+        <div class="button-row">
+        <button type="button" class="previous" onclick="prevStep()">Previous</button>
+        <button type="button">Next</button>      
+       </div>
+    
+  </div>
+
     
 
     </form>
