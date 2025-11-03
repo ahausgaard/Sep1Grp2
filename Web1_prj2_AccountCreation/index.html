@@ -124,28 +124,20 @@
       required
       /><br/><br/>
     </div>
-    
-      <ul>
-        <li><p>I am a*</p></li>
-      <li><label for="male">Male</label>
-      <input type="radio" id="male" name="gender" value="male" required><br></li>
-
-      <li><label for="female">female</label>
-      <input type="radio" id="female" name="gender" value="female" required><br></li>
-
-      <label for="Non-binary">Non-binary</label>
-      <input type="radio" id="non-binary" name="non-binary" value="non-binary" required><br>
-
-      <label for="Other">Other</label>
-      <input type="radio" id="Other" name="gender" value="Other" required><br>
-    </ul>
+     <fieldset required>  
+      <legend>Gender*</legend>
+      <label><input type ="radio" name = "Gender" value="male" required> Male</label><br>
+      <label><input type ="radio" name = "Gender" value="female" required> Female</label><br>
+      <label><input type ="radio" name = "Gender" value="non-binary" required> Non-binary</label><br>
+      <label><input type ="radio" name = "Gender" value="other" required> Other</label><br>
+    </fieldset><br/><br/> 
     </div>
 
-
-
+    
     <div class="button-row">
-      <button type="button" class="previous">Previous</button> 
-    <button type="button" onclick="nextStep()">Next</button>
+      <button type="button" class="previous">Previous</button>         
+      <button type="button" onclick="nextStep()">Next</button>
+    </div>
     </div>
     </div>
 
@@ -161,7 +153,6 @@
           </div>
         </header>  
 
-
           <div>
   
             <label for="height">Height: </label>
@@ -171,22 +162,48 @@
             <label for="Slim">Slim</label>
             <input type="radio" id="Slim" name="body_type" value="Slim" required>
 
-            <label for="Athletic">Athletic</label>
-            <input type="radio" id="Athletic" name="body_type" value="Athletic" required>
-
-            <label for="Average">Average</label>
-            <input type="radio" id="Average" name="body_type" value="Average" required>
-
-            <label for="Curvy">Athletic</label>
-            <input type="radio" id="Curvy" name="body_type" value="Curvy" required>
-
-            <label for="Heavyset">Athletic</label>
-            <input type="radio" id="Heavyset" name="body_type" value="Heavyset" required>
+            <label for="education level"> Education Level*</label><br>
+            <select id="education" name="education" required>
+              <option value="" disabled selected> Select education level</option>
+              <option value="High School"> High School</option>
+              <option value="Some School"> Some School</option>
+              <option value="Associate Degree"> Associate Degree</option>
+              <option value="Bachelor´s Degree"> Bachelor´s Degree</option>
+              <option value="Master´s Degree"> Master´s Degree</option>
+              <option value="Doctorate"> Doctorate</option>
+            </select><br/><br/>
           </div>
 
+          <div>
+            <label for="occupation"> Occupation*</label><br>
+            <input
+            autofocus placeholder="e.g., Full-stack Developer, DevOps Engineer" 
+            type="occupation"
+            id="occupation"
+            name="occupation"
+            required
+            /><br/><br/>
+          </div>
 
+          <div>
+            <fieldset required>
+              <legend>Smoking*</legend>
+              <label><input type="radio" name = "Smoking" value="Never" required> Never</label><br>
+              <label><input type="radio" name = "Smoking" value="Occasionally" required> Occasionally</label><br>
+              <label><input type="radio" name="Smoking" value="Regularly" required> Regularly</label>
+              </fieldset><br/><br/>
+          </div>
 
+          <div>
+            <fieldset required>
+              <legend>Drinking*</legend>
+              <label><input type="radio" name = "Drinking" value="Never" required> Never</label><br>
+              <label><input type="radio" name = "Drinking" value="Socially" required> Socially</label><br>
+              <label><input type="radio" name="Drinking" value="Regularly" required> Regularly</label>
+              </fieldset><br/><br/>
+          </div>
 
+  
     <div class="button-row">
       <button type="button" class="previous" onclick="prevStep()">Previous</button>         
       <button type="button" onclick="nextStep()">Next</button>
