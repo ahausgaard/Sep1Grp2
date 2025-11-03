@@ -139,10 +139,9 @@ button{
     transition: transform 0.3 ease;
 }
 
-
-
-button .previous{
-    color: rgb(190, 150, 150);
+button.previous{
+    background: #057c1f;
+    border-color: black;
 }
 
 
@@ -153,8 +152,7 @@ button .previous{
 
 
 button:hover {
-  background-color: #0056b3; 
-  transform:scale(1.1)      /* Darker blue on hover */
+  transform:scale(1.1)  
 }
 
 
