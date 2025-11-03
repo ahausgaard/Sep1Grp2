@@ -144,8 +144,10 @@
 
 
 
-
+    <div class="button-row">
+      <button type="button" class="previous">Previous</button> 
     <button type="button" onclick="nextStep()">Next</button>
+    </div>
     </div>
 
     <!--2Personal Page-->
@@ -163,7 +165,7 @@
 
           <div>
   
-            <label for "height">Height: </label>
+            <label for="height">Height: </label>
             <input type="range" id="height" name="height" min="0" max="220" value="1">
             
             <p>Body Type *</p><br>
@@ -186,28 +188,29 @@
 
 
 
-
-    <button type="button" class="previous" onclick="prevStep()">Previous</button>         
-    <button type="button" onclick="nextStep()">Next</button>
-
+    <div class="button-row">
+      <button type="button" class="previous" onclick="prevStep()">Previous</button>         
+      <button type="button" onclick="nextStep()">Next</button>
+    </div>
     </div>
     
     <!--3Interests & About Page-->
     <div class="step" id="step2" style="display:none">
         <p>INTERESTS & ABOUT</p>
-    
+    <div class="button-row">
     <button type="button" class="previous" onclick="prevStep()">Previous</button>         
     <button type="button" onclick="nextStep()">Next</button>
-
+    </div>
     </div>
     
     <!--4Dating Preferences Page-->
     <div class="step" id="step2" style="display:none">
         <p>DATING PREFERENCES</p>
     
+        <div class="button-row">
     <button type="button" class="previous" onclick="prevStep()">Previous</button>           
     <button type="button" onclick="nextStep()">Next</button>
-
+</div>
     </div>
     
     <!--5Review Page-->
