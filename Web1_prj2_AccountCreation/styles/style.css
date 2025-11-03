@@ -112,6 +112,11 @@ header h1{
     box-sizing: border-box;    
 }
 
+.step-grid .height
+{
+    grid-column: span 2;
+}
+
 
 .circle{
     width: 30px;
@@ -162,6 +167,33 @@ button:hover {
     background-color: lightblue;
     padding: 10px;
     
+}
+
+.step-grid .interestSection{
+    grid-column: span 2;
+}
+.interest-grid{
+    display:grid;
+    grid-template-columns: 1fr  1fr;
+    gap: 200px;
+    
+    height: 200px;
+    max-width: max-content;
+    overflow-y: scroll;
+    border: 1px solid #ccc; 
+    padding: 10px;
+    margin: 20px auto;
+}
+
+.interest-grid .hobby
+{
+    display: flex;
+    align-items: center;
+}
+
+.interest-grid .hobby input
+{
+    margin-right: 8px;
 }
 
 /* RESOLUTIONS */
