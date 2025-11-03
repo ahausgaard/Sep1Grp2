@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CodeCrush</title>
     <link rel="stylesheet" href="styles/style.css">
   </head>
@@ -11,12 +11,13 @@
     <header class="header">
       <h1>Code Crush</h1>
       <h3>Where developers find their perfect match() 💻</h3>
+    </header>
       <!-- Progress -->
       
 <div class = "progress"> 
        
-        <div class="circle">1</div>
-      <h4> <span class = "Emoji">💻</span>Basic Info</h4>  
+      <div class="circle">1</div>
+      <p> <span class = "Emoji">💻</span>Basic Info</p>  
        <div class="circle">2</div>
       <p><span class="emoji">👩‍🦰</span>Personal Details</p>
        <div class="circle">3</div>
@@ -27,7 +28,7 @@
       <p><span class="emoji">🚀</span>Review</p>
       
 </div>
-</header>
+
 
 
 
@@ -35,36 +36,33 @@
       <form id="multiStepForm">
         <!-- 1Basic Info-->
         <div class="step" id="step1">
+          <div class="step-grid">
+          <header>
+          <h3> 💻 Basic info</h3>
+          <h4> Initialize your profile 💙</h4>
           
-
-          
-      
-    <h4> 💻 Basic info</h4>
-    <h4> Initialize your profile 💙</h4>
-
-    <div class = journey> 💙 <span>// Start your journey! Let's initialize your CodeCrush profile and begin searching for your perfect coding partner 💻💕 </span> </div>
+          <div class = infoBox> 💙 <span>// Start your journey! Let's initialize your CodeCrush profile and begin searching for your perfect coding partner 💻💕 </span> </div>
+          </header>
     
-    <div class="step-grid">
-    <div >
-      <label for="name"> First Name*</label><br />
+    <div>
+      <label for="firstName"> First Name*</label><br>
       <input
         autofocus
         placeholder="First Name"
         type="text"
-        id="name"
-        name="name"
+        id="firstName"
+        name="firstName"
         required
-      /><br /><br />
+      /><br><br>
     </div>
 
     <div>
-      <label for="name"> Last Name*</label><br />
+      <label for="lastName"> Last Name*</label><br>
       <input
-        autofocus
         placeholder="Last Name"
         type="text"
-        id="name"
-        name="name"
+        id="lastName"
+        name="lastName"
         required
       /><br /><br />
     </div>
@@ -72,18 +70,18 @@
     <div class="email">
       <label for="email"> Email Address*</label><br/>
       <input 
-      autofocus placeholder="Email Address" 
+      placeholder="Email Address" 
       type="email"
       id="email"
       name="email"
       required
-      /><br/><br/>
+      /><br><br>
     </div>
 
     <div>
         <label for="Password">Password*</label><br/>
         <input 
-        autofocus placeholder="********"
+        placeholder="********"
         type= "Password"
         id="Password"
         name="Password"
@@ -94,21 +92,21 @@
     </div>
 
     <div >
-      <label for="confirm">Confirm Password*</label><br/>
+      <label for="confirmPw">Confirm Password*</label><br>
       <input
-      autofocus placeholder="********"
-      type="confirm"
-      id="confirm"
-      name="confirm"
+      placeholder="********"
+      type="password"
+      id="confirmPw"
+      name="confirmPw"
       pattern="\d{8}"
       required
-      /><br/><br/>
+      /><br><br>
     </div>
     
     <div>
-      <label for="Phone Number">Phone Number*</label><br/>
+      <label for="Phone Number">Phone Number*</label><br>
       <input
-      autofocus placeholder="+4559795236"
+      placeholder="+4559795236"
       type="tel"
       id="phone"
       name="phone"
@@ -118,10 +116,10 @@
     </div>
 
     <div>
-      <label for="Date of Birth">Date of Birth</label><br/>
+      <label for="Date of Birth">Date of Birth</label><br>
       <input
-      autofocus placeholder="dd-mm-åååå"
-      type="Date"
+      placeholder="dd-mm-åååå"
+      type="date"
       id="Date"
       name="Date"
       required
@@ -139,28 +137,28 @@
 
     <button type="button" onclick="nextStep()">Next</button>
     </div>
+    </div>
 
     <!--2Personal Page-->
     <div class="step" id="step2" style="display:none">
-        <h2>Personal details</h2>
-        <p>Define your variables 💜</p>
+      <header>
+      <h3>Personal details</h3>
+        <h4>Define your variables 💜</h4>
+
+        <div class = infoBox>
         <p class="constYOU">💜
-            const YOU = ; Let's define your properties and attributes! Help us compile your perfect profile 🧑‍💻💕></p>
-          <div>
-            <!--HØJDE-->
+            const YOU = { }; Let's define your properties and attributes! Help us compile your perfect profile 🧑‍💻💕></p>
           </div>
+        </header>  
 
           <div>
-            <fieldset required>
-              <legend>Body Type*</legend>
-              <label><input type="radio" name = "Body Type" value="Slim" required> Slim</label><br>
-              <label><input type="radio" name = "Body Type" value="Athletic" required> Athletic</label><br>
-              <label><input type="radio" name="Body Type" value="Average" required> Average</label><br>
-              <label><input type="radio" name="Body Type" value="Curvy" required> Curvy</label><br>
-              <label><input type="radio" name="Body Type" value="Heavyset" required> Heavyset</label>
-            </fieldset><br/><br/>
-          </div>
-          <div>
+  
+            <label for="height">Height: </label>
+            <input type="range" id="height" name="height" min="0" max="220" value="1">
+            
+            <p>Body Type *</p><br>
+            <label for="Slim">Slim</label>
+            <input type="radio" id="Slim" name="body_type" value="Slim" required>
 
             <label for="education level"> Education Level*</label><br>
             <select id="education" name="education" required>
@@ -203,37 +201,30 @@
               </fieldset><br/><br/>
           </div>
 
-    <button type="button" class="previous" onclick="prevStep()">Previous</button>         
-    <button type="button" onclick="nextStep()">Next</button>
-
+  
+    <div class="button-row">
+      <button type="button" class="previous" onclick="prevStep()">Previous</button>         
+      <button type="button" onclick="nextStep()">Next</button>
+    </div>
     </div>
     
     <!--3Interests & About Page-->
     <div class="step" id="step2" style="display:none">
         <p>INTERESTS & ABOUT</p>
-
-        <div>
-          
-
-
-        </div>
-
-
-
-
-    
+    <div class="button-row">
     <button type="button" class="previous" onclick="prevStep()">Previous</button>         
     <button type="button" onclick="nextStep()">Next</button>
-
+    </div>
     </div>
     
     <!--4Dating Preferences Page-->
     <div class="step" id="step2" style="display:none">
         <p>DATING PREFERENCES</p>
     
+        <div class="button-row">
     <button type="button" class="previous" onclick="prevStep()">Previous</button>           
     <button type="button" onclick="nextStep()">Next</button>
-
+</div>
     </div>
     
     <!--5Review Page-->

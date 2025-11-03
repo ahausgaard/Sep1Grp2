@@ -12,46 +12,46 @@
 --background: #ECFEFF;
 --font-size: 16px;
 --text-color: black;
+--text-field-color: #e8e8e8;
+--action-color: #007bff;
 
 }
 
 html{
     overflow-x: hidden; /*removes scroll bar */
 }
+
 body{
     display: grid;
     justify-content: center;
     align-items: center;
+    background: var(--background);
 }
 
-.step{
+header{
+margin-bottom: 1rem;
+}
+
+.progress{
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* STEP STYLE*/
+.step{
     background-color: white;
     max-width: 850px;
-    border: 1px solid grey;
+    border: 0.5px solid var(--text-field-color);
     border-radius: 20px;
     box-shadow:var(--shadow) ;
     margin: 10%;
     padding: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-   
-}
-
-.step input{
-    background: grey;
-    border-radius: 8px; 
-    padding: 10px;
-    width: 100%;}
-
-.step-grid li{
-    list-style: none;
-    grid-column: span 2;
-    display: block;
+    min-height: 400px;
 }
 
 .step-grid
 {
-    
     display: grid;
     justify-content:start;
     align-items: start;
@@ -63,10 +63,32 @@ body{
     padding: 8px;
 }
 
+.step h4
+{
+    color: grey;
+}
+
+.step input{
+    background: var(--text-field-color);
+    border-radius: 8px; 
+    padding: 10px;
+    width: 100%;}
+
+.step-grid li{
+    list-style: none;
+    grid-column: span 2;
+    display: block;
+}
+
 .step-grid label
 {
     margin-bottom: 2px;
     display: block;
+}
+
+.step-grid header{
+    grid-column: span 2;
+    line-height: 1.5;
 }
 
 .step-grid .email
@@ -75,21 +97,6 @@ body{
     box-sizing: border-box;    
 }
 
-.journey
-{
- 
-}
-
-header{
-
-}
-
-.progress{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-}
 
 .circle{
     width: 30px;
@@ -101,39 +108,53 @@ header{
     align-items: center;
     background: white;
     margin: 0 auto 5px;
-    color: #007bff;
+    color: var(--action-color);
     font-weight: bold;
-
 }
 
 button{
     padding: 10px 20px;
-    background-color: #007bff;
-    
+    background: linear-gradient(to right, #00c6ff, var(--action-color));
+    color: white;
     border-radius: 5px;
     cursor: pointer;
     margin: 10px;
     font-size: 16px;
     line-height: 1.5;
+    transition: transform 0.3 ease;
 }
 
-button .next{
- color: blue;
-}
+
 
 button .previous{
     color: rgb(190, 150, 150);
 }
 
-button:hover {
-  background-color: #0056b3;       /* Darker blue on hover */
+
+.button-row{
+    display: flex;
+    justify-content: space-between;
 }
 
 
-.journey{
+button:hover {
+  background-color: #0056b3; 
+  transform:scale(1.1)      /* Darker blue on hover */
+}
+
+
+.infoBox{
     border: 2px solid blue;
     border-radius: 8px;
     background-color: lightblue;
     
+}
+
+/* RESOLUTIONS */
+@media(max-width:700px)
+{
+    .step {
+        flex-direction: column;
+    }
 }
 
