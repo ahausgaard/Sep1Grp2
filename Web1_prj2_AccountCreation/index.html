@@ -263,6 +263,18 @@
             </div>
           </div>
         </fieldset>
+        <section class="aboutMe">
+          <legend>About Me *</legend>
+          <input type="text" id="name" name="name" placeholder="I'm a developer hoping to develop feelings for you..">
+          <p>💡Pro tip: Mention your favourite tech stack, side projects, or what you're passionate about! Be authentic! 💚</p>
+        </section>
+        <section class="profilePhoto">
+          <legend>Profile Photos (Optional)</legend>
+          <form action="/upload" method="post" enctype="multipart/form-data" id="photo" name="photo" accept=".jpg, .jpeg,.png">
+            <button type="submit">Upload</button>
+          </form>
+          <p>Upload up to 6 photos. Accepted formats: JPG, PNG (Max 5MB each). Profiles with photos get 10x more matches!</p>
+        </section>
 
 
 
