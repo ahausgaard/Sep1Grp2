@@ -6,6 +6,7 @@
     border:none;
     outline:none;
     scroll-behavior: smooth;
+    
 }
 
 :root{
@@ -34,18 +35,49 @@ margin-bottom: 1rem;
 text-align: center;
 }
 
+
 header h1{
     background: linear-gradient(to right, var(--action-color),var(--step-color2));
     font-size: 5rem;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+/* --- Progress Line (som på Figma) --- */
+.progress-line {
+  position: relative;
+  height: 8px;
+  width: 90%;
+  max-width: 900px;
+  margin: 10px auto 20px auto;
+  background-color: #cfd8dc; /* grå baggrund */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(to right, #7b2ff7, #f107a3); /* lilla gradient */
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+
 
 .progress{
     display: flex;
     justify-content: space-between;
     align-items: center;
+     gap: 0;
+    margin: 0;
+    padding: 0;
+    border-color: #007bff;
+    
+    
 }
+
 /* STEP STYLE*/
 .step{
     
@@ -54,10 +86,14 @@ header h1{
     border: 0.5px solid var(--text-field-color);
     border-radius: 20px;
     box-shadow:var(--shadow) ;
-    margin: 10%;
-    padding: 10px;
+    margin: 10px;
+    padding: 0px;
+
+
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     min-height: 400px;
+    
+   
     
 }
 
@@ -74,9 +110,11 @@ header h1{
     max-width: 100%;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
-    margin: 8%;
+    margin: 5%;
     padding: 8px;
+    
 }
+
 
 .step h4
 {
@@ -162,10 +200,13 @@ button:hover {
 
 
 .infoBox{
-    border: 2px solid blue;
+    border: 1px solid #b3d9ff;
     border-radius: 8px;
-    background-color: lightblue;
+    background: linear-gradient(90deg, #e8f6ff 0%, #f4f9ff 100%);
     padding: 10px;
+    margin: 8px;
+   
+
     
 }
 
