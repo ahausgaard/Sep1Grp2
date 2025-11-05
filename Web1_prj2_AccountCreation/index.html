@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CodeCrush</title>
-    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/style.css">
   </head>
   <body>
     <header>
@@ -49,7 +49,7 @@
           </header>
 
           <div>
-            <label for="firstName"> First Name*</label><br />
+            <label for="firstName"> First Name*</label><br>
             <input
               autofocus
               placeholder="First Name"
@@ -135,21 +135,21 @@
               <legend>Gender*</legend>
               <div class="radio-grid">
               <label
-                ><input type="radio" name="Gender" value="male" required />
+                ><input type="radio" name="gender" value="male" required />
                 Male</label
             >
-              <label><input type="radio" name="Gender" value="female" required />
+              <label><input type="radio" name="gender" value="female" required />
                 Female</label>
               <label><input
                   type="radio"
-                  name="Gender"
+                  name="gender"
                   value="non-binary"
                   required
                 />
                 Non-binary</label
               >
               <label
-                ><input type="radio" name="Gender" value="other" required />
+                ><input type="radio" name="gender" value="other" required />
                 Other</label
               >
               </div>
@@ -164,7 +164,7 @@
       </div>
 
       <!--2Personal Page-->
-      <div class="step" id="step2" style="display: none">
+      <div class="step" id="step2">
         <div class="step-grid">
           <header>
             <h3>Personal details</h3>
@@ -178,8 +178,9 @@
             </div>
           </header>
 
-          <div>
-            <label for="height">Height: </label>
+          <section class="detailsSection">
+            <div class="height">
+            <label for="height" >Height: </label>
             <input
               type="range"
               id="height"
@@ -187,19 +188,55 @@
               min="0"
               max="220"
               value="1"
-            />
+            /></div>
 
-            <p>Body Type *</p>
-            <br />
-            <label for="Slim">Slim</label>
+            <fieldset>
+            <legend>Body Type *</legend>
+            <div class="radio-grid">
+              <label>
+                <input 
+                type="radio"
+              id="slim"
+              name="body_type"
+              value="slim"
+              required>Slim</label>
+              
+            <label>
             <input
               type="radio"
-              id="Slim"
+              id="athletic"
               name="body_type"
-              value="Slim"
+              value="athletic"
               required
-            />
+            />Athletic</label>
+            <label>
+            <input
+              type="radio"
+              id="average"
+              name="body_type"
+              value="average"
+              required
+            />Average</label>
+            <label for="curvy">
+            <input
+              type="radio"
+              id="curvy"
+              name="body_type"
+              value="curvy"
+              required
+            />Curvy</label>
+            <label for="heavyset">
+            <input
+              type="radio"
+              id="heavyset"
+              name="body_type"
+              value="heavyset"
+              required
+            />Heavyset</label>
+            </div>
+            </fieldset>
 
+            <div class="education_level">
             <label for="education level"> Education Level*</label><br />
             <select id="education" name="education" required>
               <option value="" disabled selected>Select education level</option>
@@ -210,9 +247,9 @@
               <option value="Master´s Degree">Master´s Degree</option>
               <option value="Doctorate">Doctorate</option></select
             ><br /><br />
-          </div>
+            </div>
 
-          <div>
+          <div class="occupation">
             <label for="occupation"> Occupation*</label><br />
             <input
               autofocus
@@ -224,7 +261,7 @@
             /><br /><br />
           </div>
 
-          <div>
+          
             <fieldset required>
               <legend>Smoking*</legend>
               <div class="radio-grid">
@@ -253,9 +290,9 @@
             </div>
             </fieldset>
             <br /><br />
-          </div>
+          
 
-          <div>
+          
             <fieldset required>
               <legend>Drinking*</legend>
               <div class="radio-grid">
@@ -282,8 +319,9 @@
                 Regularly</label
               >
             </fieldset>
-            <br /><br />
-          </div>
+            
+          
+          </section>
         </div>
         <div class="button-row">
           <button type="button" class="previous" onclick="prevStep()">
@@ -294,7 +332,7 @@
       </div>
 
       <!--3Interests & About Page-->
-      <div class="step" id="step3" style="display: none">
+      <div class="step" id="step3"">
         <div class="step-grid">
           <header>
             <h3>✨ Interests & About</h3>
@@ -456,6 +494,7 @@
                   
                 </div>
               </fieldset>
+              </form>
               <br><br>
               <section class="aboutMe">
                 <legend>About Me *</legend>
@@ -463,7 +502,7 @@
                   type="text"
                   id="name"
                   name="name"
-                  placeholder="I'm a developer hoping to develop feelings for you.. In my spare time I like knit and play with my cat. "
+                  placeholder="I'm a developer hoping to develop feelings for you.. In my spare time I like to knit and play with my cat. "
                 />
                 <p>
                   💡Pro tip: Mention your favourite tech stack, side projects,

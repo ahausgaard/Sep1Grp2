@@ -39,6 +39,7 @@ text-align: center;
 header h1{
     background: linear-gradient(to right, var(--action-color),var(--step-color2));
     font-size: 5rem;
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -80,7 +81,6 @@ header h1{
 
 /* STEP STYLE*/
 .step{
-    
     background-color: white;
     max-width: 850px;
     border: 0.5px solid var(--text-field-color);
@@ -89,12 +89,8 @@ header h1{
     margin: 10px;
     padding: 0px;
 
-
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    min-height: 400px;
-    
-   
-    
+    min-height: 400px;    
 }
 
 .step header{
@@ -156,6 +152,12 @@ header h1{
     cursor: pointer;
 }
 
+.education_level
+{
+    margin-top: 30px;
+}
+
+
 .step input[type="radio"]
 {
     justify-self: start;
@@ -172,7 +174,7 @@ header h1{
     box-sizing: border-box;    
 }
 
-.step-grid .height
+.step-grid .height 
 {
     grid-column: span 2;
 }
@@ -233,7 +235,7 @@ button:hover {
 }
 
 
-section p
+section .interestSection p
 {
     color: grey;
     font-size: 0.8rem;
