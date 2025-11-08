@@ -75,6 +75,15 @@ input[type="range"] {
     cursor: pointer;
 }
 
+.profilePhoto
+{
+    grid-column: span 2;
+}
+
+.aboutMe
+{
+    grid-column: span 2;
+}
 
 
 

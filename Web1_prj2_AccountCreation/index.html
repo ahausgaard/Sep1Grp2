@@ -83,7 +83,7 @@
           </div>
 
           <div>
-            <label for="Password">Password*</label><br />
+            <label for="password">Password*</label><br />
             <input
               placeholder="********"
               type="password"
@@ -123,7 +123,7 @@
             <label for="dateOfBirth">Date of Birth</label><br />
             <input
               placeholder="dd-mm-åååå"
-              type="date"
+              type="text"
               id="dateOfBirth"
               name="dateOfBirth"
               required
@@ -147,7 +147,7 @@
             <button type="button" onclick="nextStep()/*page1Submit()*/">Next</button>
           </div>
         </div>
-      </div>
+      
 
       <!--2Personal Page-->
       <div class="step" id="step2">
@@ -299,11 +299,8 @@
                   required
                 />
                 Regularly</label
-              >
-            </fieldset>
-            
-            
-          
+              ></div>
+            </fieldset>       
          
         </div>
         <div class="button-row">
@@ -315,7 +312,7 @@
       </div>
 
       <!--3Interests & About Page-->
-      <div class="step" id="step3"">
+      <div class="step" id="step3">
         <div class="step-grid">
           <header>
             <h3>✨ Interests & About</h3>
@@ -327,157 +324,158 @@
             </div>
           </header>
           <section class="interestSection">
-            <form id="interestsForm">
+            
               <fieldset>
                 <legend>Your Interests * (Select at least 3)</legend>
                 <div class="radio-grid">
             
-                    <label class="hobby">
-                      <input type="checkbox" id="h1" for="h1"/>
+                    <label for="h1" class="hobby">
+                      <input type="checkbox" id="h1" />
                         🔓 Open Source</label
                       >
                     
-                    <label class="hobby">
-                      <input type="checkbox" id="h2" for="h2"
+                    <label for="h2" class="hobby">
+                      <input type="checkbox" id="h2" 
                         />🌐 Web Development</label
                       >
                     
-                    <label class="hobby">
-                      <input type="checkbox" id="h3" for="h3"
+                    <label for="h3" class="hobby">
+                      <input type="checkbox" id="h3" 
                         />🤖 AI/ML</label
                       >
                     
-                    <label class="hobby">
-                      <input type="checkbox" id="h4" for="h4"
+                    <label for="h4" class="hobby">
+                      <input type="checkbox" id="h4" 
                         />🎮 Gaming</label
                       >
                     
-                    <label class="hobby">
-                      <input type="checkbox" id="h5" for="h5"
+                    <label for="h5" class="hobby">
+                      <input type="checkbox" id="h5" 
                         />🔒 Cybersecurity</label
                       >
                     
-                    <label class="hobby">
-                      <input type="checkbox" id="h6" for="h6"
+                    <label for="h6" class="hobby">
+                      <input type="checkbox" id="h6" 
                         />☁️ Cloud Computing</label
                       >
                     
-                    <label class="hobby">
-                      <input type="checkbox" id="h7" for="h7"
+                    <label for="h7" class="hobby">
+                      <input type="checkbox" id="h7" 
                         />📚 Tech Books</label
                       >
                     
-                    <label class="hobby">
-                      <input type="checkbox" id="h8" for="h8"
+                    <label  for="h8" class="hobby">
+                      <input type="checkbox" id="h8" 
                         />🎤 Tech Conferences</label
                       >
                     
-                    <label class="hobby">
-                      <input type="checkbox" id="h9" for="h9"
+                    <label for="h9" class="hobby">
+                      <input type="checkbox" id="h9"
                         />🚀 Startup Culture</label
                       >
                     
-                    <label class="hobby">
-                      <input type="checkbox" id="h10" for="h10"
+                    <label for="h10" class="hobby">
+                      <input type="checkbox" id="h10" 
                         />🔍 Code Reviews</label
                       >
                     
-                    <label class="hobby">
-                      <input type="checkbox" id="h11" for="h11"
+                    <label for="h11" class="hobby">
+                      <input type="checkbox" id="h11" 
                         />🤝 Tech Meetups</label
                       >
                     
-                    <label class="hobby">
-                      <input type="checkbox" id="h12" for="h12"
+                    <label for="h12" class="hobby">
+                      <input type="checkbox" id="h12" 
                         />📷 Photography</label
                       >
                     
-                    <label class="hobby">
-                      <input type="checkbox" id="h13" for="h13"
+                    <label for="h13" class="hobby">
+                      <input type="checkbox" id="h13" 
                         />💪 Fitness</label
                       >
                     
-                    <label class="hobby">
-                      <input type="checkbox" id="h14" for="h14"
+                    <label for="h14" class="hobby">
+                      <input type="checkbox" id="h14" 
                         />🎵 Music</label
                       >
                   
-                    <label class="hobby">
-                      <input type="checkbox" id="h15" for="h15"
+                    <label for="h15" class="hobby">
+                      <input type="checkbox" id="h15" 
                         />🏆 Hackathons</label
                       >
                     
-                    <label class="hobby">
-                      <input type="checkbox" id="h16" for="h16"
+                    <label for="h16" class="hobby">
+                      <input type="checkbox" id="h16" 
                         />📱 Mobile Development</label
                       >
                     
-                    <label class="hobby">
-                      <input type="checkbox" id="h17" for="h17"
+                    <label for="h17" class="hobby">
+                      <input type="checkbox" id="h17" 
                         />⚙️ DevOps</label
                       >
                     
-                    <label class="hobby">
-                      <input type="checkbox" id="h18" for="h18"
+                    <label for="h18" class="hobby">
+                      <input type="checkbox" id="h18" 
                         />⛓️ Blockchain</label
                       >
                     
-                    <label class="hobby">
-                      <input type="checkbox" id="h19" for="h19"
+                    <label for="h19" class="hobby">
+                      <input type="checkbox" id="h19" 
                         />🎨 UI/UX Design</label
                       >
                     
-                    <label class="hobby">
-                      <input type="checkbox" id="h20" for="h20"
+                    <label for="h20" class="hobby">
+                      <input type="checkbox" id="h20" 
                         />📊 Data Science</label
                       >
                     
-                    <label class="hobby">
-                      <input type="checkbox" id="h21" for="h21"
+                    <label for="h21" class="hobby">
+                      <input type="checkbox" id="h21" 
                         />🎙️ Tech Podcasts</label
                       >
                     
-                    <label class="hobby">
-                      <input type="checkbox" id="h22" for="h22"
+                    <label for="h22" class="hobby">
+                      <input type="checkbox" id="h22" 
                         />💡 Side Projects</label
                       >
                     
-                    <label class="hobby">
-                      <input type="checkbox" id="h23" for="h23"
+                    <label for="h23" class="hobby">
+                      <input type="checkbox" id="h23" 
                         />👯 Pair Programming</label
                       >
                     
-                    <label class="hobby">
-                      <input type="checkbox" id="h24" for="h24"
+                    <label for="h24" class="hobby">
+                      <input type="checkbox" id="h24" 
                         />🧑‍🏫 Mentoring</label
                       >
                     
-                    <label class="hobby">
-                      <input type="checkbox" id="h25" for="h25"
+                    <label for="h25" class="hobby">
+                      <input type="checkbox" id="h25" 
                         />🔧 Arduino/Hardware</label
                       >
                     
-                    <label class="hobby">
-                      <input type="checkbox" id="h26" for="h26"
+                    <label for="h26" class="hobby">
+                      <input type="checkbox" id="h26" 
                         />✈️ Travel</label
                       >
                     
-                    <label class="hobby">
-                      <input type="checkbox" id="h27" for="h27"
+                    <label for="h27" class="hobby">
+                      <input type="checkbox" id="h27" 
                         />☕ Coffee</label
                       >
                     
-                    <label class="hobby">
-                      <input type="checkbox" id="h28" for="h28"
+                    <label for="h28" class="hobby">
+                      <input type="checkbox" id="h28" 
                         />🍳 Cooking</label
                       >
 
                 </div>
               </fieldset>
-              </form>
-              <br><br>
+              </section>
+              
+              
               <section class="aboutMe">
-                <legend>About Me *</legend>
+                <p>About Me *</p>
                 <input
                   type="text"
                   id="aboutMe"
@@ -487,11 +485,12 @@
                 <p>
                   💡Pro tip: Mention your favourite tech stack, side projects,
                   or what you're passionate about! Be authentic! 💚
-                </p><br/>
+                </p>
               </section>
+
               <section class="profilePhoto">
-                <form action="/submit">
-                  <label for="image">Profile Photos (Optional)</label>
+                
+                  <label for="image"><h4>Profile Photos (Optional)</h4></label>
                   <input
                     type="file"
                     id="image"
@@ -499,15 +498,13 @@
                     accept=".jpg, .jpeg, .png"
                     multiple
                   />
-                </form>
+                
                 <p>
                   Upload up to 6 photos. Accepted formats: JPG, PNG (Max 5MB
                   each). Profiles with photos get 10x more matches!
                 </p>
-              </section>
-            </form>
-          </section>
-        </div>
+              </section>          
+          </div>
         <div class="button-row">
           <button type="button" class="previous" onclick="prevStep()">
             Previous
