@@ -241,6 +241,94 @@ section .interestSection p
     font-size: 0.8rem;
 }
 
+.detailsSection {
+  grid-column: span 2;
+  display: grid;
+  gap: 16px;
+}
+
+#height {
+  width: 100%;
+  height: 8px;
+  appearance: none;
+  background: #111;                
+  border-radius: 8px;
+  outline: none;
+}
+.edu-occ-wrapper{
+  grid-column: span 2;              
+  display: grid;
+  grid-template-columns: 1fr 1fr;  
+  width: 100%;
+  align-items: end;
+  margin: 0px;
+  gap: 10px;
+  padding: 0px;
+  
+}
+
+.edu-occ-wrapper .field
+{
+  display: flex;
+  flex-direction: column;
+}
+.edu-occ-wrapper label
+{
+  display: block;
+  margin: 0 0 8px;
+  font-weight: 600;
+  color: #222;
+}
+
+.edu-occ-wrapper select,
+.edu-occ-wrapper input[type="text"] {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #d4d4d4;
+  background-color: #e8e8e8;
+  font-size: 1rem;
+  color: #333;
+
+}
+
+.radio-grid{
+    margin: 10px;
+    padding: 10px;
+    gap: 10px;
+
+}
+
+.smoke-drink{
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  margin: 0px;
+}
+
+.smoke-drink .radio-group{
+  display: grid;
+  row-gap: 10px;
+  margin-top: 6px;
+  padding: 6px;
+}
+
+
+.smoke-drink label
+{
+  display: grid;                
+  grid-template-columns: 18px auto;        
+  align-items: center;
+  column-gap: 8px;
+  text-align: left;
+  font-weight: 600; 
+                     
+}
+
+
+
 
 /* RESOLUTIONS */
 @media(max-width:700px)
@@ -249,4 +337,6 @@ section .interestSection p
         flex-direction: column;
     }
 }
+
+
 
