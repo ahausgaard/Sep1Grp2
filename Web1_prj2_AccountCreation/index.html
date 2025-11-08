@@ -26,7 +26,7 @@
       <p><span class="emoji">🚀</span>Review</p>
     </div>
 
-    <!-- Progress Line Fra chatGPT-->
+    <!-- Progress Line-->
     <div class="progress-line">
       <div class="progress-fill" id="progress-fill"></div>
     </div>
@@ -86,9 +86,9 @@
             <label for="Password">Password*</label><br />
             <input
               placeholder="********"
-              type="Password"
-              id="Password"
-              name="Password"
+              type="password"
+              id="password"
+              name="password"
               pattern="\d{8}"
               title="Password must be 8 digits"
               required
@@ -96,19 +96,19 @@
           </div>
 
           <div>
-            <label for="confirmPw">Confirm Password*</label><br />
+            <label for="passwordCheck">Confirm Password*</label><br />
             <input
               placeholder="********"
               type="password"
-              id="confirmPw"
-              name="confirmPw"
+              id="passwordCheck"
+              name="passwordCheck"
               pattern="\d{8}"
               required
             /><br /><br />
           </div>
 
           <div>
-            <label for="Phone Number">Phone Number*</label><br />
+            <label for="phone">Phone Number*</label><br />
             <input
               placeholder="+4559795236"
               type="tel"
@@ -120,12 +120,12 @@
           </div>
 
           <div>
-            <label for="Date of Birth">Date of Birth</label><br />
+            <label for="dateOfBirth">Date of Birth</label><br />
             <input
               placeholder="dd-mm-åååå"
               type="date"
-              id="Date"
-              name="Date"
+              id="dateOfBirth"
+              name="dateOfBirth"
               required
             /><br /><br />
           </div>
@@ -134,31 +134,17 @@
             <fieldset >
               <legend>Gender*</legend>
               <div class="radio-grid">
-              <label
-                ><input type="radio" name="gender" value="male" required />
-                Male</label
-            >
-              <label><input type="radio" name="gender" value="female" required />
-                Female</label>
-              <label><input
-                  type="radio"
-                  name="gender"
-                  value="non-binary"
-                  required
-                />
-                Non-binary</label
-              >
-              <label
-                ><input type="radio" name="gender" value="other" required />
-                Other</label
-              >
+                <label><input type="radio" name="gender" value="male" required>Male</label>
+                <label><input type="radio" name="gender" value="female" required>Female</label>
+                <label><input type="radio" name="gender" value="non-binary" required>Non-binary</label>
+                <label><input type="radio" name="gender" value="other" required>Other</label>
               </div>
             </fieldset>
           </div>
           </div>
           <div class="button-row">
             <button type="button" class="previous">Previous</button>
-            <button type="button" onclick="nextStep()">Next</button>
+            <button type="button" onclick="nextStep()/*page1Submit()*/">Next</button>
           </div>
         </div>
       </div>
@@ -178,7 +164,6 @@
             </div>
           </header>
 
-          <section class="detailsSection">
             <div class="height">
             <label for="height" >Height: </label>
             <input
@@ -190,7 +175,7 @@
               value="1"
             /></div>
 
-            <fieldset>
+            <fieldset class="bodytype">
             <legend>Body Type *</legend>
             <div class="radio-grid">
               <label>
@@ -237,7 +222,7 @@
             </fieldset>
 
             <div class="education_level">
-            <label for="education level"> Education Level*</label><br />
+            <label for="education"> Education Level*</label><br />
             <select id="education" name="education" required>
               <option value="" disabled selected>Select education level</option>
               <option value="High School">High School</option>
@@ -252,9 +237,8 @@
           <div class="occupation">
             <label for="occupation"> Occupation*</label><br />
             <input
-              autofocus
               placeholder="e.g., Full-stack Developer, DevOps Engineer"
-              type="occupation"
+              type="text"
               id="occupation"
               name="occupation"
               required
@@ -262,7 +246,7 @@
           </div>
 
           
-            <fieldset required>
+            <fieldset class="habits">
               <legend>Smoking*</legend>
               <div class="radio-grid">
               <label
@@ -288,12 +272,10 @@
                 Regularly</label
               >
             </div>
-            </fieldset>
-            <br /><br />
-          
+            </fieldset>     
 
-          
-            <fieldset required>
+           
+            <fieldset class="habits">
               <legend>Drinking*</legend>
               <div class="radio-grid">
               <label>
@@ -320,14 +302,15 @@
               >
             </fieldset>
             
+            
           
-          </section>
+         
         </div>
         <div class="button-row">
           <button type="button" class="previous" onclick="prevStep()">
             Previous
           </button>
-          <button type="button" onclick="nextStep()">Next</button>
+          <button type="button" onclick="nextStep()/*page2Submit()*/">Next</button>
         </div>
       </div>
 
@@ -418,9 +401,7 @@
                       <input type="checkbox" id="h14" for="h14"
                         />🎵 Music</label
                       >
-                    
                   
-                 
                     <label class="hobby">
                       <input type="checkbox" id="h15" for="h15"
                         />🏆 Hackathons</label
@@ -490,8 +471,7 @@
                       <input type="checkbox" id="h28" for="h28"
                         />🍳 Cooking</label
                       >
-                    
-                  
+
                 </div>
               </fieldset>
               </form>
@@ -500,23 +480,24 @@
                 <legend>About Me *</legend>
                 <input
                   type="text"
-                  id="name"
-                  name="name"
+                  id="aboutMe"
+                  name="aboutMe"
                   placeholder="I'm a developer hoping to develop feelings for you.. In my spare time I like to knit and play with my cat. "
                 />
                 <p>
                   💡Pro tip: Mention your favourite tech stack, side projects,
                   or what you're passionate about! Be authentic! 💚
-                </p>
+                </p><br/>
               </section>
               <section class="profilePhoto">
                 <form action="/submit">
-                  Profile Photos (Optional)
+                  <label for="image">Profile Photos (Optional)</label>
                   <input
                     type="file"
                     id="image"
-                    name="image"
+                    name="image[]"
                     accept=".jpg, .jpeg, .png"
+                    multiple
                   />
                 </form>
                 <p>
@@ -531,7 +512,7 @@
           <button type="button" class="previous" onclick="prevStep()">
             Previous
           </button>
-          <button type="button" onclick="nextStep()">Next</button>
+          <button type="button" onclick="page3Submit()">Next</button>
         </div>
       </div>
 
@@ -562,7 +543,7 @@
           <button type="button" class="previous" onclick="prevStep()">
             Previous
           </button>
-          <button type="button">Next</button>
+          <button type="button" onclick="finalSubmit()">Submit</button>
         </div>
       </div>
     </form>
