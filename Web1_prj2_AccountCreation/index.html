@@ -150,6 +150,7 @@
       
 
       <!--2Personal Page-->
+
       <div class="step" id="step2">
         <div class="step-grid">
           <header>
@@ -164,6 +165,8 @@
             </div>
           </header>
 
+          <section class="detailsSection">
+
             <div class="height">
             <label for="height" >Height: </label>
             <input
@@ -175,7 +178,7 @@
               value="1"
             /></div>
 
-            <fieldset class="bodytype">
+              <fieldset>
             <legend>Body Type *</legend>
             <div class="radio-grid">
               <label>
@@ -185,8 +188,7 @@
               name="body_type"
               value="slim"
               required>Slim</label>
-              
-            <label>
+                <label>
             <input
               type="radio"
               id="athletic"
@@ -195,7 +197,7 @@
               required
             />Athletic</label>
             <label>
-            <input
+              <input
               type="radio"
               id="average"
               name="body_type"
@@ -219,89 +221,58 @@
               required
             />Heavyset</label>
             </div>
-            </fieldset>
-
-            <div class="education_level">
-            <label for="education"> Education Level*</label><br />
+            
+       <div class="edu-occ-wrapper">
+          <div class="field">
+            <label for="education">Education Level *</label>
             <select id="education" name="education" required>
-              <option value="" disabled selected>Select education level</option>
-              <option value="High School">High School</option>
-              <option value="Some School">Some School</option>
-              <option value="Associate Degree">Associate Degree</option>
-              <option value="Bachelor´s Degree">Bachelor´s Degree</option>
-              <option value="Master´s Degree">Master´s Degree</option>
-              <option value="Doctorate">Doctorate</option></select
-            ><br /><br />
-            </div>
+            <option value="" disabled selected>Select education level</option>
+            <option value="High School">High School</option>
+            <option value="Some School">Some School</option>
+            <option value="Associate Degree">Associate Degree</option>
+            <option value="Bachelor's Degree">Bachelor's Degree</option>
+            <option value="Master's Degree">Master's Degree</option>
+            <option value="Doctorate">Doctorate</option>
+          </select>
+        </div>
 
-          <div class="occupation">
-            <label for="occupation"> Occupation*</label><br />
+      <div class="field">
+          <label for="occupation">Occupation *</label>
             <input
-              placeholder="e.g., Full-stack Developer, DevOps Engineer"
               type="text"
               id="occupation"
               name="occupation"
-              required
-            /><br /><br />
+              placeholder="e.g., Full-stack Developer, DevOps Engineer"
+            required
+              />
+        </div>
+      </div>
+
+    <div class="smoke-drink">
+      <div class = "smoke">
+      <fieldset>
+        <legend>Smoking *</legend>
+        <div class="radio-group">
+            <label><input type="radio" name="Smoking" value="Never" required> Never</label>
+            <label><input type="radio" name="Smoking" value="Occasionally" required> Occasionally</label>
+            <label><input type="radio" name="Smoking" value="Regularly" required> Regularly</label>
+        </div>
+    </fieldset>
+    </div>
+    
+<div class = "drink">
+   <fieldset>
+        <legend>Drinking *</legend>
+        <div class="radio-group">
+            <label><input type="radio" name="Drinking" value="Never" required> Never</label>
+            <label><input type="radio" name="Drinking" value="Socially" required> Socially</label>
+            <label><input type="radio" name="Drinking" value="Regularly" required> Regularly</label>
           </div>
-
-          
-            <fieldset class="habits">
-              <legend>Smoking*</legend>
-              <div class="radio-grid">
-              <label
-                ><input type="radio" name="Smoking" value="Never" required />
-                Never</label
-              ><br />
-              <label
-                ><input
-                  type="radio"
-                  name="Smoking"
-                  value="Occasionally"
-                  required
-                />
-                Occasionally</label
-              ><br />
-              <label
-                ><input
-                  type="radio"
-                  name="Smoking"
-                  value="Regularly"
-                  required
-                />
-                Regularly</label
-              >
-            </div>
-            </fieldset>     
-
-           
-            <fieldset class="habits">
-              <legend>Drinking*</legend>
-              <div class="radio-grid">
-              <label>
-                <input type="radio" name="Drinking" value="Never" required />
-                Never</label
-              ><br />
-              <label
-                ><input
-                  type="radio"
-                  name="Drinking"
-                  value="Socially"
-                  required
-                />
-                Socially</label
-              ><br />
-              <label
-                ><input
-                  type="radio"
-                  name="Drinking"
-                  value="Regularly"
-                  required
-                />
-                Regularly</label
-              ></div>
-            </fieldset>       
-         
+        </fieldset>
+   </div>
+</div>
+   
+      </section>
         </div>
         <div class="button-row">
           <button type="button" class="previous" onclick="prevStep()">
@@ -310,6 +281,7 @@
           <button type="button" onclick="nextStep()/*page2Submit()*/">Next</button>
         </div>
       </div>
+
 
       <!--3Interests & About Page-->
       <div class="step" id="step3">
