@@ -29,6 +29,9 @@ body{
     align-items: center;
     background: var(--background);
 }
+h2{
+    font-size: 1.4rem;
+}
 
 header{
 margin-bottom: 1rem;
