@@ -235,12 +235,14 @@ button{
     margin: 10px;
     font-size: 16px;
     line-height: 1.5;
-    transition: transform 0.3 ease;
+    transition: 0.3s ease;
 }
 
 button.previous{
-    background: #057c1f;
-    border-color: black;
+    background: white;
+    color: #919391;
+    border: 2px solid black;
+    
 }
 
 
