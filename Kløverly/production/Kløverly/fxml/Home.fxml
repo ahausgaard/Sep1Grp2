@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      alignment="CENTER" spacing="20">
+
+    <Label text="Welcome to these planets and all"/>
+    <Label text="I hope you like planets"/>
+    <Label text="Not much else to offer I'm afraid"/>
+
+</VBox>
