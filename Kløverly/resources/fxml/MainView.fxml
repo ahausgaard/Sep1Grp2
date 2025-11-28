@@ -14,17 +14,17 @@
                   <Insets />
                </VBox.margin>
             </Separator>
-            <Button fx:id="addPlanetButton" maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#onAddPlanetButtonPressed" text="Tilføj opgave">
+            <Button fx:id="addTaskButton" maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#onAddTaskButtonPressed" text="Tilføj opgave">
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="viewPlanetsButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onViewPlanetsButtonPressed" text="Se score">
+            <Button fx:id="viewScoreButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onViewScoreButtonPressed" text="Se score">
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="searchPlanet" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onSearchPlanetButtonPressed" text="Admin">
+            <Button fx:id="adminButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAdminButtonPressed" text="Admin">
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>

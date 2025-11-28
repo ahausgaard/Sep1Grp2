@@ -6,23 +6,22 @@ import kløverly.presentation.core.ViewManager;
 
 public class MainViewController
 {
+    public Button addTaskButton;
+    public Button viewScoreButton;
+    public Button adminButton;
 
-  public Button addPlanetButton;
-  public Button viewPlanetsButton;
-  public Button searchPlanet;
-
-  public void onAddPlanetButtonPressed(ActionEvent actionEvent)
+  public void onAddTaskButtonPressed(ActionEvent actionEvent)
   {
-    ViewManager.showView("AddPlanet");
+    ViewManager.showView("AddTask");
   }
 
-
-  public void onViewPlanetsButtonPressed(ActionEvent actionEvent)
+  public void onViewScoreButtonPressed(ActionEvent actionEvent)
   {
-    ViewManager.showView("ViewAllPlanets");
+    ViewManager.showView("ViewScore");
   }
 
-  public void onSearchPlanetButtonPressed(ActionEvent actionEvent)
+  public void onAdminButtonPressed(ActionEvent actionEvent)
   {
+    ViewManager.showView("Admin");
   }
 }
