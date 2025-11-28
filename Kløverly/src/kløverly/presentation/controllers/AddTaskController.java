@@ -1,14 +1,10 @@
 package kløverly.presentation.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import kløverly.domain.Task;
 import kløverly.persistence.DataManager;
 import kløverly.presentation.core.ControllerConfigurator;
-import kløverly.presentation.core.ViewManager;
 
 public class AddTaskController
 {
