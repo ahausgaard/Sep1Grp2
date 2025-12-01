@@ -7,22 +7,22 @@ import kløverly.presentation.core.ViewManager;
 
 public class MainViewController
 {
-  public Button addTaskButton;
   public Button adminButton;
-  public Button viewAvailableTasksButton;
+  public Button addTaskViewButton;
+  public Button taskListViewButton;
 
-  public void onAddTaskButtonPressed(ActionEvent actionEvent)
+  public void onAddTaskViewButtonPressed(ActionEvent actionEvent)
   {
     ViewManager.showView("AddTask");
+  }
+
+  public void onTaskListViewButtonPressed(ActionEvent actionEvent)
+  {
+    ViewManager.showView("TaskList");
   }
 
   public void onAdminButtonPressed(ActionEvent actionEvent)
   {
     ViewManager.showView("Admin");
-  }
-
-  public void onViewAvailableTasksButtonPressed(ActionEvent actionEvent)
-  {
-    ViewManager.showView("ViewAvailableTasks");
   }
 }

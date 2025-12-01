@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kløverly.presentation.controllers.ViewAvailableTasksController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kløverly.presentation.controllers.TaskListController">
    <children>
       <Label layoutX="100.0" text="Tilgængelige opgaver" translateX="200.0">
          <VBox.margin>
@@ -24,10 +24,11 @@
       </TableView>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button fx:id="chooseTaskButton" mnemonicParsing="false" onAction="#onChooseTaskButtonPressed" prefWidth="80.0" text="Vælg">
+            <Button fx:id="completeTaskButton" mnemonicParsing="false" onAction="#onCompleteTaskButtonPressed" prefWidth="80.0" text="Fuldfør opgave">
                <HBox.margin>
                   <Insets right="100.0" />
                </HBox.margin></Button>
+            <Button fx:id="editTaskButton" mnemonicParsing="false" onAction="#onEditTaskButtonPressed" text="Redigér opgave" />
             <Button maxWidth="-Infinity" mnemonicParsing="false" onAction="#onBackButtonPressed" prefWidth="80.0" text="Tilbage" />
          </children>
       </HBox>

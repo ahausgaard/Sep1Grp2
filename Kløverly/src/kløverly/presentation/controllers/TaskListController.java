@@ -15,10 +15,12 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class ViewAvailableTasksController implements Initializable
+public class TaskListController implements Initializable
 {
   public TableView<Task> taskTable;
   public Button chooseTaskButton;
+  public Button completeTaskButton;
+  public Button editTaskButton;
   private DataManager dm;
   public TableColumn <Task, String> taskNameColumn;
   public TableColumn <Task, String>taskTypeColumn;
@@ -61,4 +63,11 @@ public class ViewAvailableTasksController implements Initializable
     }
   }
 
+  public void onCompleteTaskButtonPressed(ActionEvent actionEvent)
+  {
+  }
+
+  public void onEditTaskButtonPressed(ActionEvent actionEvent)
+  {
+  }
 }
