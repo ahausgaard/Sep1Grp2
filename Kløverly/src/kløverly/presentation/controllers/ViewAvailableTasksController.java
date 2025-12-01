@@ -47,10 +47,10 @@ public class ViewAvailableTasksController implements Initializable
     taskValueColumn.setCellValueFactory(new PropertyValueFactory<>("value"));
     dm = ControllerConfigurator.getDataManager();
     List<Task> tasks = dm.getAllTasks();
-    showTasks();
+
     if (!tasks.isEmpty())
     {
-      taskTable.getItems().add(tasks.get(0));
+      taskTable.getItems().addAll(tasks);
 
     }
   }

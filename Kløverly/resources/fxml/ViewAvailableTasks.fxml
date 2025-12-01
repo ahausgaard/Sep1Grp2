@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -7,14 +8,18 @@
    <children>
       <TableView fx:id="taskTable" prefHeight="332.0" prefWidth="600.0">
         <columns>
-          <TableColumn fx:id="taskNameColumn" prefWidth="186.6666818857193" text="Navn" />
-            <TableColumn fx:id="taskTypeColumn" minWidth="0.0" prefWidth="175.9999542236328" text="Opgavetype" />
-            <TableColumn fx:id="taskValueColumn" prefWidth="205.66665649414062" text="Pointværdi" />
+          <TableColumn fx:id="taskNameColumn" prefWidth="350.33330285549164" text="Navn" />
+            <TableColumn fx:id="taskTypeColumn" minWidth="0.0" prefWidth="167.66665649414062" text="Opgavetype" />
+            <TableColumn fx:id="taskValueColumn" prefWidth="78.0" text="Pointværdi" />
         </columns>
       </TableView>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button maxWidth="-Infinity" mnemonicParsing="false" onAction="#onBackButtonPressed" prefWidth="80.0" text="Back" />
+            <Button mnemonicParsing="false" prefWidth="80.0" text="Vælg">
+               <HBox.margin>
+                  <Insets right="100.0" />
+               </HBox.margin></Button>
+            <Button maxWidth="-Infinity" mnemonicParsing="false" onAction="#onBackButtonPressed" prefWidth="80.0" text="Tilbage" />
          </children>
       </HBox>
    </children>

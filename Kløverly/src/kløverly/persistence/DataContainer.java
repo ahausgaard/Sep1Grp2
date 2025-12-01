@@ -22,9 +22,9 @@ public class DataContainer
 
 
   private void initializeData() {
-    taskList.add(new CommunityTask("Task1", "Community", 40, "Collecting Leaves for John"));
-    taskList.add(new CommunityTask("Task2", "Community", 30, "Collecting asparagus for John"));
-    taskList.add(new CommunityTask("Task3", "Community", 20, "Rubbing John's back"));
-    taskList.add(new CommunityTask("Task4", "Community", 10, "Talk to John"));
+    taskList.add(new CommunityTask("Bladopsamling", "Fælles", 40, "Samle blade for John"));
+    taskList.add(new CommunityTask("Aspargeshøst", "Fælles", 30, "Høst Johns asparges"));
+    taskList.add(new CommunityTask("Rygmassage", "Fælles", 20, "Massér Johns ryg"));
+    taskList.add(new CommunityTask("Tal med ensom person", "Fælles", 10, "Tal med John om hans problemer."));
 }
 }
