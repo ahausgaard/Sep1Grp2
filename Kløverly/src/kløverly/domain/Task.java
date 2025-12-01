@@ -1,9 +1,14 @@
 package kløverly.domain;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.Objects;
 
-public abstract class Task
+public abstract class Task implements Serializable
 {
+  @Serial
+  private static final long serialVersionUID = 1L;
+
   private String title;
   private String type;
   private int value;

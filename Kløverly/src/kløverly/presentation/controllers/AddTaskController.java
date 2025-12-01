@@ -4,6 +4,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import kløverly.domain.CommunityTask;
+import kløverly.domain.Task;
 import kløverly.persistence.DataManager;
 import kløverly.presentation.core.ControllerConfigurator;
 
@@ -24,6 +26,18 @@ public class AddTaskController
 
   public void onAddTaskButtonPressed()
   {
+    String name = taskNameInput.getText();
+    String description = taskDescriptionInput.getText();
+    int value = (int) taskValueSlider.getValue();
+
+    Task newTask = new CommunityTask(name, "Fælles", value, description);
+    dm.addTask(newTask);
+
+    taskNameInput.setText("");
+    taskDescriptionInput.setText("");
+    taskValueSlider.setValue(0);
+
+    System.out.println(dm.toString());
 
   }
 

@@ -10,4 +10,7 @@ public interface DataManager
   void addTask(Task task);
   List<Task> getAllTasks();
   List<Resident> getAllResidents();
+  void saveData();
+  DataContainer loadData();
+
 }
