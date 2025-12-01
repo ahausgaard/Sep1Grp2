@@ -2,6 +2,7 @@ package kløverly.presentation.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -17,6 +18,7 @@ import java.util.ResourceBundle;
 public class ViewAvailableTasksController implements Initializable
 {
   public TableView<Task> taskTable;
+  public Button chooseTaskButton;
   private DataManager dm;
   public TableColumn <Task, String> taskNameColumn;
   public TableColumn <Task, String>taskTypeColumn;
@@ -39,6 +41,10 @@ public class ViewAvailableTasksController implements Initializable
   {
     ViewManager.showView("Home");
   }
+  public void onChooseTaskButtonPressed(ActionEvent actionEvent)
+  {
+    ViewManager.showView("EditTask");
+  }
 
   @Override public void initialize(URL location, ResourceBundle resources)
   {
@@ -54,4 +60,5 @@ public class ViewAvailableTasksController implements Initializable
 
     }
   }
+
 }

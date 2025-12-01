@@ -24,7 +24,7 @@
       </TableView>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" prefWidth="80.0" text="Vælg">
+            <Button fx:id="chooseTaskButton" mnemonicParsing="false" onAction="#onChooseTaskButtonPressed" prefWidth="80.0" text="Vælg">
                <HBox.margin>
                   <Insets right="100.0" />
                </HBox.margin></Button>
