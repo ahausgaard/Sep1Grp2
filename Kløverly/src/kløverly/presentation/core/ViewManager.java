@@ -28,9 +28,6 @@ public class ViewManager
       primaryStage.show();
   }
 
-
-
-
   public static void showView(String viewName)
   {
     try

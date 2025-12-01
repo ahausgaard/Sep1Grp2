@@ -2,6 +2,8 @@ package kløverly;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import kløverly.domain.CommunityTask;
+import kløverly.domain.Task;
 import kløverly.persistence.DataManager;
 import kløverly.persistence.ListDataManager;
 import kløverly.presentation.core.ControllerConfigurator;

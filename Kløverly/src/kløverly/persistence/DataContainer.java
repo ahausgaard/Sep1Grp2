@@ -6,15 +6,16 @@ import java.util.List;
 
 public class DataContainer
 {
-  private List<Task> planetList;
+  private List<Task> taskList;
 
-  public DataContainer(List<Task> planetList)
+
+  public DataContainer(List<Task> taskList)
   {
-    this.planetList = planetList;
+    this.taskList = taskList;
   }
 
-  public List<Task> getPlanetList()
+  public List<Task> getTaskList()
   {
-    return planetList;
+    return taskList;
   }
 }

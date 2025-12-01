@@ -16,7 +16,7 @@ public class ListDataManager implements DataManager
 
   @Override public void addTask(Task task)
   {
-
+    dataContainer.getTaskList().add(task);
   }
 
   @Override public List<Task> getAllTasks()

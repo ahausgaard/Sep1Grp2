@@ -7,24 +7,24 @@
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="490.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kløverly.presentation.controllers.AddTaskController">
    <children>
       <ChoiceBox prefWidth="150.0" />
-      <Label text="Name of task:" />
-      <TextField fx:id="planetNameInput">
+      <Label text="Opgavens navn" />
+      <TextField fx:id="taskNameInput">
          <VBox.margin>
             <Insets bottom="10.0" />
          </VBox.margin>
       </TextField>
-      <Label text="Task description:" />
-      <TextField fx:id="climateDescriptionInput">
+      <Label text="Opgavebeskrivelse" />
+      <TextField fx:id="taskDescriptionInput">
          <VBox.margin>
             <Insets bottom="10.0" />
          </VBox.margin>
       </TextField>
-      <Label text="Label" />
-      <Slider />
+      <Label text="Opgaveværdi" />
+      <Slider fx:id="taskValueSlider" />
       <HBox alignment="CENTER" prefHeight="59.0" prefWidth="490.0" spacing="80.0">
          <children>
-            <Button fx:id="addTaskButton" mnemonicParsing="false" onAction="#onAddTaskButtonPressed" text="Add" />
-            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#onCancelButtonPressed" text="Cancel" />
+            <Button fx:id="addTaskButton" mnemonicParsing="false" onAction="#onAddTaskButtonPressed" text="Tilføj" />
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#onCancelButtonPressed" text="Annullér" />
          </children>
       </HBox>
       <Label fx:id="statusLabel" text="Status:" />

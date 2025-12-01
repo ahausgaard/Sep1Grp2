@@ -8,19 +8,19 @@
    <children>
       <ChoiceBox prefWidth="150.0" />
       <Label text="Name of task:" />
-      <TextField fx:id="planetNameInput">
+      <TextField fx:id="taskNameInput">
          <VBox.margin>
             <Insets bottom="10.0" />
          </VBox.margin>
       </TextField>
       <Label text="Task description:" />
-      <TextField fx:id="climateDescriptionInput">
+      <TextField fx:id="taskDescriptionInput">
          <VBox.margin>
             <Insets bottom="10.0" />
          </VBox.margin>
       </TextField>
       <Label text="Label" />
-      <Slider />
+      <Slider fx:id="taskValueSlider" />
       <HBox alignment="CENTER" prefHeight="59.0" prefWidth="490.0" spacing="80.0">
          <children>
             <Button fx:id="addTaskButton" mnemonicParsing="false" onAction="#onAddTaskButtonPressed" text="Add" />

@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="searchPlanetButton" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kløverly.presentation.controllers.MainViewController">
+<BorderPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kløverly.presentation.controllers.MainViewController">
    <left>
       <VBox prefHeight="400.0" prefWidth="108.0" BorderPane.alignment="CENTER">
          <children>
@@ -14,12 +14,12 @@
                   <Insets />
                </VBox.margin>
             </Separator>
-            <Button fx:id="addTaskButton" maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#onAddTaskButtonPressed" text="Tilføj opgave">
+            <Button fx:id="addTaskButton" maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#onAddTaskButtonPressed" text="Registrér opgave">
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="viewScoreButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onViewScoreButtonPressed" text="Se score">
+            <Button fx:id="viewAvailableTasksButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onViewAvailableTasksButtonPressed" text="Opgaveoversigt">
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
