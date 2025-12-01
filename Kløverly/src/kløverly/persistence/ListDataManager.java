@@ -21,7 +21,7 @@ public class ListDataManager implements DataManager
 
   @Override public List<Task> getAllTasks()
   {
-    return List.of();
+    return dataContainer.getTaskList();
   }
 
   @Override public List<Resident> getAllResidents()

@@ -18,6 +18,8 @@ public class RunKløverlyApp extends Application
 
     ViewManager.init(primaryStage, "MainView");
     ViewManager.showView("Home");
+
+    dm.getAllTasks();
   }
 
   public static void main(String[] args)

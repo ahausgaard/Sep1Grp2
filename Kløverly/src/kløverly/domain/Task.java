@@ -21,6 +21,26 @@ public abstract class Task
   {
   }
 
+  public String getType()
+  {
+    return type;
+  }
+
+  public int getValue()
+  {
+    return value;
+  }
+
+  public String getDescription()
+  {
+    return description;
+  }
+
+  public String getTitle()
+  {
+    return title;
+  }
+
   @Override public String toString()
   {
     return "Task{" + "title='" + title + '\'' + ", type='" + type + '\''

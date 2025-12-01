@@ -1,24 +1,57 @@
 package kløverly.presentation.controllers;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import kløverly.domain.Task;
 import kløverly.persistence.DataManager;
+import kløverly.presentation.core.ControllerConfigurator;
 import kløverly.presentation.core.ViewManager;
 
-public class ViewAvailableTasksController
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
+
+public class ViewAvailableTasksController implements Initializable
 {
+  public TableView<Task> taskTable;
+  private DataManager dm;
+  public TableColumn <Task, String> taskNameColumn;
+  public TableColumn <Task, String>taskTypeColumn;
+  public TableColumn <Task, String> taskValueColumn;
 
-  public TableColumn taskNameColumn;
-  public TableColumn taskTypeColumn;
-  public TableColumn taskValueColumn;
-
-  public void init(DataManager dm)
+  /*public void init(DataManager dm)
   {
     dm.getAllTasks();
+    System.out.println(dm.getAllTasks());
+  }*/
+
+  public void showTasks()
+  {
+    List<Task> tasks = dm.getAllTasks();
+    tasks.forEach(System.out::println);
+
   }
 
   public void onBackButtonPressed(ActionEvent actionEvent)
   {
     ViewManager.showView("Home");
+  }
+
+  @Override public void initialize(URL location, ResourceBundle resources)
+  {
+    taskNameColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
+    taskTypeColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
+    taskValueColumn.setCellValueFactory(new PropertyValueFactory<>("value"));
+    dm = ControllerConfigurator.getDataManager();
+    List<Task> tasks = dm.getAllTasks();
+    showTasks();
+    if (!tasks.isEmpty())
+    {
+      taskTable.getItems().add(tasks.get(0));
+
+    }
   }
 }
