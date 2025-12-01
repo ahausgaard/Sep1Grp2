@@ -18,7 +18,6 @@ import java.util.ResourceBundle;
 public class TaskListController implements Initializable
 {
   public TableView<Task> taskTable;
-  public Button chooseTaskButton;
   public Button completeTaskButton;
   public Button editTaskButton;
   private DataManager dm;
@@ -26,24 +25,17 @@ public class TaskListController implements Initializable
   public TableColumn <Task, String>taskTypeColumn;
   public TableColumn <Task, String> taskValueColumn;
 
-  /*public void init(DataManager dm)
-  {
-    dm.getAllTasks();
-    System.out.println(dm.getAllTasks());
-  }*/
-
-  public void showTasks()
-  {
-    List<Task> tasks = dm.getAllTasks();
-    tasks.forEach(System.out::println);
-
-  }
-
   public void onBackButtonPressed(ActionEvent actionEvent)
   {
     ViewManager.showView("Home");
   }
-  public void onChooseTaskButtonPressed(ActionEvent actionEvent)
+
+  public void onCompleteTaskButtonPressed(ActionEvent actionEvent)
+  {
+    ViewManager.showView("CompleteTask");
+  }
+
+  public void onEditTaskButtonPressed(ActionEvent actionEvent)
   {
     ViewManager.showView("EditTask");
   }
@@ -55,6 +47,10 @@ public class TaskListController implements Initializable
     taskValueColumn.setCellValueFactory(new PropertyValueFactory<>("value"));
     dm = ControllerConfigurator.getDataManager();
     List<Task> tasks = dm.getAllTasks();
+    taskTable.setEditable(false);
+    taskTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY); // Locks columns to fit table width
+    taskTable.getColumns().forEach(column -> column.setResizable(false)); // Prevent manual resizing
+
 
     if (!tasks.isEmpty())
     {
@@ -63,11 +59,4 @@ public class TaskListController implements Initializable
     }
   }
 
-  public void onCompleteTaskButtonPressed(ActionEvent actionEvent)
-  {
-  }
-
-  public void onEditTaskButtonPressed(ActionEvent actionEvent)
-  {
-  }
 }
