@@ -15,8 +15,8 @@
             <Insets bottom="40.0" />
          </VBox.margin>
       </Label>
-      <ChoiceBox prefWidth="150.0" />
-      <Label text="Opgavens navn" />
+       <ComboBox fx:id="choiceBoxDrop" promptText="Vælg opgaves type" />
+       <Label text="Opgavens navn" />
       <TextField fx:id="taskNameInput">
          <VBox.margin>
             <Insets bottom="10.0" />
@@ -29,14 +29,19 @@
          </VBox.margin>
       </TextField>
       <Label text="Opgaveværdi" />
-      <Slider fx:id="taskValueSlider" />
-      <HBox alignment="CENTER" prefHeight="59.0" prefWidth="490.0" spacing="80.0">
+      <Slider fx:id="taskValueSlider"  />
+       <Label fx:id="sliderInput">
+
+       </Label>
+      <HBox alignment="CENTER" prefHeight="15.0" prefWidth="469.0" spacing="80.0">
          <children>
             <Button fx:id="addTaskButton" mnemonicParsing="false" onAction="#onAddTaskButtonPressed" text="Tilføj" />
             <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#onCancelButtonPressed" text="Annullér" />
          </children>
       </HBox>
       <Label fx:id="statusLabel" text="Status:" />
+      <ListView prefHeight="200.0" prefWidth="200.0" />
+      <ListView prefHeight="200.0" prefWidth="200.0" />
    </children>
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

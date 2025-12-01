@@ -1,9 +1,6 @@
 package kløverly.presentation.controllers;
 
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Slider;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import kløverly.domain.CommunityTask;
 import kløverly.domain.Task;
 import kløverly.persistence.DataManager;
@@ -17,11 +14,23 @@ public class AddTaskController
   public TextField taskNameInput;
   public TextField taskDescriptionInput;
   public Slider taskValueSlider;
+  public Label sliderInput;
   private DataManager dm;
+   public ComboBox<String> choiceBoxDrop;
 
   public void initialize()
   {
     dm = ControllerConfigurator.getDataManager();
+
+    choiceBoxDrop.getItems().addAll("Bytteopgave", "FællesOpgave", "item 3");
+
+      taskValueSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+
+          sliderInput.setText(Double.toString(newValue.intValue()));
+
+
+      });
+
   }
 
   public void onAddTaskButtonPressed()
@@ -30,12 +39,17 @@ public class AddTaskController
     String description = taskDescriptionInput.getText();
     int value = (int) taskValueSlider.getValue();
 
-    Task newTask = new CommunityTask(name, "Fælles", value, description);
+    String type = choiceBoxDrop.getValue();
+
+
+
+    Task newTask = new CommunityTask(name, type, value, description);
     dm.addTask(newTask);
 
-    taskNameInput.setText("");
+    taskNameInput.setText("Test");
     taskDescriptionInput.setText("");
     taskValueSlider.setValue(0);
+
 
     System.out.println(dm.toString());
 
