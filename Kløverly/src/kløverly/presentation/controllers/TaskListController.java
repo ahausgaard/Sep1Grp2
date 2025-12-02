@@ -33,7 +33,7 @@ public class TaskListController implements Initializable
 
   public void onCompleteTaskButtonPressed(ActionEvent actionEvent)
   {
-    ViewManager.showView("CompleteTask");
+    ViewManager.showView("CompleteTask", selectedTask);
   }
 
   public void onEditTaskButtonPressed(ActionEvent actionEvent)
@@ -74,7 +74,6 @@ public class TaskListController implements Initializable
     {
       if (newSelection != null)
       {
-        System.out.println("Saved: " + newSelection);
         selectedTask = newSelection;
       }
     });

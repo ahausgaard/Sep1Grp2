@@ -3,9 +3,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="490.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kløverly.presentation.controllers.AdminController">
    <children>
-      <Label text="AdminPage" />
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Button fx:id="testButton" mnemonicParsing="false" onAction="#onTestButtonPressed" text="Button" />
+            <Label text="AdminPage" />
+            <TextField fx:id="testTextField" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

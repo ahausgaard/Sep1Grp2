@@ -62,4 +62,32 @@ public class ViewManager
       new Alert(Alert.AlertType.ERROR, "Cannot find view: " + viewName).show();
     }
   }
+
+  public static void showView(String viewName, Object argument)
+  {
+    FXMLLoader loader = new FXMLLoader();
+    loader.setLocation(ViewManager.class.getResource(fxmlDirectoryPath + viewName + ".fxml"));
+    try
+    {
+      Parent root = loader.load();
+      Object controller = loader.getController();
+
+      if (controller instanceof AcceptsObjectArgument)
+      {
+        ((AcceptsObjectArgument) controller).setArgument(argument);
+      }
+      else
+      {
+        System.err.println("Controller does not implement AcceptsOnlyArgument or is null for view. " + viewName);
+      }
+
+      mainLayout.setCenter(root);
+
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+      new Alert(Alert.AlertType.ERROR, "Cannot find view: " + viewName).show();
+    }
+  }
 }
