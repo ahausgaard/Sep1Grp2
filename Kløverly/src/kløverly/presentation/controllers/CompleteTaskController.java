@@ -13,18 +13,10 @@ public class CompleteTaskController implements Initializable
   public TaskListController taskListController;
   private Task selectedTask;
 
-
-
-
-
   @Override public void initialize(URL location, ResourceBundle resources)
   {
-<<<<<<< Updated upstream
-    //taskHeaderLabel.setLabelFor("Opgave: " + ); WIP
-=======
-      var selectedTask = taskListController.selectedTask;
-      System.out.println(selectedTask.toString());
-      //taskHeaderLabel.setLabelFor("Opgave: " + selectedTask.getTitle());
->>>>>>> Stashed changes
+    var selectedTask = taskListController.selectedTask;
+    System.out.println(selectedTask.toString());
+    //taskHeaderLabel.setLabelFor("Opgave: " + selectedTask.getTitle());
   }
 }
