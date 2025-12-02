@@ -70,8 +70,17 @@ public class ViewManager
     try
     {
       Parent root = loader.load();
-      AcceptsObjectArgument controller = loader.getController();
-      controller.setArgument(argument);
+      Object controller = loader.getController();
+
+      if (controller instanceof AcceptsObjectArgument)
+      {
+        ((AcceptsObjectArgument) controller).setArgument(argument);
+      }
+      else
+      {
+        System.err.println("Controller does not implement AcceptsOnlyArgument or is null for view. " + viewName);
+      }
+
       mainLayout.setCenter(root);
 
     }
