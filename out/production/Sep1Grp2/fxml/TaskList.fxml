@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kløverly.presentation.controllers.TaskListController">
+   <children>
+      <Label layoutX="100.0" text="Tilgængelige opgaver" translateX="200.0">
+         <VBox.margin>
+            <Insets bottom="40.0" />
+         </VBox.margin>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TableView fx:id="taskTable" prefHeight="332.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="taskNameColumn" prefWidth="268.3333740234375" text="Navn" />
+            <TableColumn fx:id="taskTypeColumn" minWidth="0.0" prefWidth="254.33331298828125" text="Opgavetype" />
+            <TableColumn fx:id="taskValueColumn" prefWidth="77.0" text="Pointværdi" />
+        </columns>
+      </TableView>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+         <children>
+            <Button fx:id="completeTaskButton" mnemonicParsing="false" onAction="#onCompleteTaskButtonPressed" text="Fuldfør opgave">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></Button>
+            <Button fx:id="editTaskButton" mnemonicParsing="false" onAction="#onEditTaskButtonPressed" text="Redigér opgave" />
+            <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+            <Button maxWidth="-Infinity" mnemonicParsing="false" onAction="#onBackButtonPressed" prefWidth="80.0" text="Tilbage" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

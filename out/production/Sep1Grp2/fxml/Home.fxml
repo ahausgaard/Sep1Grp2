@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="20" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+    <Label text="Velkommen til Kløverlys App">
+      <font>
+         <Font size="20.0" />
+      </font></Label>
+    <Label text="Tryk på baren til venstre for at komme i gang.">
+      <font>
+         <Font size="14.0" />
+      </font></Label>
+
+</VBox>
