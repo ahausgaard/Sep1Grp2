@@ -1,6 +1,7 @@
 package kløverly.persistence;
 
 import kløverly.domain.CommunityTask;
+import kløverly.domain.Resident;
 import kløverly.domain.Task;
 
 import java.io.Serial;
@@ -13,6 +14,7 @@ public class DataContainer implements Serializable
   private static final long serialVersionUID = 1L;
 
   private List<Task> taskList;
+  private List<Resident> residentList;
 
   public DataContainer(List<Task> taskList)
   {
@@ -24,10 +26,11 @@ public class DataContainer implements Serializable
     return taskList;
   }
 
+  public List<Resident> getResidentList(){return residentList;}
 
 
   @Override public String toString()
   {
-    return "DataContainer{" + "taskList=" + taskList + '}';
+    return "DataContainer{" + "taskList=" + taskList + "residentList=" + residentList + "}";
   }
 }

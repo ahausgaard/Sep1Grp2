@@ -8,6 +8,7 @@ import java.util.List;
 public interface DataManager
 {
   void addTask(Task task);
+  void addResident(Resident resident);
   List<Task> getAllTasks();
   List<Resident> getAllResidents();
   void saveData();
