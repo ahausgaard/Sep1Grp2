@@ -43,6 +43,7 @@ public class TaskListController implements Initializable
 
   @Override public void initialize(URL location, ResourceBundle resources)
   {
+    //Initialize table
     taskNameColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
     taskTypeColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
     taskValueColumn.setCellValueFactory(new PropertyValueFactory<>("value"));
@@ -53,6 +54,7 @@ public class TaskListController implements Initializable
     taskTable.getColumns().forEach(column -> column.setResizable(false)); // Prevent manual resizing
 
 
+    //Disable buttons when no data is selected
     completeTaskButton.disableProperty().bind(
         taskTable.getSelectionModel().selectedItemProperty().isNull()
     );
@@ -67,6 +69,7 @@ public class TaskListController implements Initializable
       taskTable.getItems().addAll(tasks);
     }
 
+    //Load data for the next view (WIP!)
     taskTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) ->
     {
       if (newSelection != null)

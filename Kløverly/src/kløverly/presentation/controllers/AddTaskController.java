@@ -26,13 +26,16 @@ public class AddTaskController
 
   public void onAddTaskButtonPressed()
   {
+    //Take input and save in variables
     String name = taskNameInput.getText();
     String description = taskDescriptionInput.getText();
     int value = (int) taskValueSlider.getValue();
 
+    //New task. Still hardcoded CommunityTask. WIP
     Task newTask = new CommunityTask(name, "Fælles", value, description);
     dm.addTask(newTask);
 
+    //Reset inputs
     taskNameInput.setText("");
     taskDescriptionInput.setText("");
     taskValueSlider.setValue(0);

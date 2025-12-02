@@ -12,6 +12,6 @@ public class CompleteTaskController implements Initializable
 
   @Override public void initialize(URL location, ResourceBundle resources)
   {
-    //taskHeaderLabel.setLabelFor("Opgave: " + );
+    //taskHeaderLabel.setLabelFor("Opgave: " + ); WIP
   }
 }

@@ -13,9 +13,11 @@ public class RunKløverlyApp extends Application
 {
   @Override public void start(Stage primaryStage) throws Exception
   {
+    //Initialize datamanager
     DataManager dm = new ListDataManager();
     ControllerConfigurator.setDataManager(dm);
 
+    //Set view and primary stage
     ViewManager.init(primaryStage, "MainView");
     ViewManager.showView("Home");
 
