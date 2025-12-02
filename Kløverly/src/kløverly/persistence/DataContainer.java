@@ -14,9 +14,18 @@ public class DataContainer implements Serializable
 
   private List<Task> taskList;
 
-  public DataContainer(List<Task> taskList)
+  public DataContainer(List<Task> taskList, List<Resident> residentList)
   {
+    if (taskList == null)
+    {
+      throw new IllegalArgumentException("taskList cannot be null");
+    }
+    if (residentList == null)
+    {
+      throw new IllegalArgumentException("residentList cannot be null");
+    }
     this.taskList = taskList;
+    this.residentList = residentList;
   }
 
   public List<Task> getTaskList()

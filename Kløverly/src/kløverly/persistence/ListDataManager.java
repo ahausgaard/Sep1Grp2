@@ -61,7 +61,7 @@ public class ListDataManager implements DataManager
     }
     catch (IOException | ClassNotFoundException e)
     {
-      return new DataContainer(new ArrayList<>());
+      return new DataContainer(new ArrayList<>(), new ArrayList<>());
     }
   }
 }
