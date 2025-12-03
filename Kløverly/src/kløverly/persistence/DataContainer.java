@@ -1,6 +1,7 @@
 package kløverly.persistence;
 
 import kløverly.domain.CommunityTask;
+import kløverly.domain.Resident;
 import kløverly.domain.Task;
 
 import java.io.Serial;
