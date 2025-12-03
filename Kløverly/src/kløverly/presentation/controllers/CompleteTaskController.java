@@ -12,6 +12,10 @@ public class CompleteTaskController implements Initializable, AcceptsObjectArgum
 
 {
   public Label taskHeaderLabel;
+  public Label displayStakeholder;
+  public Label displayType;
+  public Label displayValue;
+  public Label displayDescription;
   private Task selectedTask;
 
   @Override public void setArgument(Object argument)
@@ -38,6 +42,10 @@ public class CompleteTaskController implements Initializable, AcceptsObjectArgum
 
       // Update the UI element (taskHeaderLabel)
       taskHeaderLabel.setText("Opgave: " + this.selectedTask.getTitle());
+      displayType.setText(this.selectedTask.getType());
+      displayDescription.setText(this.selectedTask.getDescription());
+      displayValue.setText(String.valueOf(this.selectedTask.getValue()));
+
     } else {
       // This should only happen if setArgument was called with null
       taskHeaderLabel.setText("Error: No task loaded.");
