@@ -63,11 +63,19 @@ public class ListDataManager implements DataManager
     try (ObjectInputStream ois = new ObjectInputStream(
         new FileInputStream("data.bin")))
     {
-      return (DataContainer) ois.readObject();
+      DataContainer container = (DataContainer) ois.readObject();
+
+      if(container.getTaskList() == null)
+        container.setTaskList(new ArrayList<>());
+
+      if(container.getResidentList() == null)
+        container.setResidentList(new ArrayList<>());
+
+      return container;
     }
     catch (IOException | ClassNotFoundException e)
     {
-      return new DataContainer(new ArrayList<>());
+      return null;
     }
   }
 }

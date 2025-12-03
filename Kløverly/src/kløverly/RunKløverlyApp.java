@@ -22,6 +22,7 @@ public class RunKløverlyApp extends Application
     ViewManager.showView("Home");
 
     dm.getAllTasks();
+    dm.getAllResidents();
   }
 
   public static void main(String[] args)
