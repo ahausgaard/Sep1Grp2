@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ListDataManager implements DataManager
 {
-  private static final String TASK_FILE_PATH = "tasks.bin";
+  private static final String TASK_FILE_PATH = "data.bin";
   private DataContainer dataContainer;
 
   public ListDataManager()
@@ -23,6 +23,12 @@ public class ListDataManager implements DataManager
     saveData();
   }
 
+  @Override public void addResident(Resident resident)
+  {
+    dataContainer.getResidentList().add(resident);
+    saveData();
+  }
+
   @Override public List<Task> getAllTasks()
   {
     return dataContainer.getTaskList();
@@ -30,7 +36,7 @@ public class ListDataManager implements DataManager
 
   @Override public List<Resident> getAllResidents()
   {
-    return List.of();
+    return dataContainer.getResidentList();
   }
 
   @Override public String toString()
@@ -41,7 +47,7 @@ public class ListDataManager implements DataManager
   @Override
   public void saveData()
   {
-    try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("tasks.bin")))
+    try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("data.bin")))
     {
       oos.writeObject(dataContainer);
     }
@@ -55,13 +61,21 @@ public class ListDataManager implements DataManager
   public DataContainer loadData()
   {
     try (ObjectInputStream ois = new ObjectInputStream(
-        new FileInputStream("tasks.bin")))
+        new FileInputStream("data.bin")))
     {
-      return (DataContainer) ois.readObject();
+      DataContainer container = (DataContainer) ois.readObject();
+
+      if(container.getTaskList() == null)
+        container.setTaskList(new ArrayList<>());
+
+      if(container.getResidentList() == null)
+        container.setResidentList(new ArrayList<>());
+
+      return container;
     }
     catch (IOException | ClassNotFoundException e)
     {
-      return new DataContainer(new ArrayList<>());
+      return null;
     }
   }
 }

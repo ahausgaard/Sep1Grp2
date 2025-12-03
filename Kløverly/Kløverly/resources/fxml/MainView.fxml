@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="searchPlanetButton" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Kløverly.presentation.controllers.MainViewController">
+   <left>
+      <VBox prefHeight="400.0" prefWidth="108.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Navigation" />
+            <Separator prefWidth="200.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Separator>
+            <Button fx:id="addPlanetButton" maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#onAddPlanetButtonPressed" text="Tilføj opgave">
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="viewPlanetsButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onViewPlanetsButtonPressed" text="View Planets">
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="searchPlanet" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onSearchPlanetButtonPressed" text="Search Planet">
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+         </padding>
+      </VBox>
+   </left>
+   <center>
+      <Label prefHeight="34.0" text="Welcome to Planet Explorer! Select an option from the menu to get started." BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

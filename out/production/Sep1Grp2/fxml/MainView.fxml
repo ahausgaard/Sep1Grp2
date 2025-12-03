@@ -15,12 +15,12 @@
                   <Insets />
                </VBox.margin>
             </Separator>
-            <Button fx:id="addTaskButton" maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#onAddTaskButtonPressed" text="Registrér opgave">
+            <Button fx:id="addTaskViewButton" maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#onAddTaskViewButtonPressed" text="Registrér opgave">
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="viewAvailableTasksButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onViewAvailableTasksButtonPressed" text="Opgaveoversigt">
+            <Button fx:id="taskListViewButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onTaskListViewButtonPressed" text="Opgaveoversigt">
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
