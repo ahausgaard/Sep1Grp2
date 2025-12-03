@@ -40,7 +40,7 @@ public class AddTaskController
     String description = taskDescriptionInput.getText();
     int value = (int) taskValueSlider.getValue();
 
-<<<<<<< HEAD
+
     String type = choiceBoxDrop.getValue();
 
 
@@ -49,14 +49,11 @@ public class AddTaskController
     dm.addTask(newTask);
 
     taskNameInput.setText("Test");
-=======
-    //New task. Still hardcoded CommunityTask. WIP
-    Task newTask = new CommunityTask(name, "Fælles", value, description);
-    dm.addTask(newTask);
+
 
     //Reset inputs
     taskNameInput.setText("");
->>>>>>> dd02148e01b2797e3d76d50eaaebbf93288a932e
+
     taskDescriptionInput.setText("");
     taskValueSlider.setValue(0);
 
