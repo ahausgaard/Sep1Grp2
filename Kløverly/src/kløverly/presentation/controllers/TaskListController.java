@@ -36,7 +36,7 @@ public class TaskListController implements Initializable
     Task selectedTask = taskTable.getSelectionModel().getSelectedItem();
     if (selectedTask != null)
     {
-      ViewManager.showView("CompleteTask", selectedTask);
+      ViewManager.showView("TaskView", selectedTask);
     }
     else
     {

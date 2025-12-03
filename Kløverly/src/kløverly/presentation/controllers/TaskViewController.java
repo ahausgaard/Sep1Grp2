@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import kløverly.domain.Resident;
 import kløverly.domain.Task;
 import kløverly.persistence.DataManager;
@@ -16,14 +17,14 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class CompleteTaskController implements Initializable, AcceptsObjectArgument
+public class TaskViewController implements Initializable, AcceptsObjectArgument
 
 {
   public Label taskHeaderLabel;
   public Label displayStakeholder;
   public Label displayType;
   public Label displayValue;
-  public Label displayDescription;
+  public TextField displayDescription;
   public Button cancelButton;
   public ComboBox completerBox;
   private Task selectedTask;
@@ -45,9 +46,6 @@ public class CompleteTaskController implements Initializable, AcceptsObjectArgum
     List<Resident> residents = dm.getAllResidents();
     completerBox.getItems().addAll(residents);
   }
-
-
-
 
   private void updateTaskDetails() {
     if (this.selectedTask != null) {

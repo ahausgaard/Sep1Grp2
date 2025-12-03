@@ -13,6 +13,7 @@ public abstract class Task implements Serializable
   private String type;
   private int value;
   private String description;
+  private TaskStatus status;
 
   public Task(String title, String type, int value, String description)
   {
@@ -20,6 +21,7 @@ public abstract class Task implements Serializable
     this.type = type;
     this.value = value;
     this.description = description;
+    this.status = TaskStatus.open;
   }
 
   public Task()
@@ -46,10 +48,15 @@ public abstract class Task implements Serializable
     return title;
   }
 
+  public TaskStatus getStatus()
+  {
+    return status;
+  }
+
   @Override public String toString()
   {
     return "Task{" + "title='" + title + '\'' + ", type='" + type + '\''
-        + ", value=" + value + ", description='" + description + '\'' + '}';
+        + ", value=" + value + ", description='" + description + '\'' + ", status=" + status + '}';
   }
 
   @Override public boolean equals(Object o)
