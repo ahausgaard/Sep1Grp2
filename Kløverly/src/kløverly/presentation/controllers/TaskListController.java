@@ -21,7 +21,6 @@ public class TaskListController implements Initializable
 {
   public TableView<Task> taskTable;
   public Button completeTaskButton;
-  public Button editTaskButton;
   public TableColumn<Task, String> taskNameColumn;
   public TableColumn<Task, String> taskTypeColumn;
   public TableColumn<Task, String> taskValueColumn;
@@ -45,11 +44,6 @@ public class TaskListController implements Initializable
     }
   }
 
-  public void onEditTaskButtonPressed(ActionEvent actionEvent)
-  {
-    ViewManager.showView("EditTask");
-  }
-
   @Override public void initialize(URL location, ResourceBundle resources)
   {
     //Initialize table and get tasks
@@ -66,9 +60,6 @@ public class TaskListController implements Initializable
 
     //Disable buttons when no data is selected
     completeTaskButton.disableProperty()
-        .bind(taskTable.getSelectionModel().selectedItemProperty().isNull());
-
-    editTaskButton.disableProperty()
         .bind(taskTable.getSelectionModel().selectedItemProperty().isNull());
 
     //Populate table

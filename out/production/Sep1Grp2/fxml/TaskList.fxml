@@ -24,11 +24,10 @@
       </TableView>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
          <children>
-            <Button fx:id="completeTaskButton" mnemonicParsing="false" onAction="#onCompleteTaskButtonPressed" text="Fuldfør opgave">
+            <Button fx:id="completeTaskButton" mnemonicParsing="false" onAction="#onCompleteTaskButtonPressed" text="Åbn opgave">
                <HBox.margin>
                   <Insets />
                </HBox.margin></Button>
-            <Button fx:id="editTaskButton" mnemonicParsing="false" onAction="#onEditTaskButtonPressed" text="Redigér opgave" />
             <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
             <Button maxWidth="-Infinity" mnemonicParsing="false" onAction="#onBackButtonPressed" prefWidth="80.0" text="Tilbage" />
          </children>
