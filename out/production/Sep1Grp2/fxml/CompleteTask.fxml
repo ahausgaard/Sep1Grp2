@@ -70,10 +70,11 @@
       <Region prefHeight="200.0" prefWidth="200.0" />
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
          <children>
+            <ComboBox fx:id="completerBox" onAction="#onCompleterBoxPressed" prefWidth="150.0" promptText="Vælg opgaveløser" />
+            <Button mnemonicParsing="false" text="Udfør opgave" />
+            <Region maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="100.0" prefWidth="120.0" />
             <Button mnemonicParsing="false" text="Redigér opgave" />
-            <Button mnemonicParsing="false" text="Færdiggør opgave" />
-            <Region maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="100.0" prefWidth="230.0" />
-            <Button mnemonicParsing="false" text="Tilbage" />
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#onCancelButtonPressed" text="Tilbage" />
          </children>
       </HBox>
    </children>

@@ -1,11 +1,19 @@
 package kløverly.presentation.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import kløverly.domain.Resident;
 import kløverly.domain.Task;
+import kløverly.persistence.DataManager;
 import kløverly.presentation.core.AcceptsObjectArgument;
+import kløverly.presentation.core.ControllerConfigurator;
+import kløverly.presentation.core.ViewManager;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class CompleteTaskController implements Initializable, AcceptsObjectArgument
@@ -16,6 +24,8 @@ public class CompleteTaskController implements Initializable, AcceptsObjectArgum
   public Label displayType;
   public Label displayValue;
   public Label displayDescription;
+  public Button cancelButton;
+  public ComboBox completerBox;
   private Task selectedTask;
 
   @Override public void setArgument(Object argument)
@@ -31,9 +41,13 @@ public class CompleteTaskController implements Initializable, AcceptsObjectArgum
 
   @Override public void initialize(URL location, ResourceBundle resources)
   {
-
-    //taskHeaderLabel.setLabelFor("Opgave: " + selectedTask.getTitle());
+    DataManager dm = ControllerConfigurator.getDataManager();
+    List<Resident> residents = dm.getAllResidents();
+    completerBox.getItems().addAll(residents);
   }
+
+
+
 
   private void updateTaskDetails() {
     if (this.selectedTask != null) {
@@ -50,5 +64,15 @@ public class CompleteTaskController implements Initializable, AcceptsObjectArgum
       // This should only happen if setArgument was called with null
       taskHeaderLabel.setText("Error: No task loaded.");
     }
+  }
+
+  public void onCancelButtonPressed(ActionEvent actionEvent)
+  {
+    ViewManager.showView("TaskList");
+  }
+
+  public void onCompleterBoxPressed(ActionEvent actionEvent)
+  {
+
   }
 }
