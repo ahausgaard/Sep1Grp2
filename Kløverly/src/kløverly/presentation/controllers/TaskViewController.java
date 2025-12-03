@@ -1,11 +1,15 @@
 package kløverly.presentation.controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.util.StringConverter;
 import kløverly.domain.Resident;
 import kløverly.domain.Task;
 import kløverly.persistence.DataManager;
@@ -26,15 +30,19 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
   public Label displayValue;
   public TextField displayDescription;
   public Button cancelButton;
-  public ComboBox completerBox;
+  public ComboBox<Resident> completerBox;
   private Task selectedTask;
 
   @Override public void setArgument(Object argument)
   {
-    if (argument instanceof Task) {
+    //Set Task received from Task List
+    if (argument instanceof Task)
+    {
       this.selectedTask = (Task) argument;
       updateTaskDetails();
-    } else {
+    }
+    else
+    {
       this.selectedTask = null;
       taskHeaderLabel.setText("Error: Invalid argument type passed.");
     }
@@ -47,19 +55,19 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
     completerBox.getItems().addAll(residents);
   }
 
-  private void updateTaskDetails() {
-    if (this.selectedTask != null) {
-      // Print to console (for debugging)
-      System.out.println("Loaded Task: " + this.selectedTask.toString());
-
-      // Update the UI element (taskHeaderLabel)
+  private void updateTaskDetails()
+  {
+    if (this.selectedTask != null)
+    {
+      // Update the UI elements
       taskHeaderLabel.setText("Opgave: " + this.selectedTask.getTitle());
       displayType.setText(this.selectedTask.getType());
       displayDescription.setText(this.selectedTask.getDescription());
       displayValue.setText(String.valueOf(this.selectedTask.getValue()));
 
-    } else {
-      // This should only happen if setArgument was called with null
+    }
+    else
+    {
       taskHeaderLabel.setText("Error: No task loaded.");
     }
   }

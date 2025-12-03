@@ -3,6 +3,8 @@ package kløverly.domain;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.UUID;
+import kløverly.util.IdGenerator;
 
 public class Resident implements Serializable
 {
@@ -12,13 +14,14 @@ public class Resident implements Serializable
   private String name;
   private int personalPointAmount;
   private int activityLevel;
-  private int id;
+  private String id;
 
   public Resident(String name)
   {
-    this.name = name;
+    this.name = name.toLowerCase();
     personalPointAmount = 0;
     activityLevel = 0;
+    this.id = IdGenerator.generate("R");
   }
 
   public Resident()
@@ -26,24 +29,30 @@ public class Resident implements Serializable
 
   }
 
+  public String getName()
+  {
+    return name;
+  }
+
+  public int getPersonalPointAmount()
+  {
+    return personalPointAmount;
+  }
+
+  public int getActivityLevel()
+  {
+    return activityLevel;
+  }
+
+  public String getId()
+  {
+    return id;
+  }
+
   @Override public String toString()
   {
     return "Resident{" + "name='" + name + '\'' + ", personalPointAmount="
-        + personalPointAmount + ", activityLevel=" + activityLevel + ", id="
-        + id + '}';
-  }
-
-  @Override public boolean equals(Object o)
-  {
-    if (!(o instanceof Resident resident))
-      return false;
-    return personalPointAmount == resident.personalPointAmount
-        && activityLevel == resident.activityLevel && id == resident.id
-        && Objects.equals(name, resident.name);
-  }
-
-  @Override public int hashCode()
-  {
-    return Objects.hash(name, personalPointAmount, activityLevel, id);
+        + personalPointAmount + ", activityLevel=" + activityLevel + ", id='"
+        + id + '\'' + '}';
   }
 }

@@ -3,6 +3,7 @@ package kløverly.domain;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
+import kløverly.util.IdGenerator;
 
 public abstract class Task implements Serializable
 {
@@ -14,6 +15,7 @@ public abstract class Task implements Serializable
   private int value;
   private String description;
   private TaskStatus status;
+  private String id;
 
   public Task(String title, String type, int value, String description)
   {
@@ -22,6 +24,7 @@ public abstract class Task implements Serializable
     this.value = value;
     this.description = description;
     this.status = TaskStatus.open;
+    //this.id = IdGenerator.generate("T");
   }
 
   public Task()
@@ -47,6 +50,8 @@ public abstract class Task implements Serializable
   {
     return title;
   }
+
+  public String getId(){return id;}
 
   public TaskStatus getStatus()
   {

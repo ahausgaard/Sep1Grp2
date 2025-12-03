@@ -60,7 +60,7 @@ public class ListDataManager implements DataManager
   @Override
   public DataContainer loadData()
   {
-    try (ObjectInputStream ois = new ObjectInputStream(
+    /*try (ObjectInputStream ois = new ObjectInputStream(
         new FileInputStream("data.bin")))
     {
       DataContainer container = (DataContainer) ois.readObject();
@@ -76,6 +76,27 @@ public class ListDataManager implements DataManager
     catch (IOException | ClassNotFoundException e)
     {
       return null;
+    }*/
+    try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(TASK_FILE_PATH)))
+    {
+      DataContainer container = (DataContainer) ois.readObject();
+
+      // Ensure lists are not null after reading
+      if(container.getTaskList() == null)
+        container.setTaskList(new ArrayList<>());
+
+      if(container.getResidentList() == null)
+        container.setResidentList(new ArrayList<>());
+
+      return container;
+    }
+    catch (IOException | ClassNotFoundException e)
+    {
+      DataContainer newContainer = new DataContainer();
+      newContainer.setTaskList(new ArrayList<>());
+      newContainer.setResidentList(new ArrayList<>());
+
+      return newContainer;
     }
   }
 }
