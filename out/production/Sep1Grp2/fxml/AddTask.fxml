@@ -30,7 +30,6 @@
       </TextField>
       <Label fx:id="sliderInput" text="Point" />
       <Spinner editable="true" />
-      <Slider fx:id="taskValueSlider" blockIncrement="1.0" min="1.0" value="1.0" />
       <HBox alignment="CENTER" prefHeight="59.0" prefWidth="490.0" spacing="80.0">
          <children>
             <Button fx:id="addTaskButton" mnemonicParsing="false" onAction="#onAddTaskButtonPressed" text="Tilføj" />
