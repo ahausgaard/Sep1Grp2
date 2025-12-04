@@ -23,9 +23,21 @@ public class ListDataManager implements DataManager
     saveData();
   }
 
+  @Override public void deleteTask(Task task)
+  {
+    dataContainer.getTaskList().remove(task);
+    saveData();
+  }
+
   @Override public void addResident(Resident resident)
   {
     dataContainer.getResidentList().add(resident);
+    saveData();
+  }
+
+  @Override public void deleteResident(Resident resident)
+  {
+    dataContainer.getResidentList().remove(resident);
     saveData();
   }
 

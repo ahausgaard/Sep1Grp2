@@ -16,6 +16,7 @@ import kløverly.presentation.core.ViewManager;
 import java.net.URL;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class TaskViewController implements Initializable, AcceptsObjectArgument
@@ -37,6 +38,7 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
   private Task selectedTask;
   private DataManager dm;
   private Resident completer;
+  private Alert deletionAlert = new Alert(Alert.AlertType.CONFIRMATION);
 
   private final BooleanProperty isEditing = new SimpleBooleanProperty(false);
 
@@ -172,5 +174,25 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
 
   public void onDeleteTaskButtonPressed(ActionEvent actionEvent)
   {
+    //Alert
+    deletionAlert.setTitle("Slet opgave");
+    deletionAlert.setHeaderText(null);
+    deletionAlert.setContentText("Er du sikker på, du vil slette opgave: " + selectedTask.getTitle());
+    ButtonType buttonTypeDelete = new ButtonType("Slet");
+    ButtonType buttonTypeCancel = new ButtonType("Annullér");
+    deletionAlert.getButtonTypes().setAll(buttonTypeDelete, buttonTypeCancel);
+
+    Optional<ButtonType> result = deletionAlert.showAndWait();
+
+    if(result.isPresent() && result.get() == buttonTypeDelete)
+    {
+      dm.deleteTask(selectedTask);
+      System.out.println("Task deleted.");
+      ViewManager.showView("TaskList");
+    }
+    else
+    {
+      System.out.println("Deletion cancelled.");
+    }
   }
 }

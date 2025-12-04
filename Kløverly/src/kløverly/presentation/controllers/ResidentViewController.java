@@ -14,6 +14,7 @@ import kløverly.presentation.core.ViewManager;
 import java.net.URL;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ResidentViewController implements Initializable, AcceptsObjectArgument
@@ -30,6 +31,7 @@ public class ResidentViewController implements Initializable, AcceptsObjectArgum
   public Button deleteResidentButton;
   private Resident selectedResident;
   private DataManager dm;
+  private Alert deletionAlert = new Alert(Alert.AlertType.CONFIRMATION);
 
   private final BooleanProperty isEditing = new SimpleBooleanProperty(false);
 
@@ -90,6 +92,8 @@ public class ResidentViewController implements Initializable, AcceptsObjectArgum
     {
       residentHeaderLabel.setText("Error: No task loaded.");
     }
+
+
   }
 
   public void onCancelButtonPressed(ActionEvent actionEvent)
@@ -150,6 +154,26 @@ public class ResidentViewController implements Initializable, AcceptsObjectArgum
 
   public void onDeleteResidentButtonPressed(ActionEvent actionEvent)
   {
+    //Alert
+    deletionAlert.setTitle("Slet beboer");
+    deletionAlert.setHeaderText(null);
+    deletionAlert.setContentText("Er du sikker på, du vil slette beboer: " + selectedResident.getName());
+    ButtonType buttonTypeDelete = new ButtonType("Slet");
+    ButtonType buttonTypeCancel = new ButtonType("Annullér");
+    deletionAlert.getButtonTypes().setAll(buttonTypeDelete, buttonTypeCancel);
+
+    Optional<ButtonType> result = deletionAlert.showAndWait();
+
+    if(result.isPresent() && result.get() == buttonTypeDelete)
+    {
+      dm.deleteResident(selectedResident);
+      System.out.println("Resident deleted.");
+      ViewManager.showView("ResidentList");
+    }
+    else
+    {
+      System.out.println("Deletion cancelled.");
+    }
   }
 }
 
