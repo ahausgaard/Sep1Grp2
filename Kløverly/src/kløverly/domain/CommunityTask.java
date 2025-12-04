@@ -17,3 +17,7 @@ public class CommunityTask extends Task
     return "CommunityTask{} " + super.toString();
   }
 }
+
+
+
+

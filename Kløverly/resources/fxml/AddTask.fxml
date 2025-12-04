@@ -29,7 +29,7 @@
          </VBox.margin>
       </TextField>
       <Label text="Opgaveværdi" />
-      <Slider fx:id="taskValueSlider"  />
+      <Slider fx:id="taskValueSlider" blockIncrement="1" min="1" value="1"/>
        <Label fx:id="sliderInput">
 
        </Label>
