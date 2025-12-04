@@ -28,7 +28,6 @@
             <Insets bottom="10.0" />
          </VBox.margin>
       </TextField>
-      <Label text="Opgaveværdi" />
       <Label fx:id="spinnerInput" text="Point" />
       <Spinner fx:id="spinner" editable="true" />
       <HBox alignment="CENTER" prefHeight="59.0" prefWidth="490.0" spacing="80.0">
