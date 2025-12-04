@@ -17,6 +17,31 @@ public abstract class Task implements Serializable
   private TaskStatus status;
   private String id;
 
+  public void setTitle(String title)
+  {
+    this.title = title;
+  }
+
+  public void setType(String type)
+  {
+    this.type = type;
+  }
+
+  public void setValue(int value)
+  {
+    this.value = value;
+  }
+
+  public void setDescription(String description)
+  {
+    this.description = description;
+  }
+
+  public void setStatus(TaskStatus status)
+  {
+    this.status = status;
+  }
+
   public Task(String title, String type, int value, String description)
   {
     this.title = title;

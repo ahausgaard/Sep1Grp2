@@ -24,12 +24,12 @@
          <children>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label text="Type">
+                  <Label text="Id">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label fx:id="displayType" text="Task" />
+                  <Label fx:id="displayId" text="0" />
                </children>
             </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -39,7 +39,12 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label fx:id="displayStakeholder" />
+                  <StackPane alignment="TOP_LEFT" prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="displayStakeholder" />
+                        <TextField fx:id="editStakeholder" />
+                     </children>
+                  </StackPane>
                </children>
             </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
@@ -49,7 +54,12 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label fx:id="displayValue" text="0" />
+                  <StackPane alignment="TOP_LEFT" prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="displayValue" text="0" />
+                        <Spinner fx:id="editValue" visible="false" />
+                     </children>
+                  </StackPane>
                </children>
             </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
@@ -59,7 +69,12 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="displayDescription" editable="false" />
+                  <StackPane alignment="TOP_LEFT" prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="displayDescription" />
+                        <TextField fx:id="editDescription" />
+                     </children>
+                  </StackPane>
                </children>
             </VBox>
          </children>
@@ -73,7 +88,7 @@
             <ComboBox fx:id="completerBox" editable="true" onAction="#onCompleterBoxPressed" prefWidth="150.0" promptText="Vælg opgaveløser" />
             <Button mnemonicParsing="false" text="Udfør opgave" />
             <Region maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="100.0" prefWidth="120.0" />
-            <Button mnemonicParsing="false" text="Redigér opgave" />
+            <Button fx:id="editTaskButton" mnemonicParsing="false" onAction="#onEditTaskButtonPressed" text="Redigér opgave" />
             <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#onCancelButtonPressed" text="Tilbage" />
          </children>
       </HBox>

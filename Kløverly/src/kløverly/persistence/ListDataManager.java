@@ -60,23 +60,7 @@ public class ListDataManager implements DataManager
   @Override
   public DataContainer loadData()
   {
-    /*try (ObjectInputStream ois = new ObjectInputStream(
-        new FileInputStream("data.bin")))
-    {
-      DataContainer container = (DataContainer) ois.readObject();
 
-      if(container.getTaskList() == null)
-        container.setTaskList(new ArrayList<>());
-
-      if(container.getResidentList() == null)
-        container.setResidentList(new ArrayList<>());
-
-      return container;
-    }
-    catch (IOException | ClassNotFoundException e)
-    {
-      return null;
-    }*/
     try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(TASK_FILE_PATH)))
     {
       DataContainer container = (DataContainer) ois.readObject();

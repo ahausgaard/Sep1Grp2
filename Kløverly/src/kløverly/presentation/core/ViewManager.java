@@ -19,7 +19,7 @@ public class ViewManager
       BorderPane root = FXMLLoader.load(
           ViewManager.class.getResource(fxmlDirectoryPath + initialView + ".fxml")
       );
-
+//TODO
       mainLayout = root;
 
       Scene scene = new Scene(root, 900, 600);
