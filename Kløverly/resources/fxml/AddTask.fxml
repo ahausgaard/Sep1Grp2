@@ -15,7 +15,7 @@
             <Insets bottom="40.0" />
          </VBox.margin>
       </Label>
-      <ChoiceBox prefWidth="150.0" />
+      <ComboBox fx:id="choiceBoxDrop" prefWidth="150.0" />
       <Label text="Opgavens navn" />
       <TextField fx:id="taskNameInput">
          <VBox.margin>
@@ -29,6 +29,7 @@
          </VBox.margin>
       </TextField>
       <Label text="Opgaveværdi" />
+      <Label fx:id="sliderInput" text="Label" />
       <Slider fx:id="taskValueSlider" />
       <HBox alignment="CENTER" prefHeight="59.0" prefWidth="490.0" spacing="80.0">
          <children>
