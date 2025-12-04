@@ -9,7 +9,7 @@ public class CommunityTask extends Task
 
   public CommunityTask(String title, String type, int value, String description)
   {
-    super(title, type, value, description);
+    super("CT", title, type, value, description);
   }
 
   @Override public String toString()

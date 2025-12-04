@@ -24,7 +24,7 @@
       </TableView>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
          <children>
-            <Button fx:id="completeTaskButton" mnemonicParsing="false" onAction="#onCompleteTaskButtonPressed" text="Åbn opgave">
+            <Button fx:id="openTaskButton" mnemonicParsing="false" onAction="#onOpenTaskButtonPressed" text="Åbn opgave">
                <HBox.margin>
                   <Insets />
                </HBox.margin></Button>

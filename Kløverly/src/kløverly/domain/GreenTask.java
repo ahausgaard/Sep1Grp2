@@ -9,6 +9,11 @@ public class GreenTask extends Task
 
   public GreenTask(String title, String type, int value, String description)
   {
-    super(title, type, value, description);
+    super("GT", title, type, value, description);
+  }
+
+  @Override public String toString()
+  {
+    return "GreenTask{} " + super.toString();
   }
 }

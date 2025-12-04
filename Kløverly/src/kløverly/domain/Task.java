@@ -42,14 +42,14 @@ public abstract class Task implements Serializable
     this.status = status;
   }
 
-  public Task(String title, String type, int value, String description)
+  public Task(String prefix, String title, String type, int value, String description)
   {
     this.title = title;
     this.type = type;
     this.value = value;
     this.description = description;
     this.status = TaskStatus.open;
-    //this.id = IdGenerator.generate("T");
+    this.id = IdGenerator.generate(prefix);
   }
 
   public Task()

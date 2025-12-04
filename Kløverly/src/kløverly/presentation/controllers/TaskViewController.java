@@ -5,6 +5,7 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.util.StringConverter;
 import kløverly.domain.Resident;
 import kløverly.domain.Task;
 import kløverly.persistence.DataManager;
@@ -13,6 +14,7 @@ import kløverly.presentation.core.ControllerConfigurator;
 import kløverly.presentation.core.ViewManager;
 
 import java.net.URL;
+import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -30,7 +32,10 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
   public TextField editStakeholder;
   public Spinner<Integer> editValue;
   public Button editTaskButton;
+  public Button finishTaskButton;
   private Task selectedTask;
+  private DataManager dm;
+  private Resident completer;
 
   private final BooleanProperty isEditing = new SimpleBooleanProperty(false);
 
@@ -51,9 +56,28 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
 
   @Override public void initialize(URL location, ResourceBundle resources)
   {
-    DataManager dm = ControllerConfigurator.getDataManager();
+    dm = ControllerConfigurator.getDataManager();
     List<Resident> residents = dm.getAllResidents();
+    residents.sort(Comparator.comparing(Resident::getName));
+
     completerBox.getItems().addAll(residents);
+
+    completerBox.setConverter(new StringConverter<Resident>() {
+      @Override
+      public String toString(Resident resident) {
+        if (resident == null) {
+          return null;
+        }
+
+        return resident.getName();
+      }
+
+      @Override
+      public Resident fromString(String string) {
+        return null;
+      }
+    });
+
 
     editDescription.visibleProperty().bind(isEditing);
     displayDescription.visibleProperty().bind(isEditing.not());
@@ -63,6 +87,8 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
     editValue.visibleProperty().bind(isEditing);
     editValue.managedProperty().bind(editValue.visibleProperty());
 
+    finishTaskButton.disableProperty()
+        .bind(completerBox.valueProperty().isNull().or(isEditing)); //TODO || selectedTask.getValue() > completer.getPersonalPointAmount
   }
 
   private void populateFields()
@@ -96,7 +122,7 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
   {
     if (isEditing.get())
     {
-      cancelButton.setText("Annullér ændringer");
+      cancelButton.setText("Tilbage");
       populateFields();
       isEditing.set(false);
     }
@@ -114,11 +140,13 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
     {
       saveTask();
       editTaskButton.setText("Redigér opgave");
+      cancelButton.setText("Tilbage");
       isEditing.set(false);
     }
     else
     {
     editTaskButton.setText("Gem ændringer");
+    cancelButton.setText("Annullér");
     isEditing.set(true);
     }
   }
@@ -130,12 +158,22 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
 
     int newValue = editValue.getValue();
     selectedTask.setValue(newValue);
+
+    dm.saveData();
+
     populateFields();
+
   }
 
   public void onCompleterBoxPressed(ActionEvent actionEvent)
   {
 
   }
+
+  public void onFinishTaskButton(ActionEvent actionEvent)
+  {
+  }
+
+
 
 }

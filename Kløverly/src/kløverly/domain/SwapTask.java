@@ -9,6 +9,11 @@ public class SwapTask extends Task
 
   public SwapTask(String title, String type, int value, String description)
   {
-    super(title, type, value, description);
+    super("ST",title, type, value, description);
+  }
+
+  @Override public String toString()
+  {
+    return "SwapTask{} " + super.toString();
   }
 }
