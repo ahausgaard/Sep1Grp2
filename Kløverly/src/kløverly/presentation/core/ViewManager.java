@@ -26,6 +26,11 @@ public class ViewManager
       primaryStage.setScene(scene);
       primaryStage.setTitle("Kløverly App");
       primaryStage.show();
+
+      scene.getStylesheets().add(
+              ViewManager.class.getResource(fxmlDirectoryPath + "fx.css").toExternalForm()
+      );
+
   }
 
   public static void showView(String viewName)
