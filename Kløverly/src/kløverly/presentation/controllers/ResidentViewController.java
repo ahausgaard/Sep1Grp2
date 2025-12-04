@@ -27,6 +27,7 @@ public class ResidentViewController implements Initializable, AcceptsObjectArgum
   public Spinner<Integer> editActivityLevel;
   public Spinner<Integer> editPersonalPoints;
   public Button editTaskButton;
+  public Button deleteResidentButton;
   private Resident selectedResident;
   private DataManager dm;
 
@@ -56,7 +57,7 @@ public class ResidentViewController implements Initializable, AcceptsObjectArgum
     editActivityLevel.visibleProperty().bind(isEditing);
     displayActivityLevel.visibleProperty().bind(isEditing.not());
 
-
+    deleteResidentButton.visibleProperty().bind(isEditing);
     displayPersonalPoints.visibleProperty().bind(isEditing.not());
     editPersonalPoints.visibleProperty().bind(isEditing);
     editPersonalPoints.managedProperty().bind(editPersonalPoints.visibleProperty());
@@ -147,7 +148,8 @@ public class ResidentViewController implements Initializable, AcceptsObjectArgum
   {
   }
 
-
-
+  public void onDeleteResidentButtonPressed(ActionEvent actionEvent)
+  {
+  }
 }
 

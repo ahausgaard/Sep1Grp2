@@ -33,6 +33,7 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
   public Spinner<Integer> editValue;
   public Button editTaskButton;
   public Button finishTaskButton;
+  public Button deleteTaskButton;
   private Task selectedTask;
   private DataManager dm;
   private Resident completer;
@@ -82,7 +83,7 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
     editDescription.visibleProperty().bind(isEditing);
     displayDescription.visibleProperty().bind(isEditing.not());
 
-
+    deleteTaskButton.visibleProperty().bind(isEditing);
     displayValue.visibleProperty().bind(isEditing.not());
     editValue.visibleProperty().bind(isEditing);
     editValue.managedProperty().bind(editValue.visibleProperty());
@@ -165,15 +166,11 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
 
   }
 
-  public void onCompleterBoxPressed(ActionEvent actionEvent)
-  {
-
-  }
-
   public void onFinishTaskButton(ActionEvent actionEvent)
   {
   }
 
-
-
+  public void onDeleteTaskButtonPressed(ActionEvent actionEvent)
+  {
+  }
 }
