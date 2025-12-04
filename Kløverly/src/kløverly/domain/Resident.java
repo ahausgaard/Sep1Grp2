@@ -29,6 +29,16 @@ public class Resident implements Serializable
 
   }
 
+  public void setPersonalPointAmount(int personalPointAmount)
+  {
+    this.personalPointAmount = personalPointAmount;
+  }
+
+  public void setActivityLevel(int activityLevel)
+  {
+    this.activityLevel = activityLevel;
+  }
+
   public String getName()
   {
     return name;
