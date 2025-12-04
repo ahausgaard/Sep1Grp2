@@ -25,6 +25,11 @@
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
             </Button>
+            <Button fx:id="residentListButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onResidentListButtonPressed" text="Beboeroversigt">
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
+            </Button>
             <Region prefHeight="400.0" prefWidth="106.0" VBox.vgrow="ALWAYS" />
             <Button fx:id="adminButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAdminButtonPressed" text="Admin">
                <VBox.margin>

@@ -10,6 +10,7 @@ public class MainViewController
   public Button adminButton;
   public Button addTaskViewButton;
   public Button taskListViewButton;
+  public Button residentListButton;
 
   public void onAddTaskViewButtonPressed(ActionEvent actionEvent)
   {
@@ -24,5 +25,10 @@ public class MainViewController
   public void onAdminButtonPressed(ActionEvent actionEvent)
   {
     ViewManager.showView("Admin");
+  }
+
+  public void onResidentListButtonPressed(ActionEvent actionEvent)
+  {
+    ViewManager.showView("ResidentList");
   }
 }

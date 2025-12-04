@@ -1,6 +1,7 @@
 package kløverly.presentation.controllers;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -10,31 +11,34 @@ import kløverly.domain.Task;
 import kløverly.persistence.DataManager;
 import kløverly.presentation.core.ControllerConfigurator;
 
-public class AdminController
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class AdminController implements Initializable
 {
   private DataManager dm;
   public Button testButton;
   public TextField testTextField;
 
-  public void initialize()
+  @Override public void initialize(URL location, ResourceBundle resources)
   {
+    testButton.disableProperty()
+        .bind(testTextField.textProperty().isEmpty());
+
     dm = ControllerConfigurator.getDataManager();
   }
 
   public void onTestButtonPressed(ActionEvent actionEvent)
   {
-    String name = testTextField.getText();
-    if (name == null || name.isEmpty())
-    {
-      new Alert(Alert.AlertType.ERROR, "Resident must have a name.").show();
-      return;
-    }
-    Resident newResident = new Resident(
+    String name = testTextField.getText().trim();
+        Resident newResident = new Resident(
         name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase());
 
     dm.addResident(newResident);
     System.out.println(dm.toString());
     testTextField.setText("");
   }
+
+
 }
 

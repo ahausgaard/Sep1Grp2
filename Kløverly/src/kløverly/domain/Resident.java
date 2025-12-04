@@ -18,7 +18,7 @@ public class Resident implements Serializable
 
   public Resident(String name)
   {
-    this.name = name.toLowerCase();
+    this.name = name;
     personalPointAmount = 0;
     activityLevel = 0;
     this.id = IdGenerator.generate("R");
