@@ -6,6 +6,9 @@ import kløverly.domain.Task;
 import kløverly.persistence.DataManager;
 import kløverly.presentation.core.ControllerConfigurator;
 import kløverly.presentation.core.ViewManager;
+import kløverly.domain.GreenTask;
+import kløverly.domain.SwapTask;
+
 
 import java.util.Optional;
 
@@ -45,42 +48,53 @@ public class AddTaskController
     public void onAddTaskButtonPressed()
     {
 
-        String type = choiceBoxDrop.getValue();
-        if (type == null) {
-            statusLabel.setText("Du skal vælge en opgavetype først.");
-            statusLabel.setStyle("-fx-text-fill: red;"); // rød tekst
-            return; // stop metoden her
-        }
-
-
-        //tager input og gemmer variabler
         String name = taskNameInput.getText();
         String description = taskDescriptionInput.getText();
         int value = spinner.getValue();
+        String type = choiceBoxDrop.getValue();
 
+        // Validering af opgavetype
+        if (type == null) {
+            statusLabel.setText("Du skal vælge en opgavetype først.");
+            statusLabel.setStyle("-fx-text-fill: red;");
+            return;
+        }
 
-// choiceboxdrop lave en switch som skal tjekke den value den har og at den registere point i den rigtig task/opgaves type,, Fra
+        Task newTask;
 
-        Task newTask = new CommunityTask(name, type, value, description);
+        switch (type) {
+            case "Bytteopgave":
+                newTask = new SwapTask(name, type, value, description);
+                break;
+
+            case "FællesOpgave":
+                newTask = new CommunityTask(name, type, value, description);
+                break;
+
+            case "Personlig Opgaver":
+                newTask = new GreenTask(name, type, value, description);
+                break;
+
+            default:
+                statusLabel.setText("Ukendt opgavetype: " + type);
+                statusLabel.setStyle("-fx-text-fill: red;");
+                return;
+        }
+
         dm.addTask(newTask);
 
-        // 4️⃣ Feedback til brugeren
         statusLabel.setText("Opgaven blev tilføjet ✔️");
         statusLabel.setStyle("-fx-text-fill: green;");
 
 
         taskNameInput.setText("Test");
 
-
-        //Reset inputs
-        taskNameInput.setText("");
-
         //TODO Lav i fx (slider)
         taskNameInput.setText("");
         taskDescriptionInput.setText("");
         spinner.getValueFactory().setValue(0);
         spinnerInput.setText("Point");
-        choiceBoxDrop.setValue(null); // valgfrit: reset ComboBox
+        choiceBoxDrop.setValue("Vælge Nye Opgave");
 
 
         System.out.println(dm.toString());
