@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.util.StringConverter;
 import kløverly.domain.Resident;
+import kløverly.domain.SwapTask;
 import kløverly.domain.Task;
 import kløverly.persistence.DataManager;
 import kløverly.presentation.core.AcceptsObjectArgument;
@@ -37,6 +38,7 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
   @FXML
   public Button finishTaskButton;
   public Button deleteTaskButton;
+  public Label stakeholderLabel;
   private Task selectedTask;
   private DataManager dm;
   private Resident completer;
@@ -97,6 +99,8 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
 
     finishTaskButton.disableProperty()
         .bind(completerBox.valueProperty().isNull().or(isEditing));
+
+
   }
 
   private void populateFields()
@@ -117,8 +121,12 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
               selectedTask.getValue());
       editValue.setValueFactory(valueFactory);
       editValue.setEditable(true);
+      if(selectedTask.getType().equals("SwapTask"))
+      {
+        displayStakeholder.setText(this.selectedTask.getTitle()); //TODO Fix Stakeholder
+        stakeholderLabel.setVisible(true);
+      }
 
-      displayStakeholder.setText(this.selectedTask.getTitle()); //TODO Fix Stakeholder
     }
     else
     {
@@ -187,7 +195,21 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
       }
       case "SwapTask" ->
       {
+        if (selectedTask instanceof SwapTask swapTask)
+        {
+          Resident stakeholder = swapTask.getStakeholder();
+          if (stakeholder == null)
+          {
+            System.out.println("Error: Stakeholder is null.");
+            return;
+          }
+          stakeholder.setPersonalPointAmount(stakeholder.getPersonalPointAmount() - selectedTask.getValue());
+          if (stakeholder.getPersonalPointAmount() < 0)
+            System.out.println("Error: Resident " + stakeholder.getId() + " has insufficient funds. Fix immediately.");
+        }
+        completer = completerBox.getValue();
         System.out.println("SWAPPPIIIe");
+
       }
       default ->
       {

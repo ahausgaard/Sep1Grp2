@@ -25,7 +25,7 @@ public class DataContainer implements Serializable
     this.taskList = (taskList!= null) ? taskList : new ArrayList<>();
     this.residentList = (residentList != null) ? residentList : new ArrayList<>();
     this.communityGoal = (goal != null) ? goal : new CommunityGoal("Nyt fællesmål", 1000,
-        LocalDate.of(2026, 12, 24));
+        LocalDate.of(2026, 12, 24), "præmie");
   }
 
   public void setTaskList(List<Task> taskList)
@@ -52,7 +52,7 @@ public class DataContainer implements Serializable
   {
     this.taskList = new ArrayList<>();
     this.residentList = new ArrayList<>();
-    this.communityGoal = new CommunityGoal("Nyt fællesmål", 1000, LocalDate.of(2026, 12, 24));
+    this.communityGoal = new CommunityGoal("Nyt fællesmål", 1000, LocalDate.of(2026, 12, 24), "præmie");
   }
 
   public List<Task> getTaskList()

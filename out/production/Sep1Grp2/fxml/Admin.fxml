@@ -5,9 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="490.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kløverly.presentation.controllers.AdminController">
-   <children>
-      <VBox prefHeight="400.0" prefWidth="490.0">
+<VBox prefHeight="400.0" prefWidth="490.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kløverly.presentation.controllers.AdminController">
          <children>
             <Label text="Administratorside">
                <font>
@@ -63,11 +61,12 @@
                      </padding>
                   </VBox>
                </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
             </GridPane>
          </children>
          <padding>
-            <Insets left="20.0" right="20.0" top="30.0" />
+            <Insets bottom="20.0" left="20.0" right="20.0" top="30.0" />
          </padding>
       </VBox>
-   </children>
-</AnchorPane>

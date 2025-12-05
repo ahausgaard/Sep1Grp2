@@ -7,18 +7,20 @@ import java.time.LocalDate;
 public class CommunityGoal implements Serializable
 {
   private String title;
+  private String prize;
   private int currentPoints;
   private int targetPoints;
   private LocalDate creationDate;
   private LocalDate deadlineDate;
 
-  public CommunityGoal(String title, int targetPoints, LocalDate deadlineDate)
+  public CommunityGoal(String title, int targetPoints, LocalDate deadlineDate, String prize)
   {
     this.title = title;
     this.targetPoints = targetPoints;
     this.currentPoints = 0;
     this.creationDate = LocalDate.now();
     this.deadlineDate = deadlineDate;
+    this.prize = prize;
   }
 
   public void addPoints(int points)
