@@ -12,7 +12,7 @@ public class ListDataManager implements DataManager
 {
   private static final String TASK_FILE_PATH = "data.bin";
   private DataContainer dataContainer;
-
+  private CommunityGoal communityGoal;
   
 
   public ListDataManager()
@@ -60,11 +60,18 @@ public class ListDataManager implements DataManager
 
 
   //CommunityGoal
-  @Override public void setGoal(CommunityGoal goal)
-  {
-    dataContainer.setCommunityGoal(goal);
-    saveData();
+  @Override
+  public CommunityGoal getCommunityGoal() {
+      // Henter målet fra din dataContainer, så det matcher resten af din kode
+      return dataContainer.getCommunityGoal();
   }
+
+    @Override
+    public void setGoal(CommunityGoal goal) {
+        dataContainer.setCommunityGoal(goal);
+        saveData();
+    }
+
 
   @Override public void addCommunityPoints(int points)
   {
@@ -73,7 +80,12 @@ public class ListDataManager implements DataManager
     saveData();
   }
 
-  @Override public String toString()
+    @Override
+    public int getCurrentCommunityPoints() {
+        return dataContainer.getCommunityGoal().getCurrentPoints();
+    }
+
+    @Override public String toString()
   {
     return "ListDataManager{" + "dataContainer=" + dataContainer + '}';
   }
@@ -116,6 +128,8 @@ public class ListDataManager implements DataManager
       newContainer.setResidentList(new ArrayList<>());
 
       return newContainer;
+
+
     }
   }
 }

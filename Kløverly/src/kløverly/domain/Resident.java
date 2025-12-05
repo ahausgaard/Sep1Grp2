@@ -15,6 +15,7 @@ public class Resident implements Serializable
   private int personalPointAmount;
   private int activityLevel;
   private String id;
+  private int communityPointAmount = 0; // tilføjet
 
   public Resident(String name)
   {
@@ -23,6 +24,15 @@ public class Resident implements Serializable
     activityLevel = 0;
     this.id = IdGenerator.generate("R");
   }
+
+  // tilføjet
+  public void setCommunityPointAmount(int communityPointAmount) {
+        this.communityPointAmount = communityPointAmount;
+    }
+    // tilføjet
+  public int getCommunityPointAmount() {
+        return communityPointAmount;
+    }
 
   public Resident()
   {

@@ -180,49 +180,49 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
 
   }
 
-  @FXML public void onFinishTaskButtonPressed(ActionEvent actionEvent)
-  {
-    int taskValue = selectedTask.getValue();
-    switch (selectedTask.getType())
+    @FXML public void onFinishTaskButtonPressed(ActionEvent actionEvent)
     {
-      case "CommunityTask" ->
-      {
-        if (finishTask())
-          dm.addCommunityPoints(taskValue);
-      }
-      case "SwapTask" ->
-      {
-        if (selectedTask instanceof SwapTask swapTask)
+        int taskValue = selectedTask.getValue();
+        switch (selectedTask.getType())
         {
-          if (finishTask())
-          {
-            Resident stakeholder = swapTask.getStakeholder();
-            if (stakeholder == null)
+            case "CommunityTask" ->
             {
-              System.out.println("Error: Stakeholder is null.");
-              return;
+                if (finishTask())
+                    dm.addCommunityPoints(taskValue);
             }
-            stakeholder.setPersonalPointAmount(
-                stakeholder.getPersonalPointAmount() - selectedTask.getValue());
-            if (stakeholder.getPersonalPointAmount() < 0)
-              System.out.println("Error: Resident " + stakeholder.getId()
-                  + " has insufficient funds. Fix immediately.");
-            completer = completerBox.getValue();
-            completer.setPersonalPointAmount(
-                completer.getPersonalPointAmount() + selectedTask.getValue());
-            dm.saveData();
-          }
+            case "SwapTask" ->
+            {
+                if (selectedTask instanceof SwapTask swapTask)
+                {
+                    if (finishTask())
+                    {
+                        Resident stakeholder = swapTask.getStakeholder();
+                        if (stakeholder == null)
+                        {
+                            System.out.println("Error: Stakeholder is null.");
+                            return;
+                        }
+                        stakeholder.setPersonalPointAmount(
+                                stakeholder.getPersonalPointAmount() - selectedTask.getValue());
+                        if (stakeholder.getPersonalPointAmount() < 0)
+                            System.out.println("Error: Resident " + stakeholder.getId()
+                                    + " has insufficient funds. Fix immediately.");
+                        completer = completerBox.getValue();
+                        completer.setPersonalPointAmount(
+                                completer.getPersonalPointAmount() + selectedTask.getValue());
+                        dm.saveData();
+                    }
+                }
+            }
+            default ->
+            {
+                System.out.println("PERSONLIGT");
+            }
         }
-      }
-      default ->
-      {
-        System.out.println("PERSONLIGT");
-      }
-
     }
-  }
 
-  private boolean finishTask()
+
+    private boolean finishTask()
   {
     //Alert
     deletionAlert.setTitle("Fuldfør opgave");

@@ -31,4 +31,8 @@ public class MainViewController
   {
     ViewManager.showView("ResidentList");
   }
+
+  public void onCommunityPointsButtonPressed(ActionEvent event) {
+      ViewManager.showView("CommunityPoints");
+  }
 }
