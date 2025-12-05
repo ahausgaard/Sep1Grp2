@@ -52,8 +52,9 @@ public class AdminController implements Initializable
     String goalTitle = goalTitleField.getText();
     LocalDate deadline = deadlineInput.getValue();
     int target = targetInput.getValue();
+    String prize = "";
 
-    CommunityGoal communityGoal = new CommunityGoal(goalTitle, target, deadline);
+    CommunityGoal communityGoal = new CommunityGoal(goalTitle, target, deadline, prize);
     dm.setGoal(communityGoal);
 
     deadlineInput.setValue(LocalDate.now());

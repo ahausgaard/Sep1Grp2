@@ -184,32 +184,37 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
   @FXML
   public void onFinishTaskButtonPressed(ActionEvent actionEvent)
   {
+    int taskValue = selectedTask.getValue();
     switch(selectedTask.getType())
     {
       case "CommunityTask" ->
       {
-        int taskValue = selectedTask.getValue();
+
         if (finishTask())
           dm.addCommunityPoints(taskValue);
-        System.out.println(dm.toString());
       }
       case "SwapTask" ->
       {
         if (selectedTask instanceof SwapTask swapTask)
         {
-          Resident stakeholder = swapTask.getStakeholder();
-          if (stakeholder == null)
+          if (finishTask())
           {
-            System.out.println("Error: Stakeholder is null.");
-            return;
+            Resident stakeholder = swapTask.getStakeholder();
+            if (stakeholder == null)
+            {
+              System.out.println("Error: Stakeholder is null.");
+              return;
+            }
+            stakeholder.setPersonalPointAmount(
+                stakeholder.getPersonalPointAmount() - selectedTask.getValue());
+            if (stakeholder.getPersonalPointAmount() < 0)
+              System.out.println("Error: Resident " + stakeholder.getId()
+                  + " has insufficient funds. Fix immediately.");
+            completer = completerBox.getValue();
+            completer.setPersonalPointAmount(completer.getPersonalPointAmount() + selectedTask.getValue());
+            dm.saveData();
           }
-          stakeholder.setPersonalPointAmount(stakeholder.getPersonalPointAmount() - selectedTask.getValue());
-          if (stakeholder.getPersonalPointAmount() < 0)
-            System.out.println("Error: Resident " + stakeholder.getId() + " has insufficient funds. Fix immediately.");
         }
-        completer = completerBox.getValue();
-        System.out.println("SWAPPPIIIe");
-
       }
       default ->
       {
@@ -233,7 +238,6 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
     if(result.isPresent() && result.get() == buttonTypeDelete)
     {
       dm.deleteTask(selectedTask);
-      System.out.println("Task finished and deleted.");
       ViewManager.showView("TaskList");
       return true;
     }

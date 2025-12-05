@@ -84,6 +84,7 @@ public class ListDataManager implements DataManager
     try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("data.bin")))
     {
       oos.writeObject(dataContainer);
+      System.out.println("Saved data: " + dataContainer.toString());
     }
     catch (IOException e)
     {
