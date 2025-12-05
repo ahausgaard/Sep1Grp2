@@ -22,6 +22,7 @@ public class AddTaskController
     public Label spinnerInput;
     private DataManager dm;
     public ComboBox<String> choiceBoxDrop;
+    public ComboBox<String> swapTargetBox;
     public Spinner<Integer> spinner;
 
     public void initialize()
@@ -41,6 +42,21 @@ public class AddTaskController
         spinner.valueProperty().addListener((obs, oldVal, newVal) -> {
             spinnerInput.setText("Point");
         });
+
+        // 1. Lyt efter ændringer i opgavetype-boksen
+        choiceBoxDrop.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+            if ("Bytteopgave".equals(newVal)) {
+                // Hvis bytteopgave er valgt: Vis den nye boks
+                swapTargetBox.setVisible(true);
+                swapTargetBox.setManaged(true);
+            } else {
+                // Ellers: Skjul den
+                swapTargetBox.setVisible(false);
+                swapTargetBox.setManaged(false);
+            }
+        });
+
+        swapTargetBox.getItems().addAll("Johan Larsen", "Tarik Maarouf", "Donna", "Flemming");
 
 
     }
@@ -64,6 +80,13 @@ public class AddTaskController
 
         switch (type) {
             case "Bytteopgave":
+                String valgtBeboer = swapTargetBox.getValue();
+                if (valgtBeboer == null) {
+                    statusLabel.setText("Husk at vælge en beboer til bytteopgaven!");
+                    statusLabel.setStyle("-fx-text-fill: red;");
+                    return; // Stop hvis ingen beboer er valgt
+                }
+
                 newTask = new SwapTask(name, value, description);
                 break;
 
