@@ -12,6 +12,8 @@ public class ListDataManager implements DataManager
   private static final String TASK_FILE_PATH = "data.bin";
   private DataContainer dataContainer;
 
+  
+
   public ListDataManager()
   {
     this.dataContainer = loadData();
