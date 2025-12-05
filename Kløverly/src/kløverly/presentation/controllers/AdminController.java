@@ -31,8 +31,7 @@ public class AdminController implements Initializable
   public void onTestButtonPressed(ActionEvent actionEvent)
   {
     String name = testTextField.getText().trim();
-        Resident newResident = new Resident(
-        name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase());
+    Resident newResident = new Resident(name);
 
     dm.addResident(newResident);
     System.out.println(dm.toString());

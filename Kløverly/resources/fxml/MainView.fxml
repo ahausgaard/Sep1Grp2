@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kløverly.presentation.controllers.MainViewController">
+<BorderPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kløverly.presentation.controllers.MainViewController">
    <left>
       <VBox prefHeight="400.0" prefWidth="108.0" BorderPane.alignment="CENTER">
          <children>
@@ -15,23 +15,23 @@
                   <Insets />
                </VBox.margin>
             </Separator>
-            <Button fx:id="addTaskViewButton" maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#onAddTaskViewButtonPressed" text="Registrér opgave">
+            <Button fx:id="addTaskViewButton" maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#onAddTaskViewButtonPressed" styleClass="button-primary" text="Registrér opgave">
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="taskListViewButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onTaskListViewButtonPressed" text="Opgaveoversigt">
+            <Button fx:id="taskListViewButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onTaskListViewButtonPressed" styleClass="button-primary" text="Opgaveoversigt">
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="residentListButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onResidentListButtonPressed" text="Beboeroversigt">
+            <Button fx:id="residentListButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onResidentListButtonPressed" styleClass="button-primary" text="Beboeroversigt">
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
             </Button>
             <Region prefHeight="400.0" prefWidth="106.0" VBox.vgrow="ALWAYS" />
-            <Button fx:id="adminButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAdminButtonPressed" text="Admin">
+            <Button fx:id="adminButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAdminButtonPressed" styleClass="button-secondary" text="Admin">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
