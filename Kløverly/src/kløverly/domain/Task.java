@@ -39,6 +39,8 @@ public abstract class Task implements Serializable {
         this.id = IdGenerator.generate(prefix);
     }
 
+    // Lav en switch til task der ændre fra engelsk til dansk
+
     public Task() {
     }
 

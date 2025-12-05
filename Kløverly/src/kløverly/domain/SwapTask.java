@@ -8,10 +8,13 @@ public class SwapTask extends Task
   @Serial
   private static final long serialVersionUID = 1L;
 
-  public SwapTask(String title, int value, String description)
-  {
-    super("ST",title, value, description);
-  }
+    // Opdateret constructor der tager imod en Resident
+
+    public SwapTask(String title, int value, String description, Resident stakeholder) {
+        // Vi beholder "ST" prefixet som du har i din nuværende kode
+        super("ST", title, value, description);
+        this.stakeholder = stakeholder;
+    }
 
   @Override public String toString()
   {

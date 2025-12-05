@@ -8,7 +8,7 @@ import kløverly.presentation.core.ControllerConfigurator;
 import kløverly.presentation.core.ViewManager;
 import kløverly.domain.GreenTask;
 import kløverly.domain.SwapTask;
-
+import kløverly.domain.Resident;
 
 import java.util.Optional;
 
@@ -22,6 +22,7 @@ public class AddTaskController
     public Label spinnerInput;
     private DataManager dm;
     public ComboBox<String> choiceBoxDrop;
+    public ComboBox<String> swapTargetBox;
     public Spinner<Integer> spinner;
 
     public void initialize()
@@ -41,6 +42,30 @@ public class AddTaskController
         spinner.valueProperty().addListener((obs, oldVal, newVal) -> {
             spinnerInput.setText("Point");
         });
+
+        // 1. Lyt efter ændringer i opgavetype-boksen
+        choiceBoxDrop.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+            if ("Bytteopgave".equals(newVal)) {
+                // Hvis bytteopgave er valgt: Vis den nye boks
+                swapTargetBox.setVisible(true);
+                swapTargetBox.setManaged(true);
+            } else {
+                // Ellers: Skjul den
+                swapTargetBox.setVisible(false);
+                swapTargetBox.setManaged(false);
+            }
+        });
+
+        // Ret til dette:
+        // I bunden af initialize():
+
+// Vi tjekker om listen er null for at undgå fejl
+        if (dm.getAllResidents() != null) {
+            // Vi bruger 'getAllResidents()' som er det rigtige navn i din DataManager
+            for (Resident r : dm.getAllResidents()) {
+                swapTargetBox.getItems().add(r.getName());
+            }
+        }
 
 
     }
@@ -65,7 +90,45 @@ public class AddTaskController
 
         switch (type) {
             case "Bytteopgave":
-                newTask = new SwapTask(name, value, description);
+                // 1. Hent navnet på den valgte beboer
+                String selectedName = swapTargetBox.getValue();
+
+                // Tjek om brugeren har glemt at vælge en
+                if (selectedName == null) {
+                    statusLabel.setText("Vælg venligst en beboer.");
+                    statusLabel.setStyle("-fx-text-fill: red;");
+                    return;
+                }
+
+                // 2. Find den rigtige Resident i systemet
+                Resident foundResident = null;
+
+                // HER ER RETTELSEN: Vi bruger nu dm.getAllResidents()
+                for (Resident r : dm.getAllResidents()) {
+                    if (r.getName().equals(selectedName)) {
+                        foundResident = r;
+                        break; // Stop løkken når vi har fundet personen
+                    }
+                }
+
+                // 3. Hvis beboeren findes: Opdater point og opret opgave
+                if (foundResident != null) {
+                    // Hent nuværende point
+                    int currentPoints = foundResident.getPersonalPointAmount();
+
+                    // Læg de nye point til (value kommer fra din spinner)
+                    foundResident.setPersonalPointAmount(currentPoints + value);
+
+                    // Opret opgaven med beboer-objektet
+                    newTask = new SwapTask(name, value, description, foundResident);
+
+                    // (Valgfrit) Print til konsollen for at teste
+                    System.out.println("Point opdateret for " + selectedName + ". Nye point: " + (currentPoints + value));
+                } else {
+                    // Sikkerhedsnet hvis noget går galt
+                    statusLabel.setText("Kunne ikke finde beboeren i systemet.");
+                    return;
+                }
                 break;
 
             case "FællesOpgave":
