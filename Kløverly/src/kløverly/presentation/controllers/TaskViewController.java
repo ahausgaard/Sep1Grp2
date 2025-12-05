@@ -171,23 +171,45 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
   public void onFinishTaskButtonPressed(ActionEvent actionEvent)
   {
     System.out.println(selectedTask.getType());
-    switch(selectedTask.getType())
-    {
-      case "CommunityTask" ->
-      {
-        System.out.println("COMMUNITYYYY");
-      }
-      case "SwapTask" ->
-      {
+      switch(selectedTask.getType()) {
+          case "CommunityTask" -> {
+              System.out.println("COMMUNITYYYY");
+              // Her kan du evt. lave logik for fællesopgaver senere
+          }
+          case "SwapTask" ->
+          {
+              Resident completer = completerBox.getValue();
 
-      }
-      default ->
-      {
+              if (completer != null) {
+                  // 1. Giv point
+                  int points = selectedTask.getValue();
+                  int currentPoints = completer.getPersonalPointAmount();
+                  completer.setPersonalPointAmount(currentPoints + points);
 
-      }
+                  // 2. Gem data
+                  dm.saveData();
 
-    }
-  }
+                  // 3. VIS SUCCES-BESKED (Så du ved det virkede)
+                  Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                  alert.setTitle("Opgaver udført");
+                  alert.setHeaderText("Point tildelt!");
+                  alert.setContentText(completer.getName() + " har nu fået " + points + " point.");
+                  alert.showAndWait();
+
+                  // 4. Gå tilbage til listen (frivilligt - du kan slette linjen hvis du vil blive)
+                  ViewManager.showView("TaskList");
+
+              } else {
+                  // 4. VIS FEJL HVIS INGEN ER VALGT
+                  Alert alert = new Alert(Alert.AlertType.WARNING);
+                  alert.setTitle("Mangler info");
+                  alert.setHeaderText("Ingen beboer valgt");
+                  alert.setContentText("Du skal vælge en beboer i listen ved siden af knappen.");
+                  alert.showAndWait();
+              }
+          }
+      }
+      }
 
   public void onDeleteTaskButtonPressed(ActionEvent actionEvent)
   {
