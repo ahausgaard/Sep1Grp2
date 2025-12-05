@@ -168,8 +168,25 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
 
   }
 
-  public void onFinishTaskButton(ActionEvent actionEvent)
+  public void onFinishTaskButtonPressed(ActionEvent actionEvent)
   {
+    System.out.println(selectedTask.getType());
+    switch(selectedTask.getType())
+    {
+      case "CommunityTask" ->
+      {
+        System.out.println("COMMUNITYYYY");
+      }
+      case "SwapTask" ->
+      {
+
+      }
+      default ->
+      {
+
+      }
+
+    }
   }
 
   public void onDeleteTaskButtonPressed(ActionEvent actionEvent)

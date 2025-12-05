@@ -1,5 +1,6 @@
 package kløverly.persistence;
 
+import kløverly.domain.CommunityGoal;
 import kløverly.domain.Resident;
 import kløverly.domain.Task;
 
@@ -31,6 +32,12 @@ public class ListDataManager implements DataManager
     saveData();
   }
 
+  @Override public List<Task> getAllTasks()
+  {
+    return dataContainer.getTaskList();
+  }
+
+
   @Override public void addResident(Resident resident)
   {
     dataContainer.getResidentList().add(resident);
@@ -43,14 +50,15 @@ public class ListDataManager implements DataManager
     saveData();
   }
 
-  @Override public List<Task> getAllTasks()
-  {
-    return dataContainer.getTaskList();
-  }
 
   @Override public List<Resident> getAllResidents()
   {
     return dataContainer.getResidentList();
+  }
+
+  @Override public void setGoal(CommunityGoal goal)
+  {
+    dataContainer.setCommunityGoal(goal);
   }
 
   @Override public String toString()

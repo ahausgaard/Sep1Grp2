@@ -86,7 +86,7 @@
         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
             <children>
                 <ComboBox fx:id="completerBox" editable="true" prefWidth="150.0" promptText="Vælg opgaveløser" />
-                <Button fx:id="finishTaskButton" disable="true" mnemonicParsing="false" onAction="#onFinishTaskButton" styleClass="button-primary" text="Udfør opgave" />
+                <Button fx:id="finishTaskButton" disable="true" mnemonicParsing="false" onAction="#onFinishTaskButtonPressed" styleClass="button-primary" text="Udfør opgave" />
             <Button fx:id="deleteTaskButton" mnemonicParsing="false" onAction="#onDeleteTaskButtonPressed" prefHeight="25.0" prefWidth="98.0" styleClass="button-accent" text="Slet opgave" />
                 <Button fx:id="editTaskButton" mnemonicParsing="false" onAction="#onEditTaskButtonPressed" styleClass="button-primary" text="Redigér opgave" />
                 <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#onCancelButtonPressed" prefHeight="25.0" prefWidth="84.0" styleClass="button-secondary" text="Tilbage" />

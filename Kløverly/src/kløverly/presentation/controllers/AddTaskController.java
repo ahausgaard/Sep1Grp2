@@ -62,6 +62,7 @@ public class AddTaskController
 
         Task newTask;
 
+
         switch (type) {
             case "Bytteopgave":
                 newTask = new SwapTask(name, value, description);
