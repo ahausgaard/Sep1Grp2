@@ -2,42 +2,62 @@ package kløverly.presentation.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import kløverly.domain.CommunityTask;
+import javafx.scene.control.*;
+import kløverly.domain.CommunityGoal;
 import kløverly.domain.Resident;
-import kløverly.domain.Task;
 import kløverly.persistence.DataManager;
 import kløverly.presentation.core.ControllerConfigurator;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class AdminController implements Initializable
 {
+  public TextField goalTitleField;
+  public DatePicker deadlineInput;
+  public Spinner<Integer> targetInput;
+  public Button addResidentButton;
+  public TextField residentNameField;
+  public Button addGoalButton;
   private DataManager dm;
-  public Button testButton;
-  public TextField testTextField;
 
   @Override public void initialize(URL location, ResourceBundle resources)
   {
-    testButton.disableProperty()
-        .bind(testTextField.textProperty().isEmpty());
+    addResidentButton.disableProperty()
+        .bind(residentNameField.textProperty().isEmpty());
+
+    addGoalButton.disableProperty()
+        .bind(goalTitleField.textProperty().isEmpty().or(deadlineInput.valueProperty().isNull()).or(targetInput.getEditor().textProperty().isEmpty()));
+
+    SpinnerValueFactory<Integer> targetValueFactory =
+        new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 10000, 1000);
+    targetInput.setValueFactory(targetValueFactory);
 
     dm = ControllerConfigurator.getDataManager();
   }
 
-  public void onTestButtonPressed(ActionEvent actionEvent)
+  public void onAddResidentButtonPressed(ActionEvent actionEvent)
   {
-    String name = testTextField.getText().trim();
+    String name = residentNameField.getText().trim();
     Resident newResident = new Resident(name);
 
     dm.addResident(newResident);
     System.out.println(dm.toString());
-    testTextField.setText("");
+    residentNameField.setText("");
   }
 
+    public void onAddGoalButtonPressed(ActionEvent actionEvent)
+  {
+    String goalTitle = goalTitleField.getText();
+    LocalDate deadline = deadlineInput.getValue();
+    int target = targetInput.getValue();
 
+    CommunityGoal communityGoal = new CommunityGoal(goalTitle, target, deadline);
+    dm.setGoal(communityGoal);
+
+    deadlineInput.setValue(LocalDate.now());
+    goalTitleField.setText("");
+  }
 }
 

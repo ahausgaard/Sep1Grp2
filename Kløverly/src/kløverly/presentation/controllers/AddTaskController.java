@@ -78,6 +78,7 @@ public class AddTaskController
 
         Task newTask;
 
+
         switch (type) {
             case "Bytteopgave":
                 String valgtBeboer = swapTargetBox.getValue();
