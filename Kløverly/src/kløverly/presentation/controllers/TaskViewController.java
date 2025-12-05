@@ -176,35 +176,41 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
               System.out.println("COMMUNITYYYY");
               // Her kan du evt. lave logik for fællesopgaver senere
           }
-          case "SwapTask" ->
-          {
+          case "SwapTask" -> {
+              // 1. Hent den valgte beboer (f.eks. Andrea)
               Resident completer = completerBox.getValue();
 
               if (completer != null) {
-                  // 1. Giv point
+                  // --- DEL 1: GIV POINT ---
                   int points = selectedTask.getValue();
                   int currentPoints = completer.getPersonalPointAmount();
+
+                  // Opdater beboerens point
                   completer.setPersonalPointAmount(currentPoints + points);
 
-                  // 2. Gem data
+                  // --- DEL 2: SLET OPGAVEN ---
+                  // Slet opgaven fra systemet, fordi den er færdig
+                  dm.deleteTask(selectedTask);
+
+                  // Gem alle ændringer (både point og sletning)
                   dm.saveData();
 
-                  // 3. VIS SUCCES-BESKED (Så du ved det virkede)
+                  // --- DEL 3: VIS BESKED OG GÅ TILBAGE ---
                   Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                  alert.setTitle("Opgaver udført");
-                  alert.setHeaderText("Point tildelt!");
-                  alert.setContentText(completer.getName() + " har nu fået " + points + " point.");
+                  alert.setTitle("Opgave udført");
+                  alert.setHeaderText("Godt klaret, " + completer.getName() + "!");
+                  alert.setContentText("Du har fået " + points + " point, og opgaven er nu slettet.");
                   alert.showAndWait();
 
-                  // 4. Gå tilbage til listen (frivilligt - du kan slette linjen hvis du vil blive)
+                  // Send brugeren tilbage til opgavelisten
                   ViewManager.showView("TaskList");
 
               } else {
-                  // 4. VIS FEJL HVIS INGEN ER VALGT
+                  // Vis fejl hvis man glemte at vælge en person
                   Alert alert = new Alert(Alert.AlertType.WARNING);
                   alert.setTitle("Mangler info");
-                  alert.setHeaderText("Ingen beboer valgt");
-                  alert.setContentText("Du skal vælge en beboer i listen ved siden af knappen.");
+                  alert.setHeaderText("Hvem udførte opgaven?");
+                  alert.setContentText("Vælg venligst en beboer i listen før du trykker udfør.");
                   alert.showAndWait();
               }
           }
