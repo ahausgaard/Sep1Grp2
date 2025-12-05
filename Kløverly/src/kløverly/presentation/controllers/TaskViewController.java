@@ -35,8 +35,7 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
   public TextField editStakeholder;
   public Spinner<Integer> editValue;
   public Button editTaskButton;
-  @FXML
-  public Button finishTaskButton;
+  @FXML public Button finishTaskButton;
   public Button deleteTaskButton;
   public Label stakeholderLabel;
   private Task selectedTask;
@@ -70,24 +69,24 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
     completerBox.setPromptText("Vælg beboer");
     completerBox.getItems().addAll(residents);
 
-    completerBox.setConverter(new StringConverter<Resident>() {
-      @Override
-      public String toString(Resident resident) {
-        if (resident == null) {
+    completerBox.setConverter(new StringConverter<Resident>()
+    {
+      @Override public String toString(Resident resident)
+      {
+        if (resident == null)
+        {
           return null;
         }
 
         return resident.getName();
       }
 
-      @Override
-      public Resident fromString(String string) {
+      @Override public Resident fromString(String string)
+      {
         return null;
       }
 
-
     });
-
 
     editDescription.visibleProperty().bind(isEditing);
     displayDescription.visibleProperty().bind(isEditing.not());
@@ -99,7 +98,6 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
 
     finishTaskButton.disableProperty()
         .bind(completerBox.valueProperty().isNull().or(isEditing));
-
 
   }
 
@@ -116,19 +114,20 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
       editDescription.setText(this.selectedTask.getDescription());
 
       displayValue.setText(String.valueOf(this.selectedTask.getValue()));
-      SpinnerValueFactory<Integer> valueFactory =
-          new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100,
-              selectedTask.getValue());
+      SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(
+          0, 100, selectedTask.getValue());
       editValue.setValueFactory(valueFactory);
       editValue.setEditable(true);
-      if(selectedTask.getType().equals("SwapTask"))
-      {
-        displayStakeholder.setText(this.selectedTask.getTitle()); //TODO Fix Stakeholder
-        stakeholderLabel.setVisible(true);
-      }
 
+      if (selectedTask instanceof SwapTask swapTask)
+      {
+        displayStakeholder.setText(swapTask.getStakeholder().getName());
+        stakeholderLabel.setVisible(true);
+        completerBox.getItems().remove(swapTask.getStakeholder());
+      }
     }
     else
+
     {
       taskHeaderLabel.setText("Error: No task loaded.");
     }
@@ -161,9 +160,9 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
     }
     else
     {
-    editTaskButton.setText("Gem ændringer");
-    cancelButton.setText("Annullér");
-    isEditing.set(true);
+      editTaskButton.setText("Gem ændringer");
+      cancelButton.setText("Annullér");
+      isEditing.set(true);
     }
   }
 
@@ -181,15 +180,13 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
 
   }
 
-  @FXML
-  public void onFinishTaskButtonPressed(ActionEvent actionEvent)
+  @FXML public void onFinishTaskButtonPressed(ActionEvent actionEvent)
   {
     int taskValue = selectedTask.getValue();
-    switch(selectedTask.getType())
+    switch (selectedTask.getType())
     {
       case "CommunityTask" ->
       {
-
         if (finishTask())
           dm.addCommunityPoints(taskValue);
       }
@@ -211,7 +208,8 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
               System.out.println("Error: Resident " + stakeholder.getId()
                   + " has insufficient funds. Fix immediately.");
             completer = completerBox.getValue();
-            completer.setPersonalPointAmount(completer.getPersonalPointAmount() + selectedTask.getValue());
+            completer.setPersonalPointAmount(
+                completer.getPersonalPointAmount() + selectedTask.getValue());
             dm.saveData();
           }
         }
@@ -223,19 +221,21 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
 
     }
   }
+
   private boolean finishTask()
   {
     //Alert
     deletionAlert.setTitle("Fuldfør opgave");
     deletionAlert.setHeaderText(null);
-    deletionAlert.setContentText("Er du sikker på, du vil fuldføre opgave: " + selectedTask.getTitle());
+    deletionAlert.setContentText(
+        "Er du sikker på, du vil fuldføre opgave: " + selectedTask.getTitle());
     ButtonType buttonTypeDelete = new ButtonType("Fuldfør");
     ButtonType buttonTypeCancel = new ButtonType("Annullér");
     deletionAlert.getButtonTypes().setAll(buttonTypeDelete, buttonTypeCancel);
 
     Optional<ButtonType> result = deletionAlert.showAndWait();
 
-    if(result.isPresent() && result.get() == buttonTypeDelete)
+    if (result.isPresent() && result.get() == buttonTypeDelete)
     {
       dm.deleteTask(selectedTask);
       ViewManager.showView("TaskList");
@@ -253,14 +253,15 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
     //Alert
     deletionAlert.setTitle("Slet opgave");
     deletionAlert.setHeaderText(null);
-    deletionAlert.setContentText("Er du sikker på, du vil slette opgave: " + selectedTask.getTitle());
+    deletionAlert.setContentText(
+        "Er du sikker på, du vil slette opgave: " + selectedTask.getTitle());
     ButtonType buttonTypeDelete = new ButtonType("Slet");
     ButtonType buttonTypeCancel = new ButtonType("Annullér");
     deletionAlert.getButtonTypes().setAll(buttonTypeDelete, buttonTypeCancel);
 
     Optional<ButtonType> result = deletionAlert.showAndWait();
 
-    if(result.isPresent() && result.get() == buttonTypeDelete)
+    if (result.isPresent() && result.get() == buttonTypeDelete)
     {
       dm.deleteTask(selectedTask);
       System.out.println("Task deleted.");
