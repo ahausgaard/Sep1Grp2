@@ -19,13 +19,13 @@
            <children>
                <ComboBox fx:id="choiceBoxDrop" prefWidth="150.0" promptText="Vælge opgaves type" styleClass="required-combo" />
 
-               <ComboBox fx:id="swapTargetBox" prefWidth="150.0" promptText="Vælg beboer" visible="false" managed="false" />
+               <ComboBox fx:id="swapTargetBox" managed="false" prefWidth="150.0" promptText="Vælg beboer" visible="false" />
            </children>
            <VBox.margin>
                <Insets bottom="10.0" />
            </VBox.margin>
        </HBox>
-      <Label text="Opgavens navn" />
+      <Label text="Opgavens Titel" />
       <TextField fx:id="taskNameInput">
          <VBox.margin>
             <Insets bottom="10.0" />
