@@ -1,11 +1,17 @@
 .root{
-  -fx-background-color: #E3EBE4;
-  -fx-base: #E3EBE4;
 
-  -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  -bg-color: #E3EBE4;
+  -text-color: #2b2b2b;
+  -primary-color: #5B7062;
+
+
+
+
+  -fx-text-fill: -text-color;
   -fx-font-size: 14px;
-  -fx-text-fill: #2b2b2b;
-
+  -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  -fx-background-color: -bg-color;
+  -fx-base: -bg-color;
 }
 
 .button-primary {
@@ -18,11 +24,7 @@
 }
 
 .button-primary:hover {
-  -fx-background-color: #5B7062;
-}
-
-.button-primary:pressed {
-  -fx-background-color: #3E4E43;
+  -fx-background-color: -primary-color;
 }
 
 .button-secondary {
