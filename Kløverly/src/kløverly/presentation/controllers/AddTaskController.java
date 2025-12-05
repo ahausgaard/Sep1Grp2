@@ -30,7 +30,7 @@ public class AddTaskController
 
 
         //TODO Lav i FX
-        choiceBoxDrop.getItems().addAll("Bytteopgave", "FællesOpgave", "Personlig point");
+        choiceBoxDrop.getItems().addAll("Bytteopgave", "FællesOpgave", "PersonligOpgaver");
 
         // Sæt spinnerens værdier
         SpinnerValueFactory<Integer> valueFactory =
@@ -64,15 +64,15 @@ public class AddTaskController
 
         switch (type) {
             case "Bytteopgave":
-                newTask = new SwapTask(name, type, value, description);
+                newTask = new SwapTask(name, value, description);
                 break;
 
             case "FællesOpgave":
-                newTask = new CommunityTask(name, type, value, description);
+                newTask = new CommunityTask(name, value, description);
                 break;
 
-            case "Personlig Opgaver":
-                newTask = new GreenTask(name, type, value, description);
+            case "PersonligOpgaver":
+                newTask = new GreenTask(name, value, description);
                 break;
 
             default:
@@ -94,7 +94,7 @@ public class AddTaskController
         taskDescriptionInput.setText("");
         spinner.getValueFactory().setValue(0);
         spinnerInput.setText("Point");
-        choiceBoxDrop.setValue("Vælge Nye Opgave");
+        choiceBoxDrop.setValue("Vælge nye opgave");
 
 
         System.out.println(dm.toString());
