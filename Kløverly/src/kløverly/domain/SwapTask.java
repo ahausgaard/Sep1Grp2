@@ -7,9 +7,9 @@ public class SwapTask extends Task
   @Serial
   private static final long serialVersionUID = 1L;
 
-  public SwapTask(String title, String type, int value, String description)
+  public SwapTask(String title, int value, String description)
   {
-    super("ST",title, type, value, description);
+    super("ST",title, value, description);
   }
 
   @Override public String toString()

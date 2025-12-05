@@ -7,9 +7,9 @@ public class CommunityTask extends Task
   @Serial
   private static final long serialVersionUID = 1L;
 
-  public CommunityTask(String title, String type, int value, String description)
+  public CommunityTask(String title, int value, String description)
   {
-    super("CT", title, type, value, description);
+    super("CT", title, value, description);
   }
 
   @Override public String toString()
