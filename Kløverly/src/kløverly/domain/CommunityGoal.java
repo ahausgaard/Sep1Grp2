@@ -41,7 +41,7 @@ public class CommunityGoal implements Serializable
 
   @Override public String toString()
   {
-    return "CommunityGoal{" + "title='" + title + '\'' + ", currentPoints="
+    return "\nCommunityGoal{" + "title='" + title + '\'' + ", currentPoints="
         + currentPoints + ", targetPoints=" + targetPoints + ", creationDate="
         + creationDate + ", deadlineDate=" + deadlineDate + '}';
   }

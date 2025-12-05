@@ -43,7 +43,6 @@ public class AdminController implements Initializable
     Resident newResident = new Resident(name);
 
     dm.addResident(newResident);
-    System.out.println(dm.toString());
     residentNameField.setText("");
   }
 

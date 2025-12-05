@@ -18,8 +18,8 @@
         <TableView fx:id="residentTable" prefHeight="332.0" prefWidth="600.0">
             <columns>
                 <TableColumn fx:id="residentNameColumn" prefWidth="268.3333740234375" text="Navn" />
-                <TableColumn fx:id="residentIdColumn" minWidth="0.0" prefWidth="254.33331298828125" text="Id" />
-                <TableColumn fx:id="residentPointsColumn" prefWidth="77.0" text="Antal point" />
+                <TableColumn fx:id="residentIdColumn" minWidth="0.0" prefWidth="232.6666259765625" text="Id" />
+                <TableColumn fx:id="residentPointsColumn" prefWidth="99.33340454101562" text="Antal point" />
             </columns>
         </TableView>
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
