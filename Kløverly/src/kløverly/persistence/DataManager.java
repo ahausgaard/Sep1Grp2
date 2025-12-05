@@ -17,6 +17,7 @@ public interface DataManager
   List<Resident> getAllResidents();
 
   void setGoal(CommunityGoal goal);
+  void addCommunityPoints(int points);
 
 
   void saveData();

@@ -3,6 +3,7 @@ package kløverly.presentation.controllers;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.util.StringConverter;
@@ -33,12 +34,13 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
   public TextField editStakeholder;
   public Spinner<Integer> editValue;
   public Button editTaskButton;
+  @FXML
   public Button finishTaskButton;
   public Button deleteTaskButton;
   private Task selectedTask;
   private DataManager dm;
   private Resident completer;
-  private Alert deletionAlert = new Alert(Alert.AlertType.CONFIRMATION);
+  private final Alert deletionAlert = new Alert(Alert.AlertType.CONFIRMATION);
 
   private final BooleanProperty isEditing = new SimpleBooleanProperty(false);
 
@@ -63,6 +65,7 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
     List<Resident> residents = dm.getAllResidents();
     residents.sort(Comparator.comparing(Resident::getName));
 
+    completerBox.setPromptText("Vælg beboer");
     completerBox.getItems().addAll(residents);
 
     completerBox.setConverter(new StringConverter<Resident>() {
@@ -79,6 +82,8 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
       public Resident fromString(String string) {
         return null;
       }
+
+
     });
 
 
@@ -91,7 +96,7 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
     editValue.managedProperty().bind(editValue.visibleProperty());
 
     finishTaskButton.disableProperty()
-        .bind(completerBox.valueProperty().isNull().or(isEditing)); //TODO || selectedTask.getValue() > completer.getPersonalPointAmount
+        .bind(completerBox.valueProperty().isNull().or(isEditing));
   }
 
   private void populateFields()
@@ -168,24 +173,52 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
 
   }
 
+  @FXML
   public void onFinishTaskButtonPressed(ActionEvent actionEvent)
   {
-    System.out.println(selectedTask.getType());
     switch(selectedTask.getType())
     {
       case "CommunityTask" ->
       {
-        System.out.println("COMMUNITYYYY");
+        int taskValue = selectedTask.getValue();
+        if (finishTask())
+          dm.addCommunityPoints(taskValue);
+        System.out.println(dm.toString());
       }
       case "SwapTask" ->
       {
-
+        System.out.println("SWAPPPIIIe");
       }
       default ->
       {
-
+        System.out.println("PERSONLIGT");
       }
 
+    }
+  }
+  private boolean finishTask()
+  {
+    //Alert
+    deletionAlert.setTitle("Fuldfør opgave");
+    deletionAlert.setHeaderText(null);
+    deletionAlert.setContentText("Er du sikker på, du vil fuldføre opgave: " + selectedTask.getTitle());
+    ButtonType buttonTypeDelete = new ButtonType("Fuldfør");
+    ButtonType buttonTypeCancel = new ButtonType("Annullér");
+    deletionAlert.getButtonTypes().setAll(buttonTypeDelete, buttonTypeCancel);
+
+    Optional<ButtonType> result = deletionAlert.showAndWait();
+
+    if(result.isPresent() && result.get() == buttonTypeDelete)
+    {
+      dm.deleteTask(selectedTask);
+      System.out.println("Task finished and deleted.");
+      ViewManager.showView("TaskList");
+      return true;
+    }
+    else
+    {
+      System.out.println("Deletion cancelled.");
+      return false;
     }
   }
 

@@ -20,6 +20,7 @@ public class ListDataManager implements DataManager
     this.dataContainer = loadData();
   }
 
+  //Task
   @Override public void addTask(Task task)
   {
     dataContainer.getTaskList().add(task);
@@ -38,6 +39,7 @@ public class ListDataManager implements DataManager
   }
 
 
+  //Resident
   @Override public void addResident(Resident resident)
   {
     dataContainer.getResidentList().add(resident);
@@ -56,9 +58,19 @@ public class ListDataManager implements DataManager
     return dataContainer.getResidentList();
   }
 
+
+  //CommunityGoal
   @Override public void setGoal(CommunityGoal goal)
   {
     dataContainer.setCommunityGoal(goal);
+    saveData();
+  }
+
+  @Override public void addCommunityPoints(int points)
+  {
+    int currentPoints = dataContainer.getCommunityGoal().getCurrentPoints();
+    dataContainer.getCommunityGoal().setCurrentPoints(currentPoints + points);
+    saveData();
   }
 
   @Override public String toString()

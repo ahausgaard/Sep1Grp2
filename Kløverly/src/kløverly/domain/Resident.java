@@ -65,4 +65,5 @@ public class Resident implements Serializable
         + personalPointAmount + ", activityLevel=" + activityLevel + ", id='"
         + id + '\'' + '}';
   }
+
 }
