@@ -122,7 +122,7 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
 
       if (selectedTask instanceof SwapTask swapTask)
       {
-          stakeholder = swapTask.getStakeholder();
+        stakeholder = swapTask.getStakeholder();
         displayStakeholder.setText(stakeholder.getName());
         stakeholderLabel.setVisible(true);
         completerBox.getItems().remove(swapTask.getStakeholder());
@@ -182,90 +182,101 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
 
   }
 
-    @FXML
-    public void onFinishTaskButtonPressed(ActionEvent actionEvent) {
-        // 1. Tjek om en beboer er valgt
-        completer = completerBox.getValue();
-        if (completer == null) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setHeaderText("Mangler beboer");
-            alert.setContentText("Du skal vælge en beboer i listen før du kan udføre opgaven.");
-            alert.showAndWait();
-            return;
-        }
-
-        // 2. Bekræftelse - Er du sikker?
-        Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
-        confirm.setTitle("Afslut opgave");
-        confirm.setHeaderText("Er du sikker?");
-        confirm.setContentText("Vil du afslutte opgaven: " + selectedTask.getTitle() + "?");
-
-        // Hvis brugeren trykker "Annuller", så stop her
-        if (confirm.showAndWait().orElse(ButtonType.CANCEL) != ButtonType.OK) {
-            return;
-        }
-
-        // 3. Fordel point (FØR vi sletter opgaven!)
-        int points = selectedTask.getValue();
-        String taskType = selectedTask.getType();
-        int completerCurrentPoints;
-        Alert pointRegistrationAlert;
-
-        // Vi bruger en simpel switch til at tjekke typen
-        switch (taskType) {
-            case "GreenTask":
-                // --- Grøn opgave ---
-                GreenGoal goal = dm.getGreenGoal();
-                if (goal != null) {
-                    goal.addPoints(points);
-
-                    // Vis jubel-besked
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setHeaderText("Fællespoint registreret!");
-                    alert.setContentText("Jubii! Vi har nu " + goal.getCurrentPoints() + " point i fællesskabet.");
-                    alert.showAndWait();
-                } else {
-                    // Hvis der ikke er noget mål endnu
-                    Alert alert = new Alert(Alert.AlertType.WARNING, "Hov! Der er ikke oprettet noget fællesmål endnu.");
-                    alert.showAndWait();
-                }
-                break;
-
-            case "SwapTask":
-                // --- Bytteopgave ---
-                completerCurrentPoints = completer.getPersonalPointAmount();
-                completer.setPersonalPointAmount(completerCurrentPoints + points);
-
-                stakeholder.setPersonalPointAmount(stakeholder.getPersonalPointAmount() - points);
-
-                pointRegistrationAlert = new Alert(Alert.AlertType.INFORMATION);
-                pointRegistrationAlert.setHeaderText("Personlige point registreret");
-                pointRegistrationAlert.setContentText(completer.getName() + " har fået " + points + " point.");
-                pointRegistrationAlert.showAndWait();
-                break;
-
-          case "CommunityTask":
-            completerCurrentPoints = completer.getPersonalPointAmount();
-            completer.setPersonalPointAmount(completerCurrentPoints + points);
-
-            pointRegistrationAlert = new Alert(Alert.AlertType.INFORMATION);
-            pointRegistrationAlert.setHeaderText("Personlige point registreret");
-            pointRegistrationAlert.setContentText(completer.getName() + " har fået " + points + " point.");
-            pointRegistrationAlert.showAndWait();
-            break;
-
-            default:
-                System.out.println("Ingen point-logik for typen: " + taskType);
-                break;
-        }
-
-        // 4. SLET OPGAVEN OG GEM (Nu hvor pointene er givet)
-        dm.deleteTask(selectedTask);
-        dm.saveData();
-
-        // 5. Gå tilbage til oversigten
-        ViewManager.showView("TaskList");
+  @FXML public void onFinishTaskButtonPressed(ActionEvent actionEvent)
+  {
+    // 1. Tjek om en beboer er valgt
+    completer = completerBox.getValue();
+    if (completer == null)
+    {
+      Alert alert = new Alert(Alert.AlertType.WARNING);
+      alert.setHeaderText("Mangler beboer");
+      alert.setContentText(
+          "Du skal vælge en beboer i listen før du kan udføre opgaven.");
+      alert.showAndWait();
+      return;
     }
+
+    // 2. Bekræftelse - Er du sikker?
+    Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
+    confirm.setTitle("Afslut opgave");
+    confirm.setHeaderText("Er du sikker?");
+    confirm.setContentText(
+        "Vil du afslutte opgaven: " + selectedTask.getTitle() + "?");
+
+    // Hvis brugeren trykker "Annuller", så stop her
+    if (confirm.showAndWait().orElse(ButtonType.CANCEL) != ButtonType.OK)
+    {
+      return;
+    }
+
+    // 3. Fordel point (FØR vi sletter opgaven!)
+
+    String taskType = selectedTask.getType();
+
+    Alert pointRegistrationAlert;
+
+    // Vi bruger en simpel switch til at tjekke typen
+    switch (taskType)
+    {
+      case "GreenTask":
+        // --- Grøn opgave ---
+        GreenGoal goal = dm.getGreenGoal();
+        if (goal != null)
+        {
+          goal.addPoints(selectedTask.getValue());
+
+          // Vis jubel-besked
+          Alert alert = new Alert(Alert.AlertType.INFORMATION);
+          alert.setHeaderText("Fællespoint registreret!");
+          alert.setContentText("Jubii! Vi har nu " + goal.getCurrentPoints()
+              + " point i fællesskabet.");
+          alert.showAndWait();
+        }
+        else
+        {
+          // Hvis der ikke er noget mål endnu
+          Alert alert = new Alert(Alert.AlertType.WARNING,
+              "Hov! Der er ikke oprettet noget fællesmål endnu.");
+          alert.showAndWait();
+        }
+        break;
+
+      case "SwapTask":
+        finishTask();
+        stakeholder.setPersonalPointAmount(
+            stakeholder.getPersonalPointAmount() - selectedTask.getValue());
+        break;
+
+      case "CommunityTask":
+        finishTask();
+        break;
+
+      default:
+        System.out.println("Ingen point-logik for typen: " + taskType);
+        break;
+    }
+
+    // 4. SLET OPGAVEN OG GEM (Nu hvor pointene er givet)
+    dm.deleteTask(selectedTask);
+    dm.saveData();
+
+    // 5. Gå tilbage til oversigten
+    ViewManager.showView("TaskList");
+  }
+
+  private void finishTask()
+  {
+    Alert pointRegistrationAlert;
+    completer.setPersonalPointAmount(
+        completer.getPersonalPointAmount() + selectedTask.getValue());
+
+    pointRegistrationAlert = new Alert(Alert.AlertType.INFORMATION);
+    pointRegistrationAlert.setHeaderText("Personlige point registreret");
+    pointRegistrationAlert.setContentText(
+        completer.getName() + " har fået " + selectedTask.getValue()
+            + " point.");
+    pointRegistrationAlert.showAndWait();
+  }
 
   public void onDeleteTaskButtonPressed(ActionEvent actionEvent)
   {
