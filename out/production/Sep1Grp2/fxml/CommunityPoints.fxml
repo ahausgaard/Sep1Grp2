@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kløverly.presentation.controllers.CommunityPointsController">
+<VBox alignment="CENTER" spacing="15.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kløverly.presentation.controllers.CommunityPointsController">
     <children>
         <Label text="Fællespoint Status">
             <font>
@@ -15,13 +15,27 @@
             </font>
         </Label>
 
-        <Label fx:id="pointsLabel" text="Henter point..." textFill="#2e7d32">
+        <Label fx:id="goalTitleLabel" text="Mål: Ingen" textFill="#2e7d32">
             <font>
-                <Font size="18.0" />
+                <Font name="System Bold" size="22.0" />
+            </font>
+        </Label>
+
+        <Label fx:id="deadlineLabel" text="Deadline: ...">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+
+        <Label fx:id="CommunityPointsDescriptionLabel" text="Præmie..." wrapText="true">
+            <font>
+                <Font name="System Italic" size="16.0" />
             </font>
         </Label>
 
         <ProgressBar fx:id="progressBar" prefWidth="400.0" progress="0.0" style="-fx-accent: #4caf50;" />
+
+        <Label fx:id="pointsLabel" text="0 / 1000 point" />
 
         <Button mnemonicParsing="false" onAction="#onBackButtonPressed" text="Tilbage til oversigt" />
     </children>

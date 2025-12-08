@@ -55,6 +55,8 @@ public class DataContainer implements Serializable
     this.communityGoal = new CommunityGoal("Nyt fællesmål", 1000, LocalDate.of(2026, 12, 24), "præmie");
   }
 
+
+
   public List<Task> getTaskList()
   {
     return taskList;

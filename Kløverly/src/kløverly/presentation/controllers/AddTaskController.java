@@ -28,6 +28,8 @@ public class AddTaskController
     public void initialize()
     {
         dm = ControllerConfigurator.getDataManager();
+        choiceBoxDrop.setPromptText("Vælge nye Opgave");
+
 
 
         //TODO Lav i FX
@@ -116,8 +118,10 @@ public class AddTaskController
                     // Hent nuværende point
                     int currentPoints = foundResident.getPersonalPointAmount();
 
-                    // Læg de nye point til (value kommer fra din spinner)
-                    foundResident.setPersonalPointAmount(currentPoints + value);
+                    if(currentPoints < value){
+                        statusLabel.setText(foundResident.getName() + " Har kun " + currentPoints + " Point ");
+                        return;
+                    }
 
                     // Opret opgaven med beboer-objektet
                     newTask = new SwapTask(name, value, description, foundResident);
@@ -158,7 +162,8 @@ public class AddTaskController
         taskDescriptionInput.setText("");
         spinner.getValueFactory().setValue(0);
         spinnerInput.setText("Point");
-        choiceBoxDrop.setValue("Vælge nye opgave");
+        choiceBoxDrop.setValue("Vælge Nye opgaev"); // Find Ud af det
+        swapTargetBox.setValue("Vælge Nye Beboer"); //
 
 
         System.out.println(dm.toString());

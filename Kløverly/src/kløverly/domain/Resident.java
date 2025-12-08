@@ -20,7 +20,7 @@ public class Resident implements Serializable
   public Resident(String name)
   {
     this.name = name;
-    personalPointAmount = 0;
+    personalPointAmount = 50;
     activityLevel = 0;
     this.id = IdGenerator.generate("R");
   }

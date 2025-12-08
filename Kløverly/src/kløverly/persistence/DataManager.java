@@ -21,6 +21,7 @@ public interface DataManager
   void addCommunityPoints(int points);
   int getCurrentCommunityPoints();
 
+  String getPrize();
 
   void saveData();
   DataContainer loadData();

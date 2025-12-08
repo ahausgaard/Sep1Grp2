@@ -1,6 +1,7 @@
 package kløverly.presentation.controllers;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import kløverly.domain.CommunityGoal;
@@ -20,6 +21,8 @@ public class AdminController implements Initializable
   public Button addResidentButton;
   public TextField residentNameField;
   public Button addGoalButton;
+  public TextField prizeDescriptionField;
+
   private DataManager dm;
 
   @Override public void initialize(URL location, ResourceBundle resources)
@@ -51,7 +54,7 @@ public class AdminController implements Initializable
     String goalTitle = goalTitleField.getText();
     LocalDate deadline = deadlineInput.getValue();
     int target = targetInput.getValue();
-    String prize = "";
+    String prize = prizeDescriptionField.getText();
 
     CommunityGoal communityGoal = new CommunityGoal(goalTitle, target, deadline, prize);
     dm.setGoal(communityGoal);

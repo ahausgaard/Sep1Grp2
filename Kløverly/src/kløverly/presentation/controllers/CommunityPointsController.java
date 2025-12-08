@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-import kløverly.domain.Resident;
+import kløverly.domain.CommunityGoal;
 import kløverly.persistence.DataManager;
 import kløverly.presentation.core.ControllerConfigurator;
 import kløverly.presentation.core.ViewManager;
@@ -13,43 +13,53 @@ import kløverly.presentation.core.ViewManager;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-    public class CommunityPointsController implements Initializable {
+public class CommunityPointsController implements Initializable {
 
-        @FXML
-        public Label pointsLabel;
+    // --- Her er alle dine Labels fra designet ---
+    @FXML public Label goalTitleLabel;                 // NY
+    @FXML public Label deadlineLabel;                  // NY
+    @FXML public Label CommunityPointsDescriptionLabel;
+    @FXML public Label pointsLabel;
+    @FXML public ProgressBar progressBar;
 
-        @FXML
-        public ProgressBar progressBar;
+    private DataManager dm;
 
-        private DataManager dm;
-
-        @Override
-        public void initialize(URL location, ResourceBundle resources) {
-            // 1. Få adgang til databasen
-            dm = ControllerConfigurator.getDataManager();
-
-            // 2. Beregn point med det samme siden åbner
-            calculateCommunityPoints();
-        }
-
-        private void calculateCommunityPoints() {
-            int totalPoints = dm.getCurrentCommunityPoints();
-            int targetGoal = 1000; // Fællesmålet (du kan ændre det til f.eks. 5000)
-
-
-            // 4. Opdater teksten på skærmen
-            pointsLabel.setText("Vi har samlet " + dm.getCurrentCommunityPoints() + " ud af " + targetGoal + " point!");
-
-            // 5. Opdater den grønne bar (skal være et tal mellem 0.0 og 1.0)
-            double progress = (double) totalPoints / targetGoal;
-            progressBar.setProgress(progress);
-        }
-
-        public void onBackButtonPressed(ActionEvent actionEvent) {
-            // Gå tilbage til forsiden
-            ViewManager.showView("Home");
-        }
-
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        dm = ControllerConfigurator.getDataManager();
+        calculateCommunityPoints();
     }
 
+    private void calculateCommunityPoints() {
+        // 1. Hent målet
+        CommunityGoal goal = dm.getCommunityGoal();
 
+        if (goal != null) {
+            // 2. Udfyld alle felterne med data fra Admin-siden
+            goalTitleLabel.setText(goal.getTitle());                      // Titel
+            deadlineLabel.setText("Deadline: " + goal.getDeadlineDate()); // Deadline
+            CommunityPointsDescriptionLabel.setText(goal.getPrize());     // Beskrivelse
+
+            // 3. Point og bar
+            int current = goal.getCurrentPoints();
+            int target = goal.getTargetPoints();
+
+            pointsLabel.setText("Vi har samlet " + current + " ud af " + target + " point!");
+
+            if (target > 0) {
+                progressBar.setProgress((double) current / target);
+            }
+        } else {
+            // Hvis intet mål findes endnu
+            goalTitleLabel.setText("Intet fællesmål");
+            deadlineLabel.setText("");
+            CommunityPointsDescriptionLabel.setText("Bed en admin om at oprette et mål.");
+            pointsLabel.setText("0 / 0");
+            progressBar.setProgress(0);
+        }
+    }
+
+    public void onBackButtonPressed(ActionEvent actionEvent) {
+        ViewManager.showView("Home");
+    }
+}

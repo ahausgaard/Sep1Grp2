@@ -53,7 +53,7 @@
                               <Spinner fx:id="targetInput" editable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
-                         <TextField fx:id="goalTitleFielddescribtion" promptText="fællesmål beskrivelse" />
+                         <TextField fx:id="prizeDescriptionField" promptText="fællesmål beskrivelse" />
                         <Button fx:id="addGoalButton" mnemonicParsing="false" onAction="#onAddGoalButtonPressed" styleClass="button-primary" text="Indstil fællesmål" />
                      </children>
                      <padding>

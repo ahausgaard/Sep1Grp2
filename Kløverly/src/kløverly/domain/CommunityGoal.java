@@ -23,6 +23,7 @@ public class CommunityGoal implements Serializable
     this.prize = prize;
   }
 
+
   public void addPoints(int points)
   {
     this.currentPoints += points;
@@ -46,7 +47,11 @@ public class CommunityGoal implements Serializable
         + creationDate + ", deadlineDate=" + deadlineDate + '}';
   }
 
-  public String getTitle()
+    public String getPrize() {
+        return prize;
+    }
+
+    public String getTitle()
   {
     return title;
   }

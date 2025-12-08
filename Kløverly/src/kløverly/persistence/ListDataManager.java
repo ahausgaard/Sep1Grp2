@@ -72,6 +72,10 @@ public class ListDataManager implements DataManager
         saveData();
     }
 
+    public String getPrize(){
+      return dataContainer.getCommunityGoal().getPrize();
+    }
+
 
   @Override public void addCommunityPoints(int points)
   {
