@@ -59,9 +59,6 @@ public class AddTaskController
           }
         });
 
-    // Ret til dette:
-    // I bunden af initialize():
-
     // Vi tjekker om listen er null for at undgå fejl
     if (dm.getAllResidents() != null)
     {
@@ -168,13 +165,13 @@ public class AddTaskController
 
     taskNameInput.setText("Test");
 
-    //TODO Lav i fx (slider)
+
     taskNameInput.setText("");
     taskDescriptionInput.setText("");
     spinner.getValueFactory().setValue(0);
     spinnerInput.setText("Point");
     taskChoiceBox.setValue("Vælg ny opgave");
-    swapTargetBox.setValue("Vælg ny beboer"); //
+    swapTargetBox.setValue("Vælg ny beboer");
 
     System.out.println(dm.toString());
 
