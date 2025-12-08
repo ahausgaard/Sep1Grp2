@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-import kløverly.domain.CommunityGoal;
+import kløverly.domain.GreenGoal;
 import kløverly.persistence.DataManager;
 import kløverly.presentation.core.ControllerConfigurator;
 import kløverly.presentation.core.ViewManager;
@@ -13,12 +13,10 @@ import kløverly.presentation.core.ViewManager;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CommunityPointsController implements Initializable {
-
-    // --- Her er alle dine Labels fra designet ---
-    @FXML public Label goalTitleLabel;                 // NY
-    @FXML public Label deadlineLabel;                  // NY
-    @FXML public Label CommunityPointsDescriptionLabel;
+public class GreenPointsViewController implements Initializable {
+    @FXML public Label goalTitleLabel;
+    @FXML public Label deadlineLabel;
+    @FXML public Label GreenPointsDescriptionLabel;
     @FXML public Label pointsLabel;
     @FXML public ProgressBar progressBar;
 
@@ -27,18 +25,18 @@ public class CommunityPointsController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dm = ControllerConfigurator.getDataManager();
-        calculateCommunityPoints();
+        calculateGreenPoints();
     }
 
-    private void calculateCommunityPoints() {
+    private void calculateGreenPoints() {
         // 1. Hent målet
-        CommunityGoal goal = dm.getCommunityGoal();
+        GreenGoal goal = dm.getGreenGoal();
 
         if (goal != null) {
             // 2. Udfyld alle felterne med data fra Admin-siden
-            goalTitleLabel.setText(goal.getTitle());                      // Titel
-            deadlineLabel.setText("Deadline: " + goal.getDeadlineDate()); // Deadline
-            CommunityPointsDescriptionLabel.setText(goal.getPrize());     // Beskrivelse
+            goalTitleLabel.setText(goal.getTitle());
+            deadlineLabel.setText("Deadline: " + goal.getDeadlineDate());
+            GreenPointsDescriptionLabel.setText("Præmie: " + goal.getPrize());
 
             // 3. Point og bar
             int current = goal.getCurrentPoints();
@@ -53,7 +51,7 @@ public class CommunityPointsController implements Initializable {
             // Hvis intet mål findes endnu
             goalTitleLabel.setText("Intet fællesmål");
             deadlineLabel.setText("");
-            CommunityPointsDescriptionLabel.setText("Bed en admin om at oprette et mål.");
+            GreenPointsDescriptionLabel.setText("Bed en admin om at oprette et mål.");
             pointsLabel.setText("0 / 0");
             progressBar.setProgress(0);
         }

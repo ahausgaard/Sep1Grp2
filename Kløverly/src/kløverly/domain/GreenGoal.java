@@ -4,16 +4,16 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 
-public class CommunityGoal implements Serializable
+public class GreenGoal implements Serializable
 {
-  private String title;
-  private String prize;
+  private final String title;
+  private final String prize;
   private int currentPoints;
   private int targetPoints;
-  private LocalDate creationDate;
+  private final LocalDate creationDate;
   private LocalDate deadlineDate;
 
-  public CommunityGoal(String title, int targetPoints, LocalDate deadlineDate, String prize)
+  public GreenGoal(String title, int targetPoints, LocalDate deadlineDate, String prize)
   {
     this.title = title;
     this.targetPoints = targetPoints;
@@ -23,26 +23,14 @@ public class CommunityGoal implements Serializable
     this.prize = prize;
   }
 
-
   public void addPoints(int points)
   {
     this.currentPoints += points;
   }
 
-  public boolean isGoalReached()
-  {
-    return currentPoints >= targetPoints;
-  }
-
-  public double getProgress()
-  {
-    if (targetPoints == 0) return 0;
-    return (double) currentPoints / targetPoints;
-  }
-
   @Override public String toString()
   {
-    return "\nCommunityGoal{" + "title='" + title + '\'' + ", currentPoints="
+    return "\nGreenGoal{" + "title='" + title + '\'' + ", currentPoints="
         + currentPoints + ", targetPoints=" + targetPoints + ", creationDate="
         + creationDate + ", deadlineDate=" + deadlineDate + '}';
   }
@@ -54,11 +42,6 @@ public class CommunityGoal implements Serializable
     public String getTitle()
   {
     return title;
-  }
-
-  public void setTitle(String title)
-  {
-    this.title = title;
   }
 
   public int getCurrentPoints()
@@ -76,28 +59,15 @@ public class CommunityGoal implements Serializable
     return targetPoints;
   }
 
-  public void setTargetPoints(int targetPoints)
-  {
-    this.targetPoints = targetPoints;
-  }
-
   public LocalDate getCreationDate()
   {
     return creationDate;
   }
 
-  public void setCreationDate(LocalDate creationDate)
-  {
-    this.creationDate = creationDate;
-  }
 
   public LocalDate getDeadlineDate()
   {
     return deadlineDate;
   }
 
-  public void setDeadlineDate(LocalDate deadlineDate)
-  {
-    this.deadlineDate = deadlineDate;
-  }
 }

@@ -7,7 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.util.StringConverter;
-import kløverly.domain.CommunityGoal;
+import kløverly.domain.GreenGoal;
 import kløverly.domain.Resident;
 import kløverly.domain.SwapTask;
 import kløverly.domain.Task;
@@ -23,7 +23,6 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class TaskViewController implements Initializable, AcceptsObjectArgument
-
 {
   public Label taskHeaderLabel;
   public Label displayStakeholder;
@@ -80,7 +79,6 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
         {
           return null;
         }
-
         return resident.getName();
       }
 
@@ -187,14 +185,13 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
     @FXML
     public void onFinishTaskButtonPressed(ActionEvent actionEvent) {
         // 1. Tjek om en beboer er valgt
-        Resident completer = completerBox.getValue();
-
+        completer = completerBox.getValue();
         if (completer == null) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setHeaderText("Mangler beboer");
             alert.setContentText("Du skal vælge en beboer i listen før du kan udføre opgaven.");
             alert.showAndWait();
-            return; // Stop her hvis ingen er valgt
+            return;
         }
 
         // 2. Bekræftelse - Er du sikker?
@@ -211,15 +208,16 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
         // 3. Fordel point (FØR vi sletter opgaven!)
         int points = selectedTask.getValue();
         String taskType = selectedTask.getType();
+        int completerCurrentPoints;
+        Alert pointRegistrationAlert;
 
         // Vi bruger en simpel switch til at tjekke typen
         switch (taskType) {
-            case "CommunityTask":
-            case "FællesOpgave":
-                // --- FÆLLESPOINT ---
-                CommunityGoal goal = dm.getCommunityGoal();
+            case "GreenTask":
+                // --- Grøn opgave ---
+                GreenGoal goal = dm.getGreenGoal();
                 if (goal != null) {
-                    goal.addPoints(points); // Læg point til målet
+                    goal.addPoints(points);
 
                     // Vis jubel-besked
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -234,21 +232,29 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
                 break;
 
             case "SwapTask":
-            case "Bytteopgave":
-                // --- PERSONLIGE POINT ---
-                int current = completer.getPersonalPointAmount();
-                completer.setPersonalPointAmount(current + points);
+                // --- Bytteopgave ---
+                completerCurrentPoints = completer.getPersonalPointAmount();
+                completer.setPersonalPointAmount(completerCurrentPoints + points);
 
                 stakeholder.setPersonalPointAmount(stakeholder.getPersonalPointAmount() - points);
 
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setHeaderText("Personlige point registreret");
-                alert.setContentText(completer.getName() + " har fået " + points + " point.");
-                alert.showAndWait();
+                pointRegistrationAlert = new Alert(Alert.AlertType.INFORMATION);
+                pointRegistrationAlert.setHeaderText("Personlige point registreret");
+                pointRegistrationAlert.setContentText(completer.getName() + " har fået " + points + " point.");
+                pointRegistrationAlert.showAndWait();
                 break;
 
+          case "CommunityTask":
+            completerCurrentPoints = completer.getPersonalPointAmount();
+            completer.setPersonalPointAmount(completerCurrentPoints + points);
+
+            pointRegistrationAlert = new Alert(Alert.AlertType.INFORMATION);
+            pointRegistrationAlert.setHeaderText("Personlige point registreret");
+            pointRegistrationAlert.setContentText(completer.getName() + " har fået " + points + " point.");
+            pointRegistrationAlert.showAndWait();
+            break;
+
             default:
-                // Hvis typen er ukendt (f.eks. Grøn opgave), gør vi ingenting ved pointene
                 System.out.println("Ingen point-logik for typen: " + taskType);
                 break;
         }

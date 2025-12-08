@@ -30,7 +30,7 @@
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
             </Button>
-             <Button fx:id="communityPointsButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onCommunityPointsButtonPressed" styleClass="button-primary" text="Fællespoint">
+             <Button fx:id="greenPointsButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onGreenPointsButtonPressed" styleClass="button-primary" text="Grøn oversigt">
              <VBox.margin>
                  <Insets bottom="10.0" top="10.0" />
              </VBox.margin>

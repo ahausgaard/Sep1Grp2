@@ -1,10 +1,9 @@
 package kløverly.presentation.controllers;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import kløverly.domain.CommunityGoal;
+import kløverly.domain.GreenGoal;
 import kløverly.domain.Resident;
 import kløverly.persistence.DataManager;
 import kløverly.presentation.core.ControllerConfigurator;
@@ -56,8 +55,8 @@ public class AdminController implements Initializable
     int target = targetInput.getValue();
     String prize = prizeDescriptionField.getText();
 
-    CommunityGoal communityGoal = new CommunityGoal(goalTitle, target, deadline, prize);
-    dm.setGoal(communityGoal);
+    GreenGoal greenGoal = new GreenGoal(goalTitle, target, deadline, prize);
+    dm.setGreenGoal(greenGoal);
 
     deadlineInput.setValue(LocalDate.now());
     goalTitleField.setText("");

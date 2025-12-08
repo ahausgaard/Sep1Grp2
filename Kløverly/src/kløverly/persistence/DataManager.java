@@ -1,6 +1,6 @@
 package kløverly.persistence;
 
-import kløverly.domain.CommunityGoal;
+import kløverly.domain.GreenGoal;
 import kløverly.domain.Resident;
 import kløverly.domain.Task;
 
@@ -16,12 +16,11 @@ public interface DataManager
   void deleteResident(Resident resident);
   List<Resident> getAllResidents();
 
-  void setGoal(CommunityGoal goal);
-  CommunityGoal getCommunityGoal();
-  void addCommunityPoints(int points);
-  int getCurrentCommunityPoints();
-
-  String getPrize();
+  void setGreenGoal(GreenGoal goal);
+  GreenGoal getGreenGoal();
+  void addGreenPoints(int points);
+  int getCurrentGreenPoints();
+  String getGreenPrize();
 
   void saveData();
   DataContainer loadData();

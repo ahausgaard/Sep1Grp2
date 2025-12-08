@@ -1,23 +1,16 @@
 package kløverly.domain;
 
-import java.io.Serial;
+
 import java.io.Serializable;
 import java.util.Objects;
 import kløverly.util.IdGenerator;
 
 public abstract class Task implements Serializable {
-    @Serial
-    private static final long serialVersionUID = 1L;
-
     private String title;
     private int value;
     private String description;
     private TaskStatus status;
     private String id;
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     public void setValue(int value) {
         this.value = value;
@@ -27,10 +20,6 @@ public abstract class Task implements Serializable {
         this.description = description;
     }
 
-    public void setStatus(TaskStatus status) {
-        this.status = status;
-    }
-
     public Task(String prefix, String title, int value, String description) {
         this.title = title;
         this.value = value;
@@ -38,8 +27,6 @@ public abstract class Task implements Serializable {
         this.status = TaskStatus.open;
         this.id = IdGenerator.generate(prefix);
     }
-
-    // Lav en switch til task der ændre fra engelsk til dansk
 
     public Task() {
     }

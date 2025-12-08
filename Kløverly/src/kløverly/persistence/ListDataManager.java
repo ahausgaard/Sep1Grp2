@@ -1,6 +1,6 @@
 package kløverly.persistence;
 
-import kløverly.domain.CommunityGoal;
+import kløverly.domain.GreenGoal;
 import kløverly.domain.Resident;
 import kløverly.domain.Task;
 
@@ -12,8 +12,6 @@ public class ListDataManager implements DataManager
 {
   private static final String TASK_FILE_PATH = "data.bin";
   private DataContainer dataContainer;
-  private CommunityGoal communityGoal;
-  
 
   public ListDataManager()
   {
@@ -59,34 +57,32 @@ public class ListDataManager implements DataManager
   }
 
 
-  //CommunityGoal
+  //GreenGoal
   @Override
-  public CommunityGoal getCommunityGoal() {
+  public GreenGoal getGreenGoal() {
       // Henter målet fra din dataContainer, så det matcher resten af din kode
-      return dataContainer.getCommunityGoal();
+      return dataContainer.getGreenGoal();
   }
 
     @Override
-    public void setGoal(CommunityGoal goal) {
-        dataContainer.setCommunityGoal(goal);
+    public void setGreenGoal(GreenGoal goal) {
+        dataContainer.setGreenGoal(goal);
         saveData();
     }
 
-    public String getPrize(){
-      return dataContainer.getCommunityGoal().getPrize();
+    public String getGreenPrize(){
+      return dataContainer.getGreenGoal().getPrize();
     }
 
-
-  @Override public void addCommunityPoints(int points)
+  @Override public void addGreenPoints(int points)
   {
-    int currentPoints = dataContainer.getCommunityGoal().getCurrentPoints();
-    dataContainer.getCommunityGoal().setCurrentPoints(currentPoints + points);
+    dataContainer.getGreenGoal().setCurrentPoints(getCurrentGreenPoints() + points);
     saveData();
   }
 
     @Override
-    public int getCurrentCommunityPoints() {
-        return dataContainer.getCommunityGoal().getCurrentPoints();
+    public int getCurrentGreenPoints() {
+        return dataContainer.getGreenGoal().getCurrentPoints();
     }
 
     @Override public String toString()

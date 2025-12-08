@@ -2,7 +2,6 @@ package kløverly.presentation.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
-import javafx.scene.layout.BorderPane;
 import kløverly.presentation.core.ViewManager;
 
 public class MainViewController
@@ -11,6 +10,7 @@ public class MainViewController
   public Button addTaskViewButton;
   public Button taskListViewButton;
   public Button residentListButton;
+  public Button greenPointsButton;
 
   public void onAddTaskViewButtonPressed(ActionEvent actionEvent)
   {
@@ -32,7 +32,7 @@ public class MainViewController
     ViewManager.showView("ResidentList");
   }
 
-  public void onCommunityPointsButtonPressed(ActionEvent event) {
-      ViewManager.showView("CommunityPoints");
+  public void onGreenPointsButtonPressed(ActionEvent event) {
+      ViewManager.showView("GreenPointsView");
   }
 }

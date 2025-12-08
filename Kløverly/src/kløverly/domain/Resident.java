@@ -1,15 +1,10 @@
 package kløverly.domain;
 
-import java.io.Serial;
 import java.io.Serializable;
-import java.util.Objects;
-import java.util.UUID;
 import kløverly.util.IdGenerator;
 
 public class Resident implements Serializable
 {
-  @Serial
-  private static final long serialVersionUID = 1L;
 
   private String name;
   private int personalPointAmount;
