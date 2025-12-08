@@ -83,8 +83,8 @@ public class AddTaskController
     // Validering af opgavetype
     if (type == null)
     {
-      statusLabel.setText("Du skal vælge en opgavetype først.");
       statusLabel.setStyle("-fx-text-fill: red;");
+      statusLabel.setText("Du skal vælge en opgavetype først.");
       return;
     }
 
@@ -97,8 +97,8 @@ public class AddTaskController
         // Tjek om brugeren har glemt at vælge en
         if (selectedName == null)
         {
-          statusLabel.setText("Vælg venligst en beboer.");
           statusLabel.setStyle("-fx-text-fill: red;");
+          statusLabel.setText("Vælg venligst en beboer.");
           return;
         }
 
@@ -123,6 +123,7 @@ public class AddTaskController
 
           if (currentPoints < value)
           {
+            statusLabel.setStyle("-fx-text-fill: red;");
             statusLabel.setText(
                 foundResident.getName() + " Har kun " + currentPoints
                     + " Point ");
@@ -140,6 +141,7 @@ public class AddTaskController
         else
         {
           // Sikkerhedsnet hvis noget går galt
+          statusLabel.setStyle("-fx-text-fill: red;");
           statusLabel.setText("Kunne ikke finde beboeren i systemet.");
           return;
         }
@@ -154,13 +156,13 @@ public class AddTaskController
         break;
 
       default:
-        statusLabel.setText("Ukendt opgavetype: " + type);
         statusLabel.setStyle("-fx-text-fill: red;");
+        statusLabel.setText("Ukendt opgavetype: " + type);
         return;
     }
 
     dm.addTask(newTask);
-
+    statusLabel.setStyle("-fx-text-fill: green;");
     statusLabel.setText("Opgaven blev tilføjet ✔");
 
     taskNameInput.setText("Test");
