@@ -7,6 +7,7 @@ import kløverly.domain.GreenGoal;
 import kløverly.domain.Resident;
 import kløverly.persistence.DataManager;
 import kløverly.presentation.core.ControllerConfigurator;
+import kløverly.presentation.core.ViewManager;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -46,6 +47,11 @@ public class AdminController implements Initializable
 
     dm.addResident(newResident);
     residentNameField.setText("");
+  }
+
+  public void onBackButtonPressed(ActionEvent actionEvent)
+  {
+    ViewManager.showView("Home");
   }
 
     public void onAddGoalButtonPressed(ActionEvent actionEvent)
