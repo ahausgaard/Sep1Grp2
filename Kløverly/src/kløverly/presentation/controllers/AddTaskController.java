@@ -21,22 +21,20 @@ public class AddTaskController
   public TextField taskDescriptionInput;
   public Label spinnerInput;
   private DataManager dm;
-  public ComboBox<String> choiceBoxDrop;
+  public ComboBox<String> taskChoiceBox;
   public ComboBox<String> swapTargetBox;
   public Spinner<Integer> spinner;
 
   public void initialize()
   {
     dm = ControllerConfigurator.getDataManager();
-    choiceBoxDrop.setPromptText("Vælg ny opgave");
 
-    //TODO Lav i FX
-    choiceBoxDrop.getItems()
+    taskChoiceBox.getItems()
         .addAll("Fællesopgave", "Bytteopgave", "Grøn opgave");
 
     // Sæt spinnerens værdier
     SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(
-        0, 100, 0);
+        -100, 100, 0);
     spinner.setValueFactory(valueFactory);
 
     // Opdater label når spinner ændres
@@ -45,7 +43,7 @@ public class AddTaskController
     });
 
     // 1. Lyt efter ændringer i opgavetype-boksen
-    choiceBoxDrop.getSelectionModel().selectedItemProperty()
+    taskChoiceBox.getSelectionModel().selectedItemProperty()
         .addListener((obs, oldVal, newVal) -> {
           if ("Bytteopgave".equals(newVal))
           {
@@ -82,7 +80,7 @@ public class AddTaskController
     String name = taskNameInput.getText();
     String description = taskDescriptionInput.getText();
     int value = spinner.getValue();
-    String type = choiceBoxDrop.getValue();
+    String type = taskChoiceBox.getValue();
     Task newTask;
 
     // Validering af opgavetype
@@ -166,8 +164,7 @@ public class AddTaskController
 
     dm.addTask(newTask);
 
-    statusLabel.setText("Opgaven blev tilføjet ✔️");
-    statusLabel.setStyle("-fx-text-fill: green;");
+    statusLabel.setText("Opgaven blev tilføjet ✔");
 
     taskNameInput.setText("Test");
 
@@ -176,7 +173,7 @@ public class AddTaskController
     taskDescriptionInput.setText("");
     spinner.getValueFactory().setValue(0);
     spinnerInput.setText("Point");
-    choiceBoxDrop.setValue("Vælg ny opgave"); // Find Ud af det
+    taskChoiceBox.setValue("Vælg ny opgave");
     swapTargetBox.setValue("Vælg ny beboer"); //
 
     System.out.println(dm.toString());

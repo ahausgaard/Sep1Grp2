@@ -226,11 +226,11 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
           goal.addPoints(selectedTask.getValue());
 
           // Vis jubel-besked
-          Alert alert = new Alert(Alert.AlertType.INFORMATION);
-          alert.setHeaderText("Fællespoint registreret!");
-          alert.setContentText("Jubii! Vi har nu " + goal.getCurrentPoints()
+          pointRegistrationAlert = new Alert(Alert.AlertType.INFORMATION);
+          pointRegistrationAlert.setHeaderText("Fællespoint registreret!");
+          pointRegistrationAlert.setContentText("Jubii! Vi har nu " + goal.getCurrentPoints()
               + " point i fællesskabet.");
-          alert.showAndWait();
+          pointRegistrationAlert.showAndWait();
         }
         else
         {
@@ -267,6 +267,14 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
   private void finishTask()
   {
     Alert pointRegistrationAlert;
+    if ((completer.getPersonalPointAmount() + selectedTask.getValue()) < 0)
+    {
+      Alert alert = new Alert(Alert.AlertType.WARNING,
+          "Hov!\n" + completer.getName() + " har ikke råd til at tage opgaven.");
+      alert.showAndWait();
+      return;
+    }
+
     completer.setPersonalPointAmount(
         completer.getPersonalPointAmount() + selectedTask.getValue());
 
