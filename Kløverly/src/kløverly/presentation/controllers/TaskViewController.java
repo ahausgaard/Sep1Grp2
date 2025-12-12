@@ -257,7 +257,8 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
     }
 
     // 4. SLET OPGAVEN OG GEM (Nu hvor pointene er givet)
-    dm.deleteTask(selectedTask);
+    if (!selectedTask.getType().equals("GreenTask"))
+      dm.deleteTask(selectedTask);
     dm.saveData();
 
     // 5. Gå tilbage til oversigten

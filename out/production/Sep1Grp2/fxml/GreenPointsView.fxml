@@ -35,11 +35,7 @@
 
         <Label fx:id="pointsLabel" text="0 / 1000 point" />
 
-<<<<<<< HEAD
-        <Button mnemonicParsing="false" onAction="#onBackButtonPressed" text="Tilbage til oversigt" />
-=======
         <Button mnemonicParsing="false" onAction="#onBackButtonPressed" styleClass="button-primary" text="Tilbage til oversigt" />
->>>>>>> e0b82325023b8fced3e8512b1a6ff0e7e1c2fe56
     </children>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
