@@ -67,6 +67,22 @@ public class ViewManager
       new Alert(Alert.AlertType.ERROR, "Cannot find view: " + viewName).show();
     }
   }
+    // KIG HER DET ER ÅBENT VINDUE TIL POINT OVERSIGT
+    // Ny metode til at åbne et separat vindue (popup)
+    public static void openWindow(String viewName, String title) {
+        try {
+            FXMLLoader loader = new FXMLLoader(ViewManager.class.getResource(fxmlDirectoryPath + viewName + ".fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage(); // Opretter et nyt vindue
+            stage.setTitle(title);
+            stage.setScene(new Scene(root));
+            stage.show(); // Viser vinduet
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
   public static void showView(String viewName, Object argument)
   {

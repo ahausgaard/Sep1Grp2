@@ -33,6 +33,8 @@ public class MainViewController
   }
 
   public void onGreenPointsButtonPressed(ActionEvent event) {
-      ViewManager.showView("GreenPointsView");
+      ViewManager.openWindow("GreenPointsView", "Grøn Oversigt");
   }
+
+
 }

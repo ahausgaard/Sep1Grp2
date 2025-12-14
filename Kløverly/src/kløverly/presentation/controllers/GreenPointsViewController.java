@@ -96,6 +96,11 @@ public class GreenPointsViewController implements Initializable {
     }
 
     public void onBackButtonPressed(ActionEvent actionEvent) {
-        ViewManager.showView("Home");
+        // Hent knappen
+        javafx.scene.Node source = (javafx.scene.Node) actionEvent.getSource();
+        // Find vinduet
+        javafx.stage.Stage stage = (javafx.stage.Stage) source.getScene().getWindow();
+        // Luk vinduet
+        stage.close();
     }
 }
