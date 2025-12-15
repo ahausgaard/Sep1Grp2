@@ -24,6 +24,7 @@ public class TaskListController implements Initializable
   public TableColumn<Task, String> taskTypeColumn;
   public TableColumn<Task, String> taskValueColumn;
 
+
   public void onBackButtonPressed(ActionEvent actionEvent)
   {
     ViewManager.showView("Home");
