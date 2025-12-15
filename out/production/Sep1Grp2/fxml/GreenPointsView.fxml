@@ -7,11 +7,6 @@
 
 <VBox alignment="CENTER" spacing="15.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kløverly.presentation.controllers.GreenPointsViewController">
     <children>
-        <Label text="Grønne point">
-            <font>
-                <Font size="24.0" />
-            </font>
-        </Label>
 
         <Label fx:id="goalTitleLabel" text="Mål: Ingen" textFill="#2e7d32">
             <font>
