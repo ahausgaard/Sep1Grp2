@@ -106,7 +106,7 @@ public class ResidentViewController implements Initializable, AcceptsObjectArgum
     }
     else
     {
-      ViewManager.showView("TaskList");
+      ViewManager.showView("ResidentList");
     }
   }
 
@@ -141,15 +141,6 @@ public class ResidentViewController implements Initializable, AcceptsObjectArgum
 
     populateFields();
 
-  }
-
-  public void onCompleterBoxPressed(ActionEvent actionEvent)
-  {
-
-  }
-
-  public void onFinishTaskButton(ActionEvent actionEvent)
-  {
   }
 
   public void onDeleteResidentButtonPressed(ActionEvent actionEvent)

@@ -18,9 +18,6 @@ public interface DataManager
 
   void setGreenGoal(GreenGoal goal);
   GreenGoal getGreenGoal();
-  void addGreenPoints(int points);
-  int getCurrentGreenPoints();
-  String getGreenPrize();
 
   void saveData();
   DataContainer loadData();

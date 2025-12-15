@@ -70,21 +70,6 @@ public class ListDataManager implements DataManager
         saveData();
     }
 
-    public String getGreenPrize(){
-      return dataContainer.getGreenGoal().getPrize();
-    }
-
-  @Override public void addGreenPoints(int points)
-  {
-    dataContainer.getGreenGoal().setCurrentPoints(getCurrentGreenPoints() + points);
-    saveData();
-  }
-
-    @Override
-    public int getCurrentGreenPoints() {
-        return dataContainer.getGreenGoal().getCurrentPoints();
-    }
-
     @Override public String toString()
   {
     return "ListDataManager{" + "dataContainer=" + dataContainer + '}';

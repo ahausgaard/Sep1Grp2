@@ -19,7 +19,6 @@ public class ViewManager
       BorderPane root = FXMLLoader.load(
           ViewManager.class.getResource(fxmlDirectoryPath + initialView + ".fxml")
       );
-//TODO
       mainLayout = root;
 
       Scene scene = new Scene(root, 900, 600);
@@ -67,7 +66,7 @@ public class ViewManager
       new Alert(Alert.AlertType.ERROR, "Cannot find view: " + viewName).show();
     }
   }
-    // KIG HER DET ER ÅBENT VINDUE TIL POINT OVERSIGT
+
     // Ny metode til at åbne et separat vindue (popup)
     public static void openWindow(String viewName, String title) {
         try {
@@ -77,7 +76,7 @@ public class ViewManager
             Stage stage = new Stage(); // Opretter et nyt vindue
             stage.setTitle(title);
             stage.setScene(new Scene(root));
-            stage.show(); // Viser vinduet
+            stage.show();
 
         } catch (IOException e) {
             e.printStackTrace();

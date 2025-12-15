@@ -19,11 +19,6 @@ public class Resident implements Serializable
     this.id = IdGenerator.generate("R");
   }
 
-  public Resident()
-  {
-
-  }
-
   public void setPersonalPointAmount(int personalPointAmount)
   {
     this.personalPointAmount = personalPointAmount;

@@ -32,37 +32,36 @@ public class AddTaskController
     taskChoiceBox.getItems()
         .addAll("Fællesopgave", "Bytteopgave", "Grøn opgave");
 
-    // Sæt spinnerens værdier
     SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(
         -100, 100, 0);
     spinner.setValueFactory(valueFactory);
 
-    // Opdater label når spinner ændres
+
     spinner.valueProperty().addListener((obs, oldVal, newVal) -> {
       spinnerInput.setText("Point");
     });
 
-    // 1. Lyt efter ændringer i opgavetype-boksen
+
     taskChoiceBox.getSelectionModel().selectedItemProperty()
         .addListener((obs, oldVal, newVal) -> {
           if ("Bytteopgave".equals(newVal))
           {
-            // Hvis bytteopgave er valgt: Vis den nye boks
+
             swapTargetBox.setVisible(true);
             swapTargetBox.setManaged(true);
           }
           else
           {
-            // Ellers: Skjul den
+
             swapTargetBox.setVisible(false);
             swapTargetBox.setManaged(false);
           }
         });
 
-    // Vi tjekker om listen er null for at undgå fejl
+
     if (dm.getAllResidents() != null)
     {
-      // Vi bruger 'getAllResidents()' som er det rigtige navn i din DataManager
+
       for (Resident r : dm.getAllResidents())
       {
         swapTargetBox.getItems().add(r.getName());
@@ -71,80 +70,32 @@ public class AddTaskController
 
   }
 
-  public void onAddTaskButtonPressed()
-  {
-
+  public void onAddTaskButtonPressed() {
     String name = taskNameInput.getText();
     String description = taskDescriptionInput.getText();
     int value = spinner.getValue();
     String type = taskChoiceBox.getValue();
-    Task newTask;
+    String swapTarget = swapTargetBox.getValue();
 
-    // Validering af opgavetype
-    if (type == null)
-    {
+
+    String errorMsg = validateInput(name, type, value, swapTarget);
+
+    if (errorMsg != null) {
       statusLabel.setStyle("-fx-text-fill: red;");
-      statusLabel.setText("Du skal vælge en opgavetype først.");
+      statusLabel.setText(errorMsg);
       return;
     }
 
-    switch (type)
-    {
+
+    Task newTask = null;
+
+    switch (type) {
       case "Bytteopgave":
-        // 1. Hent navnet på den valgte beboer
-        String selectedName = swapTargetBox.getValue();
 
-        // Tjek om brugeren har glemt at vælge en
-        if (selectedName == null)
-        {
-          statusLabel.setStyle("-fx-text-fill: red;");
-          statusLabel.setText("Vælg venligst en beboer.");
-          return;
-        }
+        Resident foundResident = findResidentByName(swapTarget);
+        newTask = new SwapTask(name, value, description, foundResident);
 
-        // 2. Find den rigtige Resident i systemet
-        Resident foundResident = null;
-
-        // HER ER RETTELSEN: Vi bruger nu dm.getAllResidents()
-        for (Resident r : dm.getAllResidents())
-        {
-          if (r.getName().equals(selectedName))
-          {
-            foundResident = r;
-            break; // Stop løkken når vi har fundet personen
-          }
-        }
-
-        // 3. Hvis beboeren findes: Opdater point og opret opgave
-        if (foundResident != null)
-        {
-          // Hent nuværende point
-          int currentPoints = foundResident.getPersonalPointAmount();
-
-          if (currentPoints < value)
-          {
-            statusLabel.setStyle("-fx-text-fill: red;");
-            statusLabel.setText(
-                foundResident.getName() + " Har kun " + currentPoints
-                    + " Point ");
-            return;
-          }
-
-          // Opret opgaven med beboer-objektet
-          newTask = new SwapTask(name, value, description, foundResident);
-
-          // (Valgfrit) Print til konsollen for at teste
-          System.out.println(
-              "Point opdateret for " + selectedName + ". Nye point: " + (
-                  currentPoints + value));
-        }
-        else
-        {
-          // Sikkerhedsnet hvis noget går galt
-          statusLabel.setStyle("-fx-text-fill: red;");
-          statusLabel.setText("Kunne ikke finde beboeren i systemet.");
-          return;
-        }
+        System.out.println("Points checked for: " + swapTarget);
         break;
 
       case "Grøn opgave":
@@ -157,26 +108,63 @@ public class AddTaskController
 
       default:
         statusLabel.setStyle("-fx-text-fill: red;");
-        statusLabel.setText("Ukendt opgavetype: " + type);
+        statusLabel.setText("Ukendt opgavetype.");
         return;
     }
 
+    // --- TRIN 3: GEM OG NULSTIL ---
     dm.addTask(newTask);
+
     statusLabel.setStyle("-fx-text-fill: green;");
     statusLabel.setText("Opgaven blev tilføjet ✔");
 
-    taskNameInput.setText("Test");
-
-
+    clearInputFields();
+    System.out.println(dm.toString());
+  }
+  private void clearInputFields() {
     taskNameInput.setText("");
     taskDescriptionInput.setText("");
     spinner.getValueFactory().setValue(0);
     spinnerInput.setText("Point");
     taskChoiceBox.setValue("Vælg ny opgave");
     swapTargetBox.setValue("Vælg ny beboer");
+  }
 
-    System.out.println(dm.toString());
+  private String validateInput(String name, String type, int value, String swapTarget) {
+    if (name == null || name.trim().isEmpty()) {
+      return "Udfyld venligst opgavens navn.";
+    }
 
+    if (type == null) {
+      return "Du skal vælge en opgavetype først.";
+    }
+
+    if (type.equals("Bytteopgave")) {
+      if (swapTarget == null || swapTarget.equals("Vælg ny beboer")) {
+        return "Vælg venligst en beboer.";
+      }
+
+      Resident r = findResidentByName(swapTarget);
+
+      if (r == null) {
+        return "Kunne ikke finde beboeren i systemet.";
+      }
+
+      if (r.getPersonalPointAmount() < value) {
+        return r.getName() + " har kun " + r.getPersonalPointAmount() + " point.";
+      }
+    }
+
+    return null;
+  }
+
+  private Resident findResidentByName(String name) {
+    for (Resident r : dm.getAllResidents()) {
+      if (r.getName().equals(name)) {
+        return r;
+      }
+    }
+    return null;
   }
 
   public void onCancelButtonPressed()

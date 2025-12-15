@@ -209,32 +209,27 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
       return;
     }
 
-    // 3. Fordel point (FØR vi sletter opgaven!)
-
     String taskType = selectedTask.getType();
 
-    Alert pointRegistrationAlert;
+    Alert infoAlert;
 
     // Vi bruger en simpel switch til at tjekke typen
     switch (taskType)
     {
       case "GreenTask":
-        // --- Grøn opgave ---
         GreenGoal goal = dm.getGreenGoal();
         if (goal != null)
         {
           goal.addPoints(selectedTask.getValue());
 
-          // Vis jubel-besked
-          pointRegistrationAlert = new Alert(Alert.AlertType.INFORMATION);
-          pointRegistrationAlert.setHeaderText("Fællespoint registreret!");
-          pointRegistrationAlert.setContentText("Jubii! Vi har nu " + goal.getCurrentPoints()
+          infoAlert = new Alert(Alert.AlertType.INFORMATION);
+          infoAlert.setHeaderText("Fællespoint registreret!");
+          infoAlert.setContentText("Jubii! Vi har nu " + goal.getCurrentPoints()
               + " point i fællesskabet.");
-          pointRegistrationAlert.showAndWait();
+          infoAlert.showAndWait();
         }
         else
         {
-          // Hvis der ikke er noget mål endnu
           Alert alert = new Alert(Alert.AlertType.WARNING,
               "Hov! Der er ikke oprettet noget fællesmål endnu.");
           alert.showAndWait();
@@ -256,18 +251,16 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
         break;
     }
 
-    // 4. SLET OPGAVEN OG GEM, med mindre opgaven er grøn
     if (!selectedTask.getType().equals("GreenTask"))
       dm.deleteTask(selectedTask);
     dm.saveData();
 
-    // 5. Gå tilbage til oversigten
     ViewManager.showView("TaskList");
   }
 
   private void finishTask()
   {
-    Alert pointRegistrationAlert;
+    Alert infoAlert;
     if ((completer.getPersonalPointAmount() + selectedTask.getValue()) < 0)
     {
       Alert alert = new Alert(Alert.AlertType.WARNING,
@@ -279,12 +272,12 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
     completer.setPersonalPointAmount(
         completer.getPersonalPointAmount() + selectedTask.getValue());
 
-    pointRegistrationAlert = new Alert(Alert.AlertType.INFORMATION);
-    pointRegistrationAlert.setHeaderText("Personlige point registreret");
-    pointRegistrationAlert.setContentText(
+    infoAlert = new Alert(Alert.AlertType.INFORMATION);
+    infoAlert.setHeaderText("Personlige point registreret");
+    infoAlert.setContentText(
         completer.getName() + " har fået " + selectedTask.getValue()
             + " point.");
-    pointRegistrationAlert.showAndWait();
+    infoAlert.showAndWait();
   }
 
   public void onDeleteTaskButtonPressed(ActionEvent actionEvent)

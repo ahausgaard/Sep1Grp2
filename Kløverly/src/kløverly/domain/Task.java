@@ -1,8 +1,6 @@
 package kløverly.domain;
 
-
 import java.io.Serializable;
-import java.util.Objects;
 import kløverly.util.IdGenerator;
 
 public abstract class Task implements Serializable {
