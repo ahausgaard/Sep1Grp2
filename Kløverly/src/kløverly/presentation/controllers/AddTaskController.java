@@ -36,12 +36,6 @@ public class AddTaskController
         -100, 100, 0);
     spinner.setValueFactory(valueFactory);
 
-
-    spinner.valueProperty().addListener((obs, oldVal, newVal) -> {
-      spinnerInput.setText("Point");
-    });
-
-
     taskChoiceBox.getSelectionModel().selectedItemProperty()
         .addListener((obs, oldVal, newVal) -> {
           if ("Bytteopgave".equals(newVal))
@@ -125,7 +119,6 @@ public class AddTaskController
     taskNameInput.setText("");
     taskDescriptionInput.setText("");
     spinner.getValueFactory().setValue(0);
-    spinnerInput.setText("Point");
     taskChoiceBox.setValue("Vælg ny opgave");
     swapTargetBox.setValue("Vælg ny beboer");
   }

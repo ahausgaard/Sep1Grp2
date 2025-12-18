@@ -228,12 +228,31 @@
 }
 
 .form-button-secondary:hover {
+    -fx-background-radius: 20;
     -fx-background-color: rgba(255,255,255,0.15);
+}
+
+.form-button-accent {
+  -fx-background-color: #FFB380; /* Abrikos farve */
+  -fx-text-fill: #2E5233;        /* Mørkegrøn tekst for god kontrast */
+  -fx-font-size: 14px;
+  -fx-font-weight: bold;
+  -fx-font-family: "Segoe UI", sans-serif;
+  -fx-background-radius: 20;
+  -fx-padding: 8 26;
+  -fx-cursor: hand;
+  /* Let skygge for dybde */
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 8, 0, 0, 1);
+}
+
+.form-button-accent:hover {
+  -fx-background-color: #FFC499; /* Lidt lysere abrikos ved hover */
+  -fx-background-radius: 20;     /* VIGTIGT: Bevarer den ovale form */
 }
 
 /* Status-tekst under knapper */
 .form-status {
-    -fx-text-fill: #1B5E20;
+    -fx-text-fill: #124116;
     -fx-font-size: 12px;
     -fx-font-family: "Segoe UI", sans-serif;
     -fx-padding: 5 0 0 0;

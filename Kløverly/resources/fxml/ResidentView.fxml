@@ -1,43 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Spinner?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<VBox alignment="TOP_CENTER"
-      maxHeight="-Infinity" maxWidth="-Infinity"
-      minHeight="-Infinity" minWidth="-Infinity"
-      prefHeight="400.0" prefWidth="600.0"
-      xmlns="http://javafx.com/javafx/17.0.12"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="kløverly.presentation.controllers.ResidentViewController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kløverly.presentation.controllers.ResidentViewController">
 
     <children>
 
         <!-- OVERSKRIFT -->
-        <Label fx:id="residentHeaderLabel"
-               contentDisplay="CENTER"
-               text="Beboer:"
-               textAlignment="CENTER"
-               styleClass="view-title">
+        <Label fx:id="residentHeaderLabel" contentDisplay="CENTER" styleClass="view-title" text="Beboer:" textAlignment="CENTER">
             <VBox.margin>
-                <Insets top="40.0" bottom="30.0" />
+                <Insets bottom="30.0" top="40.0" />
             </VBox.margin>
         </Label>
 
         <!-- KORT MED BEBOER-DETALJER -->
-        <GridPane alignment="CENTER"
-                  hgap="40.0" vgap="25.0"
-                  styleClass="detail-card">
+        <GridPane alignment="CENTER" hgap="40.0" styleClass="detail-card" vgap="25.0">
 
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="120.0" />
@@ -50,7 +29,7 @@
             </rowConstraints>
 
             <padding>
-                <Insets top="20.0" right="30.0" bottom="20.0" left="30.0" />
+                <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
             </padding>
 
             <children>
@@ -58,24 +37,19 @@
                 <!-- ID -->
                 <VBox>
                     <children>
-                        <Label text="Id" styleClass="detail-label" />
-                        <Label fx:id="displayId"
-                               text="0"
-                               styleClass="detail-value" />
+                        <Label styleClass="detail-label" text="Id" />
+                        <Label fx:id="displayId" styleClass="detail-value" text="0" />
                     </children>
                 </VBox>
 
                 <!-- AKTIVITETSNIVEAU -->
                 <VBox GridPane.rowIndex="1">
                     <children>
-                        <Label text="Aktivitetsniveau" styleClass="detail-label" />
+                        <Label styleClass="detail-label" text="Aktivitetsniveau" />
                         <StackPane alignment="TOP_LEFT" prefHeight="30.0">
                             <children>
-                                <Label fx:id="displayActivityLevel"
-                                       text="0"
-                                       styleClass="detail-value" />
-                                <Spinner fx:id="editActivityLevel"
-                                         visible="false" />
+                                <Label fx:id="displayActivityLevel" styleClass="detail-value" text="0" />
+                                <Spinner fx:id="editActivityLevel" visible="false" />
                             </children>
                         </StackPane>
                     </children>
@@ -84,14 +58,11 @@
                 <!-- PERSONLIGE POINT -->
                 <VBox GridPane.columnIndex="1">
                     <children>
-                        <Label text="Personlige point" styleClass="detail-label" />
+                        <Label styleClass="detail-label" text="Personlige point" />
                         <StackPane alignment="TOP_LEFT" prefHeight="30.0">
                             <children>
-                                <Label fx:id="displayPersonalPoints"
-                                       text="0"
-                                       styleClass="detail-value" />
-                                <Spinner fx:id="editPersonalPoints"
-                                         visible="false" />
+                                <Label fx:id="displayPersonalPoints" styleClass="detail-value" text="0" />
+                                <Spinner fx:id="editPersonalPoints" visible="false" />
                             </children>
                         </StackPane>
                     </children>
@@ -103,30 +74,15 @@
         <Region prefHeight="40.0" prefWidth="200.0" />
 
         <!-- KNAPPER NEDERST -->
-        <HBox alignment="CENTER"
-              prefHeight="60.0" prefWidth="200.0"
-              spacing="10.0">
+        <HBox alignment="CENTER" spacing="10.0">
             <children>
-                <Region HBox.hgrow="ALWAYS"
-                        prefHeight="40.0" prefWidth="260.0" />
+                <Region prefHeight="40.0" prefWidth="220.0" HBox.hgrow="ALWAYS" />
 
-                <Button fx:id="deleteResidentButton"
-                        mnemonicParsing="false"
-                        onAction="#onDeleteResidentButtonPressed"
-                        styleClass="button-accent"
-                        text="Slet beboer" />
+                <Button fx:id="deleteResidentButton" mnemonicParsing="false" onAction="#onDeleteResidentButtonPressed" styleClass="form-button-accent" text="Slet" />
 
-                <Button fx:id="editTaskButton"
-                        mnemonicParsing="false"
-                        onAction="#onEditTaskButtonPressed"
-                        styleClass="button-primary"
-                        text="Redigér" />
+                <Button fx:id="editTaskButton" mnemonicParsing="false" onAction="#onEditTaskButtonPressed" styleClass="form-button-primary" text="Redigér" />
 
-                <Button fx:id="cancelButton"
-                        mnemonicParsing="false"
-                        onAction="#onCancelButtonPressed"
-                        styleClass="button-secondary"
-                        text="Tilbage" />
+                <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#onCancelButtonPressed" styleClass="form-button-secondary" text="Tilbage" />
             </children>
         </HBox>
 

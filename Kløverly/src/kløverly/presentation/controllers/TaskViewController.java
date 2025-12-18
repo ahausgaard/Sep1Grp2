@@ -156,13 +156,13 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
     if (currentlyEditing)
     {
       saveTask();
-      editTaskButton.setText("Redigér opgave");
+      editTaskButton.setText("Redigér");
       cancelButton.setText("Tilbage");
       isEditing.set(false);
     }
     else
     {
-      editTaskButton.setText("Gem ændringer");
+      editTaskButton.setText("Gem");
       cancelButton.setText("Annullér");
       isEditing.set(true);
     }

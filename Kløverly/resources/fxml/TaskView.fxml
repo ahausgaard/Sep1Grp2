@@ -1,55 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Spinner?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.RowConstraints?>
-<VBox alignment="TOP_CENTER"
-      maxHeight="-Infinity" maxWidth="-Infinity"
-      minHeight="-Infinity" minWidth="-Infinity"
-      prefHeight="400.0" prefWidth="600.0"
-      xmlns="http://javafx.com/javafx/17.0.12"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="kløverly.presentation.controllers.TaskViewController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kløverly.presentation.controllers.TaskViewController">
 
     <children>
 
         <!-- OVERSKRIFT -->
-        <Label fx:id="taskHeaderLabel"
-               text="Opgave"
-               textAlignment="CENTER"
-               styleClass="view-title">
+        <Label fx:id="taskHeaderLabel" styleClass="view-title" text="Opgave" textAlignment="CENTER">
             <VBox.margin>
-                <Insets top="40.0" bottom="30.0"/>
+                <Insets bottom="30.0" top="40.0" />
             </VBox.margin>
         </Label>
 
         <!-- KORT / CARD MED OPGAVEDETALJER -->
-        <GridPane alignment="CENTER"
-                  hgap="40.0" vgap="25.0"
-                  styleClass="detail-card">
+        <GridPane alignment="CENTER" hgap="40.0" styleClass="detail-card" vgap="25.0">
             <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="120.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="180.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="120.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="180.0" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints minHeight="30.0" vgrow="SOMETIMES"/>
-                <RowConstraints minHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
 
             <padding>
-                <Insets top="20.0" right="30.0" bottom="20.0" left="30.0"/>
+                <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
             </padding>
 
             <children>
@@ -57,21 +35,19 @@
                 <!-- ID -->
                 <VBox>
                     <children>
-                        <Label text="Id" styleClass="detail-label"/>
-                        <Label fx:id="displayId" text="0" styleClass="detail-value"/>
+                        <Label styleClass="detail-label" text="Id" />
+                        <Label fx:id="displayId" styleClass="detail-value" text="0" />
                     </children>
                 </VBox>
 
                 <!-- POINTVÆRDI -->
                 <VBox GridPane.rowIndex="1">
                     <children>
-                        <Label text="Pointværdi" styleClass="detail-label"/>
+                        <Label styleClass="detail-label" text="Pointværdi" />
                         <StackPane alignment="TOP_LEFT" prefHeight="30.0">
                             <children>
-                                <Label fx:id="displayValue"
-                                       text="0"
-                                       styleClass="detail-value"/>
-                                <Spinner fx:id="editValue" visible="false"/>
+                                <Label fx:id="displayValue" styleClass="detail-value" text="0" />
+                                <Spinner fx:id="editValue" visible="false" />
                             </children>
                         </StackPane>
                     </children>
@@ -80,13 +56,11 @@
                 <!-- BESKRIVELSE -->
                 <VBox GridPane.columnIndex="1">
                     <children>
-                        <Label text="Beskrivelse" styleClass="detail-label"/>
+                        <Label styleClass="detail-label" text="Beskrivelse" />
                         <StackPane alignment="TOP_LEFT" prefHeight="80.0">
                             <children>
-                                <Label fx:id="displayDescription"
-                                       wrapText="true"
-                                       styleClass="detail-value"/>
-                                <TextField fx:id="editDescription" visible="false"/>
+                                <Label fx:id="displayDescription" styleClass="detail-value" wrapText="true" />
+                                <TextField fx:id="editDescription" visible="false" />
                             </children>
                         </StackPane>
                     </children>
@@ -95,16 +69,11 @@
                 <!-- OPGAVEEJER (KUN VED SWAPTASK) -->
                 <VBox GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <children>
-                        <Label fx:id="stakeholderLabel"
-                               text="Opgaveejer"
-                               visible="false"
-                               styleClass="detail-label"/>
+                        <Label fx:id="stakeholderLabel" styleClass="detail-label" text="Opgaveejer" visible="false" />
                         <StackPane alignment="TOP_LEFT" prefHeight="30.0">
                             <children>
-                                <Label fx:id="displayStakeholder"
-                                       styleClass="detail-value"/>
-                                <TextField fx:id="editStakeholder"
-                                           visible="false"/>
+                                <Label fx:id="displayStakeholder" styleClass="detail-value" />
+                                <TextField fx:id="editStakeholder" visible="false" />
                             </children>
                         </StackPane>
                     </children>
@@ -113,48 +82,26 @@
             </children>
         </GridPane>
 
-        <Region prefHeight="40.0" prefWidth="200.0"/>
+        <Region prefHeight="40.0" prefWidth="200.0" />
 
         <!-- KNAPPER NEDERST -->
-        <HBox alignment="CENTER"
-              prefHeight="60.0" prefWidth="200.0"
-              spacing="10.0">
+        <HBox alignment="CENTER" spacing="5.0">
             <children>
-                <ComboBox fx:id="completerBox"
-                          prefWidth="150.0"
-                          promptText="Vælg beboer"/>
+                <ComboBox fx:id="completerBox" prefWidth="150.0" promptText="Vælg beboer" />
 
-                <Button fx:id="finishTaskButton"
-                        mnemonicParsing="false"
-                        onAction="#onFinishTaskButtonPressed"
-                        styleClass="button-primary"
-                        text="Udfør"/>
+                <Button fx:id="finishTaskButton" mnemonicParsing="false" onAction="#onFinishTaskButtonPressed" styleClass="form-button-primary" text="Udfør" />
 
-                <Button fx:id="deleteTaskButton"
-                        mnemonicParsing="false"
-                        onAction="#onDeleteTaskButtonPressed"
-                        prefHeight="25.0" prefWidth="98.0"
-                        styleClass="button-accent"
-                        text="Slet opgave"/>
+                <Button fx:id="deleteTaskButton" mnemonicParsing="false" onAction="#onDeleteTaskButtonPressed" styleClass="form-button-accent" text="Slet" />
 
-                <Button fx:id="editTaskButton"
-                        mnemonicParsing="false"
-                        onAction="#onEditTaskButtonPressed"
-                        styleClass="button-primary"
-                        text="Redigér"/>
+                <Button fx:id="editTaskButton" mnemonicParsing="false" onAction="#onEditTaskButtonPressed" styleClass="form-button-primary" text="Redigér" />
 
-                <Button fx:id="cancelButton"
-                        mnemonicParsing="false"
-                        onAction="#onCancelButtonPressed"
-                        prefHeight="25.0" prefWidth="84.0"
-                        styleClass="button-secondary"
-                        text="Tilbage"/>
+                <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#onCancelButtonPressed" styleClass="form-button-secondary" text="Tilbage" />
             </children>
         </HBox>
 
     </children>
 
     <padding>
-        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 </VBox>

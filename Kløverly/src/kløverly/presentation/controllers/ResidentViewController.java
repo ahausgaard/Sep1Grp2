@@ -117,13 +117,13 @@ public class ResidentViewController implements Initializable, AcceptsObjectArgum
     if (currentlyEditing)
     {
       saveResident();
-      editTaskButton.setText("Redigér opgave");
+      editTaskButton.setText("Redigér");
       cancelButton.setText("Tilbage");
       isEditing.set(false);
     }
     else
     {
-      editTaskButton.setText("Gem ændringer");
+      editTaskButton.setText("Gem");
       cancelButton.setText("Annullér");
       isEditing.set(true);
     }
@@ -146,7 +146,7 @@ public class ResidentViewController implements Initializable, AcceptsObjectArgum
   public void onDeleteResidentButtonPressed(ActionEvent actionEvent)
   {
     //Alert
-    deletionAlert.setTitle("Slet beboer");
+    deletionAlert.setTitle("Slet");
     deletionAlert.setHeaderText(null);
     deletionAlert.setContentText("Er du sikker på, du vil slette beboer: " + selectedResident.getName());
     ButtonType buttonTypeDelete = new ButtonType("Slet");
