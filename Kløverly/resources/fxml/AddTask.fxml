@@ -1,53 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="490.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kløverly.presentation.controllers.AddTaskController">
-   <children>
-      <Label text="Registrér opgave" translateX="160.0">
-         <font>
-            <Font size="20.0" />
-         </font>
-         <VBox.margin>
-            <Insets bottom="40.0" />
-         </VBox.margin>
-      </Label>
-       <HBox alignment="CENTER" spacing="10.0">
-           <children>
-               <ComboBox fx:id="taskChoiceBox" promptText="Vælg opgavetype" styleClass="button-secondary" />
+<VBox xmlns="http://javafx.com/javafx/17.0.12"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="kløverly.presentation.controllers.AddTaskController"
+      alignment="CENTER"
+      styleClass="form-root">
 
-               <ComboBox fx:id="swapTargetBox" managed="false" promptText="Vælg beboer" styleClass="button-secondary" visible="false" />
-           </children>
-           <VBox.margin>
-               <Insets bottom="10.0" />
-           </VBox.margin>
-       </HBox>
-      <Label text="Opgavetitel" />
-      <TextField fx:id="taskNameInput">
-         <VBox.margin>
-            <Insets bottom="10.0" />
-         </VBox.margin>
-      </TextField>
-      <Label text="Opgavebeskrivelse" />
-      <TextField fx:id="taskDescriptionInput">
-         <VBox.margin>
-            <Insets bottom="10.0" />
-         </VBox.margin>
-      </TextField>
-      <Label fx:id="spinnerInput" text="Point" />
-      <Spinner fx:id="spinner" editable="true" />
-      <HBox alignment="CENTER" prefHeight="59.0" prefWidth="490.0" spacing="80.0">
-         <children>
-            <Button fx:id="addTaskButton" minWidth="-Infinity" mnemonicParsing="false" onAction="#onAddTaskButtonPressed" styleClass="button-primary" text="Tilføj" />
-            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#onCancelButtonPressed" styleClass="button-secondary" text="Annullér" />
-         </children>
-      </HBox>
-      <Label fx:id="statusLabel" styleClass="label-status" />
-   </children>
-   <padding>
-      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-   </padding>
+    <children>
+        <!-- Selve kortet i midten -->
+        <VBox spacing="18" styleClass="form-card">
+
+            <!-- Titel -->
+            <Label text="Registrér opgave" styleClass="form-title"/>
+
+            <!-- Opgavetype / beboer -->
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <children>
+                    <ComboBox fx:id="taskChoiceBox"
+                              promptText="Vælg opgavetype"
+                              styleClass="form-input"/>
+                    <ComboBox fx:id="swapTargetBox"
+                              promptText="Vælg beboer"
+                              visible="false"
+                              managed="false"
+                              styleClass="form-input"/>
+                </children>
+            </HBox>
+
+            <!-- Opgavetitel -->
+            <VBox spacing="5">
+                <children>
+                    <Label text="Opgavetitel" styleClass="form-label"/>
+                    <TextField fx:id="taskNameInput" styleClass="form-input"/>
+                </children>
+            </VBox>
+
+            <!-- Opgavebeskrivelse -->
+            <VBox spacing="5">
+                <children>
+                    <Label text="Opgavebeskrivelse" styleClass="form-label"/>
+                    <TextField fx:id="taskDescriptionInput" styleClass="form-input"/>
+                </children>
+            </VBox>
+
+            <!-- Point -->
+            <VBox spacing="5">
+                <children>
+                    <Label text="Point" styleClass="form-label"/>
+                    <Spinner fx:id="spinner"
+                             editable="true"
+                             styleClass="form-input-spinner"/>
+                </children>
+            </VBox>
+
+            <!-- Knapper -->
+            <HBox alignment="CENTER" spacing="20">
+                <children>
+                    <Button fx:id="addTaskButton"
+                            text="Tilføj"
+                            onAction="#onAddTaskButtonPressed"
+                            mnemonicParsing="false"
+                            styleClass="form-button-primary"/>
+
+                    <Button fx:id="cancelButton"
+                            text="Annullér"
+                            onAction="#onCancelButtonPressed"
+                            mnemonicParsing="false"
+                            styleClass="form-button-secondary"/>
+                </children>
+            </HBox>
+
+            <!-- Status-tekst -->
+            <Label fx:id="statusLabel"
+                   text=""
+                   styleClass="form-status"/>
+
+        </VBox>
+    </children>
+
 </VBox>

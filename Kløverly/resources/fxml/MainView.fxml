@@ -1,78 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kløverly.presentation.controllers.MainViewController">
-   <left>
-      <VBox prefHeight="400.0" prefWidth="108.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label text="Navigation" />
-            <Separator prefWidth="200.0">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </Separator>
-            <Button fx:id="addTaskViewButton" maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#onAddTaskViewButtonPressed" styleClass="button-primary" text="Registrér opgave">
-               <VBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
-               </VBox.margin>
-            </Button>
-            <Button fx:id="taskListViewButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onTaskListViewButtonPressed" styleClass="button-primary" text="Opgaveoversigt">
-               <VBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
-               </VBox.margin>
-            </Button>
-            <Button fx:id="residentListButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onResidentListButtonPressed" styleClass="button-primary" text="Beboeroversigt">
-               <VBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
-               </VBox.margin>
-            </Button>
-             <Button fx:id="greenPointsButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onGreenPointsButtonPressed" styleClass="button-primary" text="Grøn oversigt">
-             <VBox.margin>
-                 <Insets bottom="10.0" top="10.0" />
-             </VBox.margin>
-             </Button>
-          <Region prefHeight="400.0" prefWidth="106.0" VBox.vgrow="ALWAYS" />
-            <Button fx:id="adminButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAdminButtonPressed" styleClass="button-secondary" text="Admin">
-               <VBox.margin>
-                  <Insets bottom="10.0" />
-               </VBox.margin>
-            </Button>
-         </children>
-         <BorderPane.margin>
-            <Insets />
-         </BorderPane.margin>
-         <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
-         </padding>
-      </VBox>
-   </left>
-   <center>
-      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label alignment="CENTER" prefHeight="34.0" text="Velkommen til Kløverly App!" textAlignment="CENTER">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <Label text="Vælg en opgave i navigationsbaren til venstre for at komme i gang">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <VBox.margin>
-                  <Insets top="30.0" />
-               </VBox.margin>
-            </Label>
-         </children>
-         <BorderPane.margin>
-            <Insets />
-         </BorderPane.margin>
-         <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="50.0" />
-         </padding>
-      </VBox>
-   </center>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="kløverly.presentation.controllers.MainViewController"
+            stylesheets="@fx.css"
+            styleClass="root"
+            prefWidth="1600.0" prefHeight="900.0">
+
+    <!-- VENSTRESIDE: MENU -->
+    <left>
+        <HBox>
+            <!-- Selve menuen -->
+            <VBox styleClass="nav-menu"
+                  spacing="10"
+                  BorderPane.alignment="TOP_LEFT">
+
+                <!-- DINE KNAPPER, SAMME onAction/fx:id SOM FØR -->
+                <Button fx:id="addTaskViewButton"
+                        text="Registrér opgave"
+                        maxWidth="1.7976931348623157E308"
+                        mnemonicParsing="false"
+                        onAction="#onAddTaskViewButtonPressed"
+                        styleClass="nav-item">
+                    <VBox.margin>
+                        <Insets top="10" bottom="5"/>
+                    </VBox.margin>
+                </Button>
+
+                <Button fx:id="taskListViewButton"
+                        text="Opgaveoversigt"
+                        maxWidth="1.7976931348623157E308"
+                        mnemonicParsing="false"
+                        onAction="#onTaskListViewButtonPressed"
+                        styleClass="nav-item">
+                    <VBox.margin>
+                        <Insets top="5" bottom="5"/>
+                    </VBox.margin>
+                </Button>
+
+                <Button fx:id="residentListButton"
+                        text="Beboeroversigt"
+                        maxWidth="1.7976931348623157E308"
+                        mnemonicParsing="false"
+                        onAction="#onResidentListButtonPressed"
+                        styleClass="nav-item">
+                    <VBox.margin>
+                        <Insets top="5" bottom="5"/>
+                    </VBox.margin>
+                </Button>
+
+                <Button fx:id="greenPointsButton"
+                        text="Grøn oversigt"
+                        maxWidth="1.7976931348623157E308"
+                        mnemonicParsing="false"
+                        onAction="#onGreenPointsButtonPressed"
+                        styleClass="nav-item">
+                    <VBox.margin>
+                        <Insets top="5" bottom="5"/>
+                    </VBox.margin>
+                </Button>
+
+                <!-- Skub Admin ned i bunden -->
+                <Region VBox.vgrow="ALWAYS"/>
+
+                <Button fx:id="adminButton"
+                        text="Admin"
+                        maxWidth="1.7976931348623157E308"
+                        mnemonicParsing="false"
+                        onAction="#onAdminButtonPressed"
+                        styleClass="nav-item">
+                    <VBox.margin>
+                        <Insets bottom="10"/>
+                    </VBox.margin>
+                </Button>
+
+            </VBox>
+
+            <!-- Lodret streg mellem menu og indhold -->
+            <Region styleClass="nav-divider" prefWidth="1"/>
+        </HBox>
+    </left>
+
+    <!-- CENTER: INDHOLD -->
+    <center>
+        <VBox spacing="15" styleClass="content-root" BorderPane.alignment="CENTER">
+            <Label text="RegisterTask" styleClass="content-title"/>
+
+            <Label text="Kløverly-BaggrundAbstrakt.png"
+                   styleClass="file-label"/>
+
+            <Text styleClass="code-text">
+                .root&#10;
+                Ffzml-Loder = fzm1ely-stage: url "Klöverlys] = resourse://fml/Home&#10;
+                -fx background size: cover&#10;
+                protestest, no-repeat&#10;
+                }&#10;
+                -fx-background-image: cover&#10;
+                -fx background position&#10;
+                repeat, no-repeat&#10;
+                }&#10;
+                Parent (fzml stage" url "Baggrund-Abstrat/")&#10;&#10;
+                scenegetStylesheets. add:(rlövtsis-neccorl:s recsurse/fx.css"(&#10;
+                +fml/fx.css&#10;
+                }
+            </Text>
+
+            <Region VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </center>
+
+    <!-- NEDERST HØJRE: MOME / LAMT -->
+
 </BorderPane>
