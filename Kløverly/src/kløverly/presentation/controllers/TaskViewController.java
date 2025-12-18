@@ -184,7 +184,6 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
 
   @FXML public void onFinishTaskButtonPressed(ActionEvent actionEvent)
   {
-    // 1. Tjek om en beboer er valgt
     completer = completerBox.getValue();
     if (completer == null)
     {
@@ -196,14 +195,14 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
       return;
     }
 
-    // 2. Bekræftelse - Er du sikker?
+    // Confirm
     Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
     confirm.setTitle("Afslut opgave");
     confirm.setHeaderText("Er du sikker?");
     confirm.setContentText(
         "Vil du afslutte opgaven: " + selectedTask.getTitle() + "?");
 
-    // Hvis brugeren trykker "Annuller", så stop her
+    // If cancel
     if (confirm.showAndWait().orElse(ButtonType.CANCEL) != ButtonType.OK)
     {
       return;
@@ -213,7 +212,7 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
 
     Alert infoAlert;
 
-    // Vi bruger en simpel switch til at tjekke typen
+    // Check taskType
     switch (taskType)
     {
       case "GreenTask":
@@ -237,7 +236,9 @@ public class TaskViewController implements Initializable, AcceptsObjectArgument
         break;
 
       case "SwapTask":
+        //Update completer points
         finishTask();
+        //Update stakeholder points
         stakeholder.setPersonalPointAmount(
             stakeholder.getPersonalPointAmount() - selectedTask.getValue());
         break;

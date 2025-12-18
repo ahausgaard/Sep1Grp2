@@ -72,7 +72,7 @@
             <children>
                 <Region maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="40.0" prefWidth="294.0" />
             <Button fx:id="deleteResidentButton" minWidth="-Infinity" mnemonicParsing="false" onAction="#onDeleteResidentButtonPressed" styleClass="button-accent" text="Slet beboer" />
-                <Button fx:id="editTaskButton" minWidth="-Infinity" mnemonicParsing="false" onAction="#onEditTaskButtonPressed" styleClass="button-primary" text="Redigér beboer" />
+                <Button fx:id="editTaskButton" minWidth="-Infinity" mnemonicParsing="false" onAction="#onEditTaskButtonPressed" styleClass="button-primary" text="Redigér" />
                 <Button fx:id="cancelButton" minWidth="-Infinity" mnemonicParsing="false" onAction="#onCancelButtonPressed" styleClass="button-secondary" text="Tilbage" />
             </children>
         </HBox>

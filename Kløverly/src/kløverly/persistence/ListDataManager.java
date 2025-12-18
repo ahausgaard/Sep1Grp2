@@ -92,7 +92,6 @@ public class ListDataManager implements DataManager
   @Override
   public DataContainer loadData()
   {
-
     try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(TASK_FILE_PATH)))
     {
       DataContainer container = (DataContainer) ois.readObject();
@@ -113,8 +112,6 @@ public class ListDataManager implements DataManager
       newContainer.setResidentList(new ArrayList<>());
 
       return newContainer;
-
-
     }
   }
 }

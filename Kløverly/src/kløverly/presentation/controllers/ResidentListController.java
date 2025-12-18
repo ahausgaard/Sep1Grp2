@@ -51,13 +51,14 @@ public class ResidentListController implements Initializable
     residentIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
     residentPointsColumn.setCellValueFactory(new PropertyValueFactory<>("personalPointAmount"));
 
+    //Get data through interface
     DataManager dm = ControllerConfigurator.getDataManager();
     List<Resident> residents = dm.getAllResidents();
 
+    //Locks columns
     residentTable.setEditable(false);
     residentTable.setColumnResizePolicy(
-        TableView.CONSTRAINED_RESIZE_POLICY); // Locks columns to fit table width
-
+        TableView.CONSTRAINED_RESIZE_POLICY);
     residentTable.getColumns().forEach(
         column ->
         {column.setResizable(false);
